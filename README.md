@@ -113,7 +113,20 @@ However, a full **demo video** is available in my portfolio showcasing:
 - Real conversations in Question Room  
 - Live thought reframing using Gemini AI  
 
-📽️ *Video Link: Coming Soon*
+---
+
+## 🎬 Project Demo
+
+<div align="center">
+  <a href="https://youtu.be/kZP5kroO56Q?si=IAgaUtPpsjqIgkni" target="_blank">
+    <img src="thumbnail.png" alt="Watch Mental Health AI  Demo" width="640">
+  </a>
+  <br>
+  <strong><a href="https://youtu.be/wlqpN3FJWkk" target="_blank">▶️ Watch: Mental Health AI App</a></strong>
+  <p>Video by Data Science Solutions</p>
+</div>
+
+> ⚠️ GitHub does not support embedding actual YouTube videos. Clicking the image will open the video in a new tab.
 
 ---
 
