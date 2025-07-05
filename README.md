@@ -4,7 +4,6 @@
 **Mental-Health-AI-App** is a holistic mobile app built with **Kivy** and **KivyMD** that helps users explore, heal, and grow through advanced mental health tools powered by AI. This project combines therapeutic techniques like **CBT (Cognitive Behavioral Therapy)**, **Law of Attraction**, **Thought Reframing**, **Visualization**, and **self-assessment tests** — all in one seamless experience.
 
 ---
-# 🧠 Innerverse – Your Mental Wellness Companion
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
 ![Kivy](https://img.shields.io/badge/Kivy-2.2-green)
