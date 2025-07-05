@@ -17,7 +17,10 @@
 ![Status](https://img.shields.io/badge/Status-70%25%20Complete-yellow)
 
 ---
-
+<p align="center">
+  <img src="intro.gif" alt="App screenshot" width="640">
+</p>
+---
 ## ✨ Features
 
 ### 🧩 Motivation Hub  
