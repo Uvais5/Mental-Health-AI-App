@@ -1,0 +1,342 @@
+<loaform>:
+    name:"loaform"
+    FitImage:
+        id:imagery_img
+        source:"https://i.pinimg.com/736x/5f/f1/b9/5ff1b94b1fc6c86dccb0996ae8621d9e.jpg"
+    
+        
+    MDBoxLayout:
+        
+        orientation: 'vertical'
+        spacing: dp(10)
+        #pos_hint:{"top":1}
+        size_hint_x:1
+        size_hint_y:1
+        MDCard:
+            md_bg_color:"black"
+            size_hint_y:0.15
+            radius:[30]
+            elevation:3
+            
+            MDRelativeLayout:
+               
+                MDLabel:
+                    id:bot_name
+                    text: "Manifest Your Desires"
+                    color: "white"
+                    font_style:"H5"
+                    halign: "center"
+                    bold:"True"
+                    #pos_hint:{"right":1.06}
+        MDLabel:
+            text: "Before you begin, please share your goals and the challenges you're facing."
+            color:"white"
+            bold:"True"
+            halign: "center"
+            size_hint_y: None
+            height: "40dp"
+
+        MDScrollView:
+                       
+            MDBoxLayout:
+                orientation: 'vertical'
+                size_hint_y:5
+                size_hint_x:1
+                padding:[10]
+                MDCard:
+                    md_bg_color:"black"
+                    radius: [40, 40, 40, 40]
+                    size_hint_y:0.8
+                    padding:[15]
+                    MDRelativeLayout:
+                        
+                        Video:
+                            source:"C:/Users/uvais/Downloads/pimg/g6.gif"
+                            state:"play"
+                            preview:None
+                            volume: 0
+                            allow_fullscreen: True
+                            pos_hint:{"right":1}
+                            options: {'eos': 'loop'}
+                            size_hint_y:1
+                        MDLabel:
+                            text:"Your Main Goal's"
+                            color:"white"
+                            font_style:"H6"
+                            pos_hint:{"center_y":0.95,"center_x":0.7}
+                            
+                        MDLabel:
+                            text:"• What is the most important goal you want to manifest right now?"
+                            color:"white"
+                            font_style:"Subtitle1"
+                            pos_hint:{"center_y":0.8,"center_x":0.54}
+                        MDLabel:
+                            text:"• Be clear and specific about what you desire."
+                            color:"white"
+                            font_style:"Subtitle1"
+                            pos_hint:{"center_y":0.65,"center_x":0.54}
+                        MDLabel:
+                            text:"• Eample : "
+                            color:"white"
+                            font_style:"Subtitle1"
+                            pos_hint:{"center_y":0.51,"center_x":0.54}
+                        MDLabel:
+                            text:"• if your goal is financial success, you might write, 'I want to earn $100,000 per year through my dream job. "
+                            color:"white"
+                            font_style:"Caption"
+                            pos_hint:{"center_y":0.4,"center_x":0.54}
+                        MDLabel:
+                            text:"• If your goal is related to relationships, you could write, 'I want to build a loving, supportive partnership. "
+                            color:"white"
+                            font_style:"Caption"
+                            pos_hint:{"center_y":0.25,"center_x":0.54}
+                            
+                        MDTextField:
+                            id: input1
+                            hint_text: "Tell us your goals"
+                            mode: "fill"
+                            radius: [20, 20, 20, 20]
+                            size_hint_y: None
+                            height: "80dp"
+                            max_text_length: 50
+                            line_color_normal: "white"
+                            #hint_text_color:"white"
+                            text_color: "white"
+                            hint_text_color_normal: "white"
+                       
+                MDNavigationDrawerDivider:
+                MDCard:
+                    md_bg_color:"black"
+                    radius: [40, 40, 40, 40]
+                    size_hint_y:0.8
+                    padding:[15]
+                    MDRelativeLayout:
+                        
+                        Video:
+                            source:"C:/Users/uvais/Downloads/pimg/g7.gif"
+                            state:"play"
+                            volume: 0
+                            allow_fullscreen: True
+                            pos_hint:{"right":1}
+                            options: {'eos': 'loop'}
+                            size_hint_y:1
+                            preview:None
+                        MDLabel:
+                            text:"Why this goal is important to you?"
+                            color:"white"
+                            font_style:"H6"
+                            pos_hint:{"center_y":0.91,"center_x":0.55}
+                            
+                        MDLabel:
+                            text:"• Understanding why your goal is important helps us guide you better on your journey. It also helps you clarify your own motivations."
+                            color:"white"
+                            font_style:"Subtitle2"
+                            pos_hint:{"center_y":0.71,"center_x":0.54}
+                        MDLabel:
+                            text:"• There’s no right or wrong answer here. Your reason is unique to you and reflects what matters most in your life."
+                            color:"white"
+                            font_style:"Subtitle2"
+                            pos_hint:{"center_y":0.53,"center_x":0.54}
+                        MDLabel:
+                            text:"• For example, someone might say, 'This goal is important to me because it will make me feel more confident,' or 'It will help me provide a better future for my family.' Your answer could be similar or completely different—it's up to you."
+                            color:"white"
+                            font_style:"Caption"
+                            pos_hint:{"center_y":0.32,"center_x":0.54}
+                       
+                            
+                        MDTextField:
+                            id: input2
+                            hint_text: "tell us the importance of your goal"
+                            mode: "fill"
+                            radius: [20, 20, 20, 20]
+                            size_hint_y: None
+                            height: "80dp"
+                            max_text_length: 50
+                            line_color_normal: "white"
+                            #hint_text_color:"white"
+                            text_color: "white"
+                            hint_text_color_normal: "white"
+                       
+                MDNavigationDrawerDivider:
+                       
+                MDCard:
+                    md_bg_color:"black"
+                    radius: [40, 40, 40, 40]
+                    size_hint_y:0.8
+                    padding:[15]
+                    MDRelativeLayout:
+                        
+                        Video:
+                            source:"C:/Users/uvais/Downloads/pimg/g8.gif"
+                            state:"play"
+                            volume: 0
+                            allow_fullscreen: True
+                            pos_hint:{"right":1}
+                            options: {'eos': 'loop'}
+                            size_hint_y:1
+                            preview:None
+                        MDLabel:
+                            text:"What are the challenges are you're facing"
+                            color:"white"
+                            font_style:"H6"
+                            pos_hint:{"center_y":0.93,"center_x":0.55}
+                            
+                        MDLabel:
+                            text:"• Understanding the challenges you're facing will help us provide you with the best guidance and support to overcome them."
+                            color:"white"
+                            font_style:"Subtitle2"
+                            pos_hint:{"center_y":0.75,"center_x":0.54}
+                        MDLabel:
+                            text:"• Identifying challenges is the first step to overcoming them and moving closer to your goal."
+                            color:"white"
+                            font_style:"Subtitle2"
+                            pos_hint:{"center_y":0.59,"center_x":0.54}
+                        MDLabel:
+                            text:"• For example, some people might face challenges like procrastination, lack of time, or fear of failure. Others might struggle with not knowing where to start or feeling overwhelmed."
+                            color:"white"
+                            font_style:"Caption"
+                            pos_hint:{"center_y":0.42,"center_x":0.54}
+                        MDLabel:
+                            text:"• It's completely okay to have challenges—everyone does. You're not alone in this, and we're here to help you find solutions."
+                            color:"white"
+                            font_style:"Caption"
+                            pos_hint:{"center_y":0.24,"center_x":0.54}
+                       
+                            
+                        MDTextField:
+                            id: input3
+                            hint_text: "Tell us your challenges"
+                            mode: "fill"
+                            radius: [20, 20, 20, 20]
+                            size_hint_y: None
+                            height: "80dp"
+                            max_text_length: 50
+                            line_color_normal: "white"
+                            #hint_text_color:"white"
+                            text_color: "white"
+                            hint_text_color_normal: "white"
+                       
+                MDNavigationDrawerDivider:
+                MDCard:
+                    md_bg_color:"black"
+                    radius: [40, 40, 40, 40]
+                    size_hint_y:0.8
+                    padding:[15]
+                    MDRelativeLayout:
+                        
+                        Video:
+                            source:"C:/Users/uvais/Downloads/pimg/g9.gif"
+                            state:"play"
+                            volume: 0
+                            allow_fullscreen: True
+                            pos_hint:{"right":1}
+                            options: {'eos': 'loop'}
+                            size_hint_y:1
+                            
+                        MDLabel:
+                            text:"Describe your positive outcome if you achieve your goal"
+                            color:"white"
+                            font_style:"H6"
+                            pos_hint:{"center_y":0.91,"center_x":0.55}
+                            
+                        MDLabel:
+                            text:"• Visualizing the benefits of achieving your goal can inspire you and give you clarity on why it’s worth pursuing."
+                            color:"white"
+                            font_style:"Subtitle2"
+                            pos_hint:{"center_y":0.74,"center_x":0.54}
+                        MDLabel:
+                            text:"• Think about how achieving this goal will make you feel and what positive changes it will bring to your life."
+                            color:"white"
+                            font_style:"Subtitle2"
+                            pos_hint:{"center_y":0.59,"center_x":0.54}
+                        MDLabel:
+                            text:"• For example, achieving your goal might mean feeling healthier, more confident, or financially secure. It could also mean gaining more time for family, advancing in your career, or simply feeling happier and fulfilled.."
+                            color:"white"
+                            font_style:"Caption"
+                            pos_hint:{"center_y":0.4,"center_x":0.54}
+                        MDLabel:
+                            text:"• Everyone's vision of success is unique, and there’s no right or wrong answer. This is about what matters most to you."
+                            color:"white"
+                            font_style:"Caption"
+                            pos_hint:{"center_y":0.23,"center_x":0.54}
+                       
+                            
+                        MDTextField:
+                            id: input4
+                            hint_text: "Tell us your positive outcome"
+                            mode: "fill"
+                            radius: [20, 20, 20, 20]
+                            size_hint_y: None
+                            height: "80dp"
+                            max_text_length: 50
+                            line_color_normal: "white"
+                            #hint_text_color:"white"
+                            text_color: "white"
+                            hint_text_color_normal: "white"
+                       
+                MDNavigationDrawerDivider:
+                MDCard:
+                    md_bg_color:"black"
+                    radius: [40, 40, 40, 40]
+                    size_hint_y:0.8
+                    padding:[15]
+                    MDRelativeLayout:
+                        
+                        Video:
+                            source:"C:/Users/uvais/Downloads/pimg/g10.gif"
+                            state:"play"
+                            volume: 0
+                            allow_fullscreen: True
+                            pos_hint:{"right":1}
+                            options: {'eos': 'loop'}
+                            size_hint_y:1
+                        MDLabel:
+                            text:"What small action can you take today?"
+                            color:"white"
+                            font_style:"H6"
+                            pos_hint:{"center_y":0.91,"center_x":0.55}
+                            
+                        MDLabel:
+                            text:"• Big goals are achieved through small, meaningful steps. Taking action today can set the foundation for your success."
+                            color:"white"
+                            font_style:"Subtitle2"
+                            pos_hint:{"center_y":0.74,"center_x":0.54}
+                        MDLabel:
+                            text:"• Every action, no matter how small, brings you closer to your goal. It’s about progress, not perfection."
+                            color:"white"
+                            font_style:"Subtitle2"
+                            pos_hint:{"center_y":0.59,"center_x":0.54}
+                        MDLabel:
+                            text:"• For example, if your goal is to improve your health, you might drink more water or take a short walk. If it’s about learning a new skill, you might watch a tutorial or practice for 10 minutes."
+                            color:"white"
+                            font_style:"Caption"
+                            pos_hint:{"center_y":0.42,"center_x":0.54}
+                        MDLabel:
+                            text:"• Remember, small actions lead to big changes. The most important thing is to start."
+                            color:"white"
+                            font_style:"Caption"
+                            pos_hint:{"center_y":0.25,"center_x":0.54}
+                       
+                            
+                        MDTextField:
+                            id: input5
+                            hint_text: "Tell us your today's action"
+                            mode: "fill"
+                            radius: [20, 20, 20, 20]
+                            size_hint_y: None
+                            height: "80dp"
+                            max_text_length: 50
+                            line_color_normal: "white"
+                            #hint_text_color:"white"
+                            text_color: "white"
+                            hint_text_color_normal: "white"
+                       
+                MDNavigationDrawerDivider:
+                
+                MDRaisedButton:
+                    text: "Submit"
+                    size_hint_y: None
+                    height: "50dp"
+                    pos_hint:{"center_x":0.5}
+                    on_release:root.submit_data()
+                    

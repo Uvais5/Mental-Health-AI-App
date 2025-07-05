@@ -1,0 +1,41 @@
+
+<reels>
+    name: "reels"
+    video_list: video_list
+    md_bg_color: "black"
+    on_enter: root.start()
+    MDBoxLayout:
+        orientation: 'vertical'
+        spacing: dp(10)
+        size_hint_x: 1
+        size_hint_y: 1
+        MDBoxLayout:
+            size_hint_y:None
+            height:50
+            MDIconButton:
+                icon:"arrow-left-circle"
+                
+                icon_size:"30dp"
+                pos_hint:{"top":1.2}
+                icon_color:"white"
+                 
+                on_release:root.on_back_button_press()
+                #md_bg_color:"white"
+            MDLabel:
+                text:"Motive Videos"
+                color:"white"
+                pos_hint: {"right": 0.5}
+                font_style:"H6"
+                halign:"center"
+                bold:True
+        MDScrollView:
+            id: scroll_view
+
+            MDBoxLayout:
+                id: video_list
+                adaptive_height: True
+                orientation: "vertical"
+                size_hint_y: None
+                height: self.minimum_height
+                #spacing: 10
+

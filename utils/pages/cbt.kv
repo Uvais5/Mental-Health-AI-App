@@ -1,0 +1,399 @@
+<cbt>:
+    name: "cbt"
+    md_bg_color: "black"
+
+    FitImage:
+        size_hint_x: 1
+        size_hint_y: 0.5
+        pos_hint: { "center_x": .5, "center_y": 0.85 }
+        radius: [40]
+        source: "C:/Users/uvais/Downloads/pimg/q13.jpg"
+   
+    
+    MDBoxLayout:
+
+        
+        MDBoxLayout:
+            
+            size_hint_y:0.7
+            #size_hint_x:1
+
+            MDBoxLayout:
+                pos_hint: {  "center_y": 0.85 }
+                orientation: 'vertical'
+                size_hint_y:0.15
+                size_hint_x:1.2
+
+
+                MDCard:
+                    #padding: 4
+                    radius:[30]
+                    
+                    md_bg_color:"#291a0a"
+                    size_hint: 0.8, 0.5
+                    pos_hint: {"top": 1, "right": 0.95}
+                    MDRelativeLayout:
+
+                        MDIconButton:
+                            icon: "clock-time-eight"
+                            pos_hint: {"top": 0.59, "right": 0.39}
+                            icon_size:"20dp"
+                            icon_color:"white"
+                            #md_bg_color:"black"
+
+
+                        MDLabel:
+                            id: label
+                            text: "10-20"
+                            #adaptive_size: True
+                            color: "white"
+                            font_style:"H6"
+
+                            pos: "40dp", "18dp"
+                            bold: True
+
+                        MDLabel:
+                            id: label
+                            text: "Minutes"
+                            adaptive_size: True
+                            color: "white"
+                            pos: "50dp", "20dp"
+                            
+                    
+            MDBoxLayout:
+                
+                pos_hint: {  "center_y": 0.85 }
+                orientation: 'vertical'
+                size_hint_y:0.15
+                size_hint_x:1.2
+                MDCard:
+                    #padding: 4
+                    radius:[30]
+                    md_bg_color: "#291a0a"
+
+                    size_hint: 0.8, 0.8
+                    #size: "20dp", "10dp"
+                    pos_hint: {"top": 0.1, "right": 0.85}
+                    MDRelativeLayout:
+
+                        MDIconButton:
+                            adaptive_size: True
+                            icon: "list-status"
+                            pos_hint: {"top": 0.52, "right": 0.45}
+                            icon_size:"20dp"
+                            icon_color:"#513315"
+                            #color:"black"
+                        MDLabel:
+                            id: label
+                            text: "2"
+                            #adaptive_size: True
+                            color: "white"
+                            font_style:"H6"
+
+                            pos: "60dp", "18dp"
+                            bold: True
+                        MDLabel:
+                            id: label
+                            text: "tasks"
+                            #adaptive_size: True
+                            color: "white"
+
+                            #pos: "40dp", "0dp"
+                            pos_hint: {"top": 0.8, "right": 1.4}
+                        
+    MDScrollView:
+        MDBoxLayout:
+            #md_bg_color:"black"
+            orientation: "vertical"
+            size_hint_y: None
+            height: self.minimum_height
+            spacing: dp(16)
+            padding: dp(2)
+            MDIconButton:
+                icon:"chevron-left"
+                icon_size:40
+                pos_hint:{"top":1}
+                on_release:app.change_screen("home")
+            MDBoxLayout:
+                size_hint_y: None
+                height: dp(280)
+                spacing: dp(10)
+               
+            MDBoxLayout:
+                orientation: "vertical"
+                padding: dp(10)
+                spacing: dp(1)
+                radius:[20]
+                md_bg_color: 0,0,0,0.9
+                size_hint_y: None
+                height: dp(550)
+                MDRelativeLayout:
+                    MDIconButton:
+                        icon:"drag-horizontal-variant"
+                        
+                        icon_size:40
+                        pos_hint: {"top": 1.05,"right":0.6}
+                    MDLabel:
+                        text:"Overview"
+                        pos_hint: {"top": 1.3}
+                    MDLabel:
+                        text: "Cognitive behavioral therapy (CBT) is a form of psychological treatment that has been demonstrated to be effective for a range of problems including depression, anxiety disorders, alcohol and drug use problems, marital problems, eating disorders, and severe mental illness. Numerous research studies suggest that CBT leads to significant improvement in functioning and quality of life. In many studies, CBT has been demonstrated to be as effective as, or more effective than, other forms of psychological therapy or psychiatric medications..."
+                        font_style: "Subtitle2"
+                        color: "white"
+                        pos_hint: {"top": 0.9}
+                
+                
+                MDCard:
+                    size_hint_y: None
+                    height: dp(150)
+                    FitImage:
+                        source:"https://i.pinimg.com/564x/e1/5a/39/e15a39e3e5567139398e3c484ad06ff2.jpg"
+                        radius:[20,0,0,20]
+                        size_hint_y:1
+                        size_hint_x:0.5
+
+                        
+                    FitImage:
+                        radius:[0,20,20,0]
+                        source:"https://i.pinimg.com/564x/e3/eb/c7/e3ebc7d142c98b1ea141a8797d934f37.jpg"
+                        size_hint_y:1
+                        size_hint_x:0.5
+            MDBoxLayout:
+                orientation: "vertical"
+                padding: dp(10)
+                spacing: dp(10)
+                radius:[20]
+                md_bg_color: 0,0,0,0.9
+                size_hint_y: None
+                height: dp(350)
+                MDRelativeLayout:
+                    MDIconButton:
+                        icon:"account-multiple"
+                        pos_hint: {"top": 1}
+                    MDLabel:
+                        text: "Who Can Benefit from CBT?"
+                        padding:dp(20)
+                        font_style: "H6"
+                        pos_hint: {"top": 1.42,"right":1.1}
+                    MDLabel:
+                        text: "CBT is for anyone who struggles with:"
+                        font_style: "Subtitle1"
+                        pos_hint: {"top": 1.2}
+                    MDLabel:
+                        text: "1. Overthinking and constant worry\n\n2. Feeling stuck in negative habits or emotions\n\n3. Emotional imbalance or mood swings\n\n4. Difficulty managing stress or daily challenges\n\n5. Low motivation, productivity, or confidence"
+                        font_style: "Subtitle2"
+                        pos_hint: {"top": 0.8}
+                    
+
+            MDBoxLayout:
+                md_bg_color: "#ffcccc"
+                radius: [30]
+                size_hint_y: None
+                height: dp(100)
+                padding: dp(10)
+                spacing: dp(100)
+
+                MDRelativeLayout:
+                    MDLabel:
+                        text: "Keep focusing on your progress"
+                        font_style: "Subtitle2"
+                        pos_hint: {"top": 1.2, "right": 1.2}
+                        color: "#513315"
+
+                    MDIconButton:
+                        icon: "alert-outline"
+                        pos_hint: {"top": 1.07, "right": 0.18}
+                        icon_color: "#513315"
+
+                    MDLabel:
+                        text: "Don't focus on anything else if you want to be really happy"
+                        font_style: "Overline"
+                        pos_hint: {"top": 0.9, "right": 1.02}
+                        color: "#513315"
+            MDBoxLayout:
+                
+                md_bg_color:0,0,0,0.9
+                size_hint_y: None
+                height: dp(200)
+                radius:[30]
+                spacing: dp(5)
+                
+                MDLabel:
+                    text:"Youtube video about C.B.T"
+                    font_style:"H6"
+                    padding:dp(20)
+                    
+                MDCard:
+                    on_release:root.show_video_dialog()
+                    radius:[30]
+                    FitImage:
+                        id: gif
+                        source: 'C:/Users/uvais/Downloads/pimg/q14.jpg'
+                        radius:[30]
+                        size_hint_y: 1
+                        #padding:5
+                    
+                    
+            MDBoxLayout:
+                md_bg_color: 0,0,0,0.9
+                size_hint_y: None
+                height: dp(750)
+                radius: [30]
+                orientation: "vertical"
+                spacing: dp(10)
+                padding: dp(15)
+
+                MDBoxLayout:
+                    orientation: "horizontal"
+                    spacing: dp(10)
+                    size_hint_y: None
+                    height: dp(40)
+
+                    MDIcon:
+                        icon: "lightbulb-on"
+                        theme_icon_color: "Custom"
+                        icon_color: "white"
+
+                    MDLabel:
+                        text: "How Our App Helps with CBT"
+                        font_style: "H6"
+                        theme_text_color: "Custom"
+                        text_color: "white"
+
+                MDLabel:
+                    text: "Our app blends modern AI techniques with proven CBT methods to offer personalized mental health support through:"
+                    font_style: "Subtitle2"
+                    theme_text_color: "Custom"
+                    text_color: "white"
+                    halign: "left"
+
+                MDSeparator:
+                    height: dp(1)
+
+                # Thought Reframing Section
+                MDBoxLayout:
+                    orientation: "horizontal"
+                    spacing: dp(10)
+                    size_hint_y: None
+                    height: dp(40)
+
+                    MDIcon:
+                        icon: "brain"
+                        theme_icon_color: "Custom"
+                        icon_color: "white"
+
+                    MDLabel:
+                        text: "1. Thought Reframing with AI"
+                        font_style: "Subtitle1"
+                        theme_text_color: "Custom"
+                        text_color: "white"
+                        bold: True
+
+                MDLabel:
+                    text: "• Detects negative thought patterns\n\n• Suggests positive rephrases using CBT logic\n\n• Tracks mood and thought progress over time"
+                    font_style: "Body2"
+                    theme_text_color: "Custom"
+                    text_color: "white"
+                    halign: "left"
+
+                MDLabel:
+                    text: "Example: “I always mess things up” → “Sometimes things go wrong, but I learn and improve.”"
+                    font_style: "Caption"
+                    theme_text_color: "Custom"
+                    text_color: "#d2b48c"
+                    halign: "left"
+
+                MDSeparator:
+                    height: dp(1)
+
+                # Imagery CBT Section
+                MDBoxLayout:
+                    orientation: "horizontal"
+                    spacing: dp(10)
+                    size_hint_y: None
+                    height: dp(40)
+
+                    MDIcon:
+                        icon: "image-filter-hdr"
+                        theme_icon_color: "Custom"
+                        icon_color: "white"
+
+                    MDLabel:
+                        text: "2. Imagery-Based CBT with AI"
+                        font_style: "Subtitle1"
+                        theme_text_color: "Custom"
+                        text_color: "white"
+                        bold: True
+
+                MDLabel:
+                    text: "• Personalized mental imagery prompts\n\n• AI suggests calming or motivating visuals\n\n• Helps rewire emotional responses via visualization"
+                    font_style: "Body2"
+                    theme_text_color: "Custom"
+                    text_color: "white"
+                    halign: "left"
+
+                MDLabel:
+                    text: "🌄 Example: Feeling anxious? Visualize a peaceful forest or safe space guided by AI."
+                    font_style: "Caption"
+                    theme_text_color: "Custom"
+                    text_color: "#d2b48c"
+                    halign: "left"
+
+
+            MDBoxLayout:
+                orientation:"vertical"
+                size_hint_y: None
+                height: dp(200)
+                spacing: dp(100)
+                md_bg_color:0,0,0,0.9
+                radius:[30]
+                MDLabel:
+                    text:"Tasks"
+                    font_style:"H5"
+                    halign:"center"
+                MDBoxLayout:
+
+                    spacing: dp(10)
+
+                    MDCard:
+                        radius: [30]
+                        md_bg_color: "#e6e6e6"
+                        ripple_behavior: True
+                        size_hint_y: None
+                        height: dp(150)
+                        padding:5
+                        on_release: app.change_screen('imagery')
+                        MDRelativeLayout:
+                            FitImage:
+                                source: "https://i.pinimg.com/564x/aa/87/59/aa8759bcbae6e7230c81bd5f743430ea.jpg"
+                                radius: [30]
+                            MDLabel:
+                                padding:5
+                                text: "Imagery's CBT"
+                                color: "white"
+                                pos_hint:{"top":0.8}
+                                font_style: "H6"
+                                bold: True
+
+                    MDCard:
+                        radius: [30]
+                        md_bg_color: "#e6e6e6"
+                        ripple_behavior: True
+                        size_hint_y: None
+                        height: dp(150)
+                        padding:5
+                        ripple_behavior:True
+                        on_release: app.change_screen('though')
+                        MDRelativeLayout:
+                            FitImage:
+                                source: "https://i.pinimg.com/564x/90/02/68/9002680b7b33fe82acb2ec63efd8236d.jpg"
+                                radius: [30]
+                            MDLabel:
+                                padding:5
+                                text: "Daily Thoughts"
+                                color: "white"
+                                pos_hint:{"top":0.8}
+                                font_style: "H6"
+                                bold: True
+
+                 

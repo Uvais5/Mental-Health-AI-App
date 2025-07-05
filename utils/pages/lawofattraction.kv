@@ -1,0 +1,445 @@
+
+<lawofattraction>:
+    name:"lawofattraction"
+    md_bg_color: "#1d4b54"
+
+    # ---------------- Top hero image ----------------
+    FitImage:
+        size_hint_x: 1
+        size_hint_y: 0.5
+        pos_hint: { "center_x": .5, "center_y": 0.85 }
+        radius: [40]
+        source: "C:/Users/uvais/Downloads/pimg/q24.jpg"  # Replace with an LoA‑themed banner if you have one
+
+    # ---------------- Stats cards row ----------------
+    MDBoxLayout:
+        MDBoxLayout:
+            size_hint_y: 0.7
+            MDBoxLayout:
+                pos_hint: { "center_y": 0.85 }
+                orientation: 'vertical'
+                size_hint_y: 0.15
+                size_hint_x: 1.2
+
+                # Minutes card (e.g., typical session length)
+                MDCard:
+                    radius: [30]
+                    md_bg_color: "black"
+                    size_hint: 0.8, 0.5
+                    pos_hint: {"top": 1, "right": 0.95}
+                    MDRelativeLayout:
+                        MDIconButton:
+                            icon: "clock-time-eight"
+                            pos_hint: {"top": 0.59, "right": 0.39}
+                            icon_size: "20dp"
+                            icon_color: "white"
+                        MDLabel:
+                            text: "10-20"
+                            color: "white"
+                            font_style: "H6"
+                            pos: "40dp", "18dp"
+                            bold: True
+                        MDLabel:
+                            text: "Minutes"
+                            adaptive_size: True
+                            color: "white"
+                            pos: "50dp", "20dp"
+
+            # Tasks counter card
+            MDBoxLayout:
+                pos_hint: { "center_y": 0.85 }
+                orientation: 'vertical'
+                size_hint_y: 0.15
+                size_hint_x: 1.2
+                MDCard:
+                    radius: [30]
+                    md_bg_color: "black"
+                    size_hint: 0.8, 0.8
+                    pos_hint: {"top": 0.1, "right": 0.85}
+                    MDRelativeLayout:
+                        MDIconButton:
+                            adaptive_size: True
+                            icon: "list-status"
+                            pos_hint: {"top": 0.52, "right": 0.45}
+                            icon_size: "20dp"
+                            icon_color: "#513315"
+                        MDLabel:
+                            text: "3"
+                            color: "white"
+                            font_style: "H6"
+                            pos: "60dp", "18dp"
+                            bold: True
+                        MDLabel:
+                            text: "tasks"
+                            color: "white"
+                            pos_hint: {"top": 0.8, "right": 1.4}
+
+    # ---------------- Scrollable main content ----------------
+    MDScrollView:
+        MDBoxLayout:
+            orientation: "vertical"
+            size_hint_y: None
+            height: self.minimum_height
+            spacing: dp(16)
+            padding: dp(2)
+
+            # Back button
+            MDIconButton:
+                icon: "chevron-left"
+                icon_size: 40
+                pos_hint: {"top": 1}
+                on_release: app.change_screen("home")
+
+            # Spacer box (keeps layout similar height as before)
+            MDBoxLayout:
+                size_hint_y: None
+                height: dp(280)
+
+            # ------------- Overview card -------------
+            MDBoxLayout:
+                orientation: "vertical"
+                padding: dp(10)
+                spacing: dp(1)
+                radius: [20]
+                md_bg_color: 0,0,0, 0.9
+                size_hint_y: None
+                height: dp(550)
+                MDRelativeLayout:
+                    MDIconButton:
+                        icon: "drag-horizontal-variant"
+                        icon_size: 40
+                        pos_hint: {"top": 1.05, "right": 0.6}
+                    MDLabel:
+                        text: "Overview"
+                        pos_hint: {"top": 1.3}
+                        font_style:"H5"
+                        bold:"True"
+                        color:"#dc884e"
+                    MDLabel:
+                        text: "The Law of Attraction (LoA) is the principle that thoughts are creative: whatever you focus on—positive or negative—you magnetically attract into your life. By aligning beliefs, emotions, and actions with desired outcomes, individuals can manifest goals in health, relationships, finances, and personal growth. Countless success stories and emerging research on mindset and neuroplasticity support the power of intentional focus and gratitude to transform circumstances."
+                        font_style: "Subtitle2"
+                        color: "white"
+                        pos_hint: {"top": 0.9}
+
+                # Dual imagery card (inspirational photos)
+                MDCard:
+                    size_hint_y: None
+                    height: dp(150)
+                    FitImage:
+                        source: "https://i.pinimg.com/736x/28/56/ba/2856bafa8c4ac6d83c9f856a4b0719bc.jpg"
+                        radius: [20, 0, 0, 20]
+                        size_hint_y: 1
+                        size_hint_x: 0.5
+                    
+
+            # ------------- Who can benefit card -------------
+            MDBoxLayout:
+                orientation: "vertical"
+                padding: dp(10)
+                spacing: dp(10)
+                radius: [20]
+                md_bg_color: 0, 0, 0, 0.9
+                size_hint_y: None
+                height: dp(350)
+                MDRelativeLayout:
+                    MDIconButton:
+                        icon: "account-multiple"
+                        pos_hint: {"top": 1}
+                    MDLabel:
+                        text: "Who Can Benefit from the Law of Attraction?"
+                        padding: dp(20)
+
+                        font_style:"H6"
+                        bold:"True"
+                        color:"#dc884e"
+                        pos_hint: {"top": 1.42, "right": 1.1}
+                    MDLabel:
+                        text: "LoA helps anyone who wants to:"
+                        font_style: "Subtitle1"
+                        pos_hint: {"top": 1.2}
+                    MDLabel:
+                        text: "1. Cultivate a positive mindset and gratitude\n\n2. Break free from limiting beliefs\n\n3. Boost confidence, motivation, and productivity\n\n4. Manifest specific goals (health, wealth, relationships)\n\n5. Align thoughts, feelings, and actions toward success"
+                        font_style: "Subtitle2"
+                        pos_hint: {"top": 0.8}
+
+            # ------------- Motivational banner -------------
+            MDBoxLayout:
+                md_bg_color: "#ffcccc"
+                radius: [30]
+                size_hint_y: None
+                height: dp(100)
+                padding: dp(10)
+                spacing: dp(10)
+
+                # Icon on the left
+                MDIconButton:
+                    icon: "alert-outline"
+                    icon_color: "#513315"
+                    adaptive_size: True
+                    pos_hint: {"center_y": 0.5}
+
+                # Texts in a vertical sub‑layout so they line up neatly
+                MDBoxLayout:
+                    orientation: "vertical"
+                    spacing: dp(2)
+                    pos_hint: {"center_y": 0.5}
+                    size_hint_x: 0.9
+                    MDLabel:
+                        text: "Keep your vibration high—focus on progress!"
+                        font_style: "Subtitle2"
+                        color: "#513315"
+                        halign: "left"
+                    MDLabel:
+                        text: "Remember: what you focus on expands."
+                        font_style: "Overline"
+                        color: "#513315"
+                        halign: "left"
+
+            # ------------- YouTube video section -------------
+            MDBoxLayout:
+                md_bg_color: 0, 0, 0, 0.9
+                size_hint_y: None
+                height: dp(200)
+                radius: [30]
+                spacing: dp(5)
+
+                MDLabel:
+                    text: "YouTube video about the Law of Attraction"
+                    font_style: "H6"
+                    padding: dp(20)
+                MDCard:
+                    on_release: root.show_video_dialog()
+                    radius: [30]
+                    FitImage:
+                        id: gif
+                        source: 'https://i.pinimg.com/736x/53/56/f4/5356f49290e1cfb9a6daf6d85b19f852.jpg'
+                        radius: [30]
+                        size_hint_y: 1
+
+            # ------------- How our app helps -------------
+            MDBoxLayout:
+                md_bg_color: 0, 0, 0, 0.9
+                size_hint_y: None
+                height: dp(1000)
+                radius: [30]
+                orientation: "vertical"
+                spacing: dp(15)
+                padding: dp(15)
+
+                # Section title
+                MDBoxLayout:
+                    orientation: "horizontal"
+                    spacing: dp(10)
+                    size_hint_y: None
+                    height: dp(40)
+                    MDIcon:
+                        icon: "lightbulb-on"
+                        theme_icon_color: "Custom"
+                        icon_color: "white"
+                    MDLabel:
+                        text: "How Our App Helps with the Law of Attraction"
+                        font_style: "H6"
+                        theme_text_color: "Custom"
+                        text_color: "white"
+                        halign: "left"
+                        valign: "middle"
+                        color:"#dc884e"
+
+                MDLabel:
+                    text: "Our app blends modern AI with time‑tested LoA practices to help you stay aligned and manifest faster through:"
+                    font_style: "Subtitle2"
+                    theme_text_color: "Custom"
+                    text_color: "white"
+                    halign: "left"
+
+                MDSeparator:
+                    height: dp(1)
+
+                # 1. Affirmations section
+                MDBoxLayout:
+                    orientation: "horizontal"
+                    spacing: dp(10)
+                    size_hint_y: None
+                    height: dp(40)
+                    MDIcon:
+                        icon: "format-quote-close"
+                        theme_icon_color: "Custom"
+                        icon_color: "white"
+                    MDLabel:
+                        text: "1. Personalized Affirmations"
+                        font_style: "Subtitle1"
+                        theme_text_color: "Custom"
+                        text_color: "white"
+                        halign: "left"
+                        valign: "middle"
+                        bold: True
+
+                MDLabel:
+                    text: "• AI‑generated positive statements tailored to your goals\n\n• Audio playback and daily reminders\n\n• Tracks repetition consistency and emotional resonance"
+                    font_style: "Body2"
+                    theme_text_color: "Custom"
+                    text_color: "white"
+                    halign: "left"
+
+                MDLabel:
+                    text: "Example: “I attract abundant opportunities every day.”"
+                    font_style: "Caption"
+                    theme_text_color: "Custom"
+                    text_color: "#d2b48c"
+                    halign: "left"
+
+                MDSeparator:
+                    height: dp(1)
+
+                # 2. Visualization section
+                MDBoxLayout:
+                    orientation: "horizontal"
+                    spacing: dp(10)
+                    size_hint_y: None
+                    height: dp(40)
+                    MDIcon:
+                        icon: "image-filter-hdr"
+                        theme_icon_color: "Custom"
+                        icon_color: "white"
+                    MDLabel:
+                        text: "2. Guided Visualization with AI"
+                        font_style: "Subtitle1"
+                        theme_text_color: "Custom"
+                        text_color: "white"
+                        halign: "left"
+                        valign: "middle"
+                        bold: True
+
+                MDLabel:
+                    text: "\n• Custom imagery prompts & soundscapes\n\n• AI narrates scenes aligned with your desires\n\n• Strengthens belief by engaging all senses"
+                    font_style: "Body2"
+                    theme_text_color: "Custom"
+                    text_color: "white"
+                    halign: "left"
+
+                MDLabel:
+                    text: "🌄 Example: Visualize signing the contract for your dream job while feeling gratitude and excitement."
+                    font_style: "Caption"
+                    theme_text_color: "Custom"
+                    text_color: "#d2b48c"
+                    halign: "left"
+
+                MDSeparator:
+                    height: dp(1)
+
+                # 3. Journal Support Section
+                # ────────────────────────────────────────────────────────────────
+                # 3. Pre & After Journaling System
+                MDBoxLayout:
+                    orientation: "vertical"
+                    spacing: dp(8)
+                    adaptive_height: True   # whole section grows with its rows
+                    size_hint_y: None
+
+                    # ── Title row ───────────────────────────────────────────────
+                    MDBoxLayout:
+                        orientation: "horizontal"
+                        spacing: dp(10)
+                        adaptive_height: True
+
+                        MDIcon:
+                            icon: "notebook-outline"
+                            theme_icon_color: "Custom"
+                            icon_color: "white"
+                            size_hint_x: None
+                            width: dp(32)   # lock icon width so text never overlaps
+
+                        MDLabel:
+                            text: "3. Pre & After Journaling System"
+                            font_style: "Subtitle1"
+                            bold: True
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: "left"
+                            adaptive_height: True
+                            text_size: self.width, None  # wrap inside its own width
+
+                    # ── Bullet 1 ────────────────────────────────────────────────
+                    MDBoxLayout:
+                        orientation: "horizontal"
+                        spacing: dp(6)
+                        adaptive_height: True
+
+                        MDLabel:
+                            text: "\n •Start your day with intention‑setting questions\n\n• End your day by reflecting on actions taken\n\n• Upload proof photos for deeper engagement\n\n• Track journaling streaks, mood shifts & progress visually\n "
+                            font_style: "Body2"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            halign: "left"
+                            adaptive_height: True
+                            text_size: self.width, None
+
+
+
+
+
+            # ------------- Tasks section -------------
+            MDBoxLayout:
+                pos_hint:{"top":0.1}
+                spacing:2
+                orientation: 'vertical'
+                size_hint_y: None
+                height:dp(240)
+                size_hint_x:1
+                MDLabel:
+                    text:"Task"
+                    font_style:"H5"
+                    halign:"center"
+                    size_hint_y:None
+                    bold:True
+                    color:"#dc884e"
+                    height:dp(30)
+                    
+                MDScrollView:
+                    do_scroll_y:False
+                    radius: [20]
+                    MDBoxLayout:
+                        radius: [20]
+                        size_hint_x:1.3
+                        size_hint_y:0.9
+                        padding:10
+                        spacing:5
+                        
+
+                        MDCard:
+                            ripple_behavior: True
+                            size_hint_y:1
+                            size_hint_x:0.5
+                            md_bg_color:"red"
+                            radius:[30]
+                            on_press: app.change_screen("visualization_tech")
+                            MDRelativeLayout:
+                                FitImage:
+                                    source:"https://i.pinimg.com/736x/94/2b/ab/942babbf6a1bf447145ec338b0155762.jpg"
+                                    radius:[20]
+
+                            
+                        MDCard:
+                            ripple_behavior: True
+                            size_hint_y:1
+                            size_hint_x:0.5
+                            md_bg_color:"red"
+                            radius:[30]
+                            on_press: app.change_screen("voice_affirmation") 
+                            MDRelativeLayout:
+                                FitImage:
+                                    source:"https://i.pinimg.com/736x/45/bc/ee/45bceea01ccb16edc93bf98f2b62b051.jpg"
+                                    radius:[20]
+                                
+                        MDCard:
+                            ripple_behavior: True
+                            
+                            size_hint_y:1
+                            size_hint_x:0.5
+                            md_bg_color:"red"
+                            radius:[30]
+                            on_press: app.change_screen("journal_affirmation")
+                            MDRelativeLayout:
+                                FitImage:
+                                    source:"C:/Users/uvais/Downloads/pimg/lawcard3.jpg"
+                                    radius:[20]

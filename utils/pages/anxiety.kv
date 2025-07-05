@@ -1,0 +1,843 @@
+
+<Anxiety>:
+    
+    MDScreenManager:
+        id: Anxiety_manger
+        MDScreen:
+            name:"overview"
+            md_bg_color:"#2f3e86"
+            id: container
+            FloatLayout:     
+                FitImage:
+                    id:chat_img
+                    source:'https://i.pinimg.com/736x/dc/7f/6e/dc7f6e4986011d8eab63164b755d5cb5.jpg'
+                    
+                    #size_hint_y:"0.5"
+                    #pos_hint:{"top":1.3,"right":1}
+                    allow_stretch:True
+                MDLabel:
+                    text:"Peace Beyond Panic\n\n"
+                    font_style:"H4"
+                    bold:"True"
+                    halign:"center"
+                    color:"white"
+                    pos_hint:{"top":1.05}
+
+                MDLabel:
+                    text:"Encourages calm and hope beyond anxious moments."
+                    halign:"center"
+                    font_style:"Subtitle2"
+                    color:1,1,1,1
+                    pos_hint:{"top":1}
+                    
+            MDScrollView:
+                MDBoxLayout:
+                    #md_bg_color:"black"
+                    orientation: "vertical"
+                    padding:10
+                    size_hint_y: None
+                    height: self.minimum_height
+                    spacing: dp(16)
+                    
+                    MDIconButton:
+                        icon:"chevron-left"
+                        icon_size:40
+                        pos_hint:{"top":1}
+                        on_release:app.change_screen("home")
+                        theme_text_color:"Custom"
+                        icon_color:"white"
+                        
+                    MDBoxLayout:
+                        size_hint_y: None
+                        height: dp(290)
+                        spacing: dp(10)
+                    
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        padding: dp(10)
+                        spacing:dp(1)
+                        radius:[20]
+                        #md_bg_color: 51/255,52/255,51/255,0.95 
+                        md_bg_color: 21/255,18/255,19/255,0.95
+                        size_hint_y: None
+                        height: self.minimum_height
+                        
+                        MDBoxLayout:
+                            orientation:"vertical"
+                            size_hint_y:None
+                            height: dp(270)
+                            padding:dp(1)
+                            
+                        
+                            MDLabel:
+                                text:" Let's Understand and Support Your Anxiety Journey. "
+                                color:"#c0854c"
+                                font_style:"H5"
+                                bold:True
+                                #pos_hint:{"top":1.3}
+                                
+                                
+                            MDBoxLayout:
+                                size_hint_y: None
+                                height: dp(150)
+                                orientation:"vertical"
+                                padding:dp(10) 
+                                spacing:1
+                                radius:[20]
+                                #pos_hint:{"top":2}
+                                md_bg_color:0,0,0,0.5
+                                
+                            
+                                MDLabel:
+                                    text:"Anxiety is not your enemy — it’s a signal. A sign that something matters to you. Let’s start by understanding what you're feeling, so we can guide you with the right tools."
+                                    font_style:"Subtitle2"
+                                
+                        
+                        
+                        MDLabel:
+                            text:"1. Quick Anxiety Check-In"
+                            font_style:"H5"
+                            pos_hint:{"top":1.2}
+                            bold:True
+                            color:"#c0854c"
+                            size_hint_y:None
+                            height:100
+                        MDBoxLayout:
+
+                            spacing:dp(10)
+                            radius:[20]
+                            md_bg_color: 0,0,0,0.5
+                            size_hint_y: None
+                            orientation:"vertical"
+                            height: dp(440)
+                            padding:10
+                            MDLabel:
+                                text:"Before we dive deeper, let’s take a short quiz to get a better sense of how anxiety is affecting you right"
+                                font_style:"Subtitle2"
+
+                            MDRectangleFlatIconButton:
+                                text:"Anxiety Test"   
+                                line_color:"#ac643b" 
+                                text_color: "white"
+                                icon: "file-outline"
+                                icon_color: "orange"
+                                on_release:app.change_screen("das_test")
+                            MDScrollView:
+                                do_scroll_x: False
+                                do_scroll_y: True
+                                bar_width: dp(4)
+
+                                MDBoxLayout:
+                                    id: test_box
+                                    orientation: "vertical"
+                                    adaptive_height: True
+                                    size_hint_y: None
+                                    padding: dp(10)
+                                    spacing: dp(10)
+                        MDLabel:
+                            text:"Release & Reframe The Control Audit"
+                            font_style:"H6"
+                            bold:True
+                            size_hint_y:None
+                            height:100
+                            color:"#c0854c"
+                        MDBoxLayout:
+                            id:braindump
+                            #pos_hint:{"top":1.5}
+                            padding:10
+                            orientation: "vertical"
+
+                            spacing:dp(1)
+                            radius:[20]
+                            md_bg_color: 0,0,0,0.5
+                            size_hint_y: None
+                            height: dp(390)        
+                            MDLabel:
+                                text:"Take a few minutes to write down everything that's currently worrying you, no matter how big or small. Just get it out."
+                                font_style:"Subtitle2"
+                            MDLabel:
+                                text:"Example"
+                                font_style:"Body1"
+                            MDBoxLayout:
+                                padding:10
+                                orientation: "vertical"
+
+                                spacing:dp(10)
+                                radius:[20]
+                                #md_bg_color: 0,0,0,0.5
+                                size_hint_y: None
+                                height: dp(130)
+
+
+                                MDChip:
+                                    text:"Will I find a better job?"
+                                    
+                                    #pos_hint:{"top":1}
+                                MDChip:
+                                    text:"Why aren't theyresponding?"
+                                MDChip:
+                                    text:"If I fail, my entire \n life will be ruined"
+                                    size_hint_y:0.6
+                            MDBoxLayout:
+                                size_hint_y:None    
+                                height:"100"
+                                MDTextField:
+                                    id:brain_dump_input
+                                    line_color_focus:"white"
+                                    text_color_focus:"white"
+
+                                MDIconButton:
+                                    icon:"send"
+                                    on_release:root._start_worry_audit_dialog(self)
+
+                        MDLabel:
+                            text:"2. Welcome to CBT: A Mindful Approach to Calm"
+                            font_style:"H5"
+                            bold:True
+                            size_hint_y:None
+                            height:130
+                            color:"#c0854c"
+                        MDBoxLayout:
+                            #pos_hint:{"top":1.5}
+                            padding:10
+                            orientation: "vertical"
+
+                            spacing:dp(1)
+                            radius:[20]
+                            md_bg_color: 0,0,0,0.5
+                            size_hint_y: None
+                            height: dp(400)
+                            MDLabel:
+                                text:"Cognitive Behavioral Therapy (CBT) is a highly effective approach that helps you recognize and change patterns of thinking and behavior that contribute to anxiety.These tools will guide you step-by-step to reduce anxious thoughts, replace them with healthier alternatives, and help you visualize a calm, peaceful mind.CBT isn’t just about thinking — it’s about taking actionable steps to rewire your mind for peace.Are you ready to start your journey to a calmer mind?."
+                                font_style:"Subtitle2"
+                                color:"white"
+                                #pos_hint:{"top":1.3}
+
+                            MDBoxLayout:
+                                size_hint_y:None
+                                height:dp(120)
+                                
+                                MDCard:
+                                    elivation:30
+                                    on_release:app.change_screen("cbt")
+                                    ripple_behavior: True
+                                    size_hint_y:None
+                                    height:dp(120)
+                                    padding:1
+                                    md_bg_color:"black"
+                                    radius:[30]
+                                    #pos_hint:{"top":1}
+                                    orientation:"vertical"
+                                    MDRelativeLayout:
+                                        FitImage:
+                                            source:"https://i.pinimg.com/736x/69/9f/21/699f217f3dda744cee96cca33763e8e2.jpg"
+                                            radius:[30]
+                                            opacity:0.6
+                                        MDLabel:
+                                            text:"Don’t fight the thought—heal it. CBT shows you how"
+                                            font_style:"Subtitle1"
+                                            padding:10
+                                            bold:True
+                                            color:"white"
+                                            pos_hint:{"top":1.3}
+                                        
+                                        MDLabel:
+                                            text:"The way of CBT"
+                                            font_style:"H5"
+                                            padding:10
+                                            bold:True
+                                            color:"white"
+                                            pos_hint:{"top":0.8}
+                                        MDIconButton:
+                                            theme_text_color:"Custom"
+                                            icon_color:"white"
+                                            icon:"arrow-top-right"
+                                            icon_size:40
+                                            pos_hint:{"top":0.5,"right":0.96}
+
+                        
+                        MDLabel:
+                            text:"Time to Refuel Your Mind"
+                            font_style:"H5"
+                            bold:True
+                            size_hint_y: None
+                            height: 100
+                        MDBoxLayout:
+
+                            
+                          
+                            size_hint_y: None
+                            height:300
+                            MDCard:
+                                ripple_behavior:True
+                                md_bg_color:0,0,0,0.3
+                                radius:[25]
+                                size_hint_y: None
+                                size_hint_x: 0.5
+                                #orientation: "vertical"
+                                on_release:app.change_screen("quotes")
+                                height:280
+                                MDRelativeLayout:
+                                    FitImage:
+                                        source:"https://i.pinimg.com/736x/31/7c/eb/317ceb9946c15ebd276a95ced5d18ce4.jpg"
+                                        radius:[25]
+                                        opacity:0.3
+                                    MDLabel:
+                                        text:"Quotes"
+                                        font_style:"H6"
+                                        pos_hint:{"top":1.4,"right":1.2}
+                                    MDLabel:
+                                        padding:dp(10)
+                                        text:"Processing emotions and thoughts isn’t easy — it takes courage and commitment.Now, let’s take a moment to recharge your mind and spirit"
+                                        font_style:"Caption"
+                            
+                                    MDIconButton:
+                                        theme_text_color:"Custom"
+                                        icon_color:"white"
+                                        icon:"arrow-top-right"
+                                        icon_size:40
+                                        pos_hint:{"top":0.2,"right":1}
+                                        
+                            MDCard:
+                                #padding:dp(10)
+                                md_bg_color:0,0,0,0.3
+                                radius:[25]
+                                size_hint_y: None
+                                size_hint_x: 0.5
+                                orientation: "vertical"
+                                height:280
+                                ripple_behavior:True
+                                on_release:app.change_screen("chat")
+                                MDRelativeLayout:
+                                    FitImage:
+                                        source:"https://i.pinimg.com/736x/ec/ec/12/ecec12db91b9a98f105b6467a5f98383.jpg"
+                                        radius:[25]
+                                        opacity:0.2
+                                    MDLabel:
+                                        text:"Ask Anything"
+                                        font_style:"H6"
+                                        pos_hint:{"top":1.4,"right":1.06}
+                                    MDLabel:
+                                        padding:dp(10)
+                                        text:"One profound question can unlock everything.You're looking for something with impact, a few words that resonate deeply. Let's aim for evocative and empowering."
+                                        font_style:"Caption"
+
+                                    MDIconButton:
+                                        theme_text_color:"Custom"
+                                        icon_color:"white"
+                                        icon:"arrow-top-right"
+                                        icon_size:40
+                                        pos_hint:{"top":0.2,"right":1}
+
+                        MDLabel:
+                            text:"3.Attract What You Desire"
+                            font_style:"H5"
+                            bold:True
+                            size_hint_y: None
+                            height: 100
+                        MDBoxLayout:
+                            padding: 10
+                            spacing:dp(10)
+                            md_bg_color:0,0,0,0.5
+                            radius:[20]
+                            size_hint_y: None
+                            orientation:"vertical"
+                            height:580
+                            MDLabel:
+                                text:"The Law of Attraction is simple: your thoughts and feelings are magnets. They draw similar experiences into your life."
+                                font_style:"Subtitle2"
+                                adaptive_height: True
+                            MDLabel:
+                                text: "[b]You're Always Broadcasting:[/b] Your mind constantly sends out signals. When feeling anxious, we often focus on worst-case scenarios, unknowingly sending out more signals of worry. The Law of Attraction teaches you to consciously choose to send out signals of calm and safety, even when anxiety tries to pull you back."
+                                adaptive_height: True
+                                font_style:"Caption"
+                                text_size: self.width, None
+                                markup: True
+                            MDLabel:
+                                text: "[b]Flip the Script on Worry:[/b] Instead of dwelling on what you fear, you can intentionally shift your focus to calm and confidence. This isn't about ignoring anxiety, but about changing your internal vibration. By focusing on desired outcomes (peace, self-assurance), you start to attract more moments and feelings of genuine tranquility"
+                                adaptive_height: True
+                                font_style:"Caption"
+                                text_size: self.width, None
+                                markup: True
+                            MDBoxLayout:
+                                size_hint_y:None
+                                height:dp(120)
+                                
+                                MDCard:
+                                    elivation:30
+                                    on_release:app.change_screen("lawofattraction")
+                                    ripple_behavior: True
+                                    size_hint_y:None
+                                    height:dp(120)
+                                    padding:1
+                                    md_bg_color:"black"
+                                    radius:[30]
+                                    #pos_hint:{"top":1}
+                                    orientation:"vertical"
+                                    MDRelativeLayout:
+                                        FitImage:
+                                            source:"https://i.pinimg.com/736x/77/ff/97/77ff97ff0abfad5fecd9501166b52684.jpg"
+                                            radius:[30]
+                                            opacity:0.3
+                                        MDLabel:
+                                            text:"Tired of anxiety's grip?.What if your thoughts could shift your world?"
+                                            font_style:"Subtitle1"
+                                            padding:10
+                                            bold:True
+                                            color:"white"
+                                            pos_hint:{"top":1.2}
+                                        
+                                        MDLabel:
+                                            text:"Tap to Attract"
+                                            font_style:"H5"
+                                            padding:10
+                                            bold:True
+                                            color:"white"
+                                            pos_hint:{"top":0.8}
+                                        MDIconButton:
+                                            theme_text_color:"Custom"
+                                            icon_color:"white"
+                                            icon:"arrow-top-right"
+                                            icon_size:40
+                                            pos_hint:{"top":0.5,"right":0.96}
+                          
+                        MDBoxLayout:
+
+                            orientation: "horizontal"
+                            padding: dp(1)
+                            spacing:dp(1)
+                            radius:[20]
+                            size_hint_y: None
+                            height: dp(170)
+
+
+                            MDLabel:
+                                text:"Dare to Spine\n"
+                                #spacing:dp(20)
+                                pos_hint:{"top":0.9}
+                                font_style:"H4"
+                                color:"#a18460"
+                                bold:"True"
+                            MDChip:
+                                md_bg_color: "#172951"
+                                text: "Every Day"
+                                icon_left: "newspaper-variant-outline"
+                                pos_hint:{"top":0.75}
+
+                        
+                        MDBoxLayout:
+                            size_hint_y: None
+                            height: dp(490)
+                            padding:10
+                            radius:[30]
+                            spacing:dp(20)
+                            md_bg_color:0,0,0,0.5
+                            #md_bg_color:"black"
+                            orientation:"vertical"
+                            
+                            MDLabel:
+                                text:"Stuck in the anxiety swirl? We get it. Sometimes, just doing anything feels impossible."
+                                font_style:"Subtitle2"
+                                color:"white"
+                            MDLabel:
+                                text:"Our Breathe & Shift tool is your gentle nudge. Spin the wheel, and we'll offer a simple, kind action designed to help you gently shift your focus and find a moment of peace. It's not a dare; it's an invitation to treat yourself with care. Even the smallest step can help you feel better.\n"
+                                font_style:"Body2"
+                                color:"white"
+                            MDCard:
+                                size_hint_y:None
+                                height:270
+                                md_bg_color:77/255,77/255,25/255,0.2
+                                #padding:10
+                                orientation:"vertical"
+                                MDRelativeLayout:
+                                    FitImage:
+                                        id:back_feeling_img
+                                        source:""
+                                        radius:[10]
+                                    MDLabel:
+                                        padding:10
+                                        id: spinner_label
+                                        text: "Ready?"
+                                        halign: "center"
+                                        theme_text_color: "Custom"
+                                        text_color: 1, 1, 1, 1
+                                        font_style: "H6"
+                                        pos_hint:{"top":1}
+                                    MDLabel:
+                                        padding:10
+                                        id:spin_title
+                                        #text:"your dare : Dance to music"
+                                        font_style:"H6"
+                                        pos_hint:{"top":1.4,"right":1}
+                                    MDLabel:
+                                        padding:10
+                                        id:spin_label
+                                        #text:"Our Breathe & Shift tool is your gentle nudge. Spin the wheel, and we'll offer a simple, kind action designed to help you gently shift your focus and find a moment of peace. It's not a dare; it's an invitation to treat yourself with care. Even the smallest step can help you feel better.\n"
+                                        markup:True
+                                        font_style:"Caption"
+
+                            MDRectangleFlatIconButton:
+                                text:"Spine"
+                                line_color:"#ac643b" 
+                                text_color: "white"
+                                icon: "reload"
+                                icon_color: "orange"
+                                pos_hint:{"right":0.6}
+                                on_release:root.start_spin()
+
+                        MDBoxLayout:
+                            size_hint_y: None
+                            height: dp(230)
+                            padding:20
+                            radius:[30]
+                            md_bg_color:0,0,0,0.5
+                            orientation:"vertical"
+                            pos_hint:{"top":1}
+                            #md_bg_color:"black"
+                            orientation:"vertical"
+                            MDBoxLayout:
+                                size_hint_y:None
+                                height:dp(70)
+                                MDLabel:    
+                                    id:feeling_note
+                                    text:"[b]How do you feel now? Did it help?\nWhat's one small change you notice in how you feel right now after doing that?."
+                                    font_style:"Caption"
+                                    markup:True
+                                    color:"white"
+                            ScrollView:
+                                
+                                size_hint: 1, 0.9  # 90% of the height
+                                pos_hint: {'center_x': 0.5, 'center_y': 0.44} #center vertically
+                                MDTextField:
+                                    id:after_dare
+                                    multiline: True
+                                    #hint_text:"\nWhat did this relationship teach you \n about yourself, love, and boundaries?\n"
+                                    hint_text_color_normal:"white"
+                                    text_color_normal:"white"
+                                    foreground_color: 1, 1, 1, 1  # White text
+                                    background_color: 0.1, 0.1, 0.1, 0.2  # Dark grey background
+                                    cursor_color: 1, 1, 0, 1  # Yellow cursor
+                                    font_size: 16
+                                    size_hint_x: 1
+                                    size_hint_y: None #make the height auto
+                                    height: self.minimum_height + 200 # added 200 to the minimum height
+                        MDBoxLayout:
+                            size_hint_y:None
+                            height:10
+                        
+                        
+                        MDBoxLayout:
+                            size_hint_y:None
+                            height:dp(500)
+                            orientation:"vertical"
+                            MDRelativeLayout:
+                                
+                                MDLabel:
+                                    text:"Calm Canvas"
+                                    bold:True
+                                    font_style:"H5"
+                                    color:"#a18460"
+                                    pos_hint:{"top":1.4}
+                                MDLabel:
+                                    text:"When anxiety hits hard, sometimes you just need a visual escape. Our Calm Canvas feature instantly generates serene images designed to soothe your mind. From tranquil natural scenes to soft color blends, it's a quick way to find a moment of peace through calming visuals. Just click and breathe."
+                                    pos_hint:{"top":1.2}
+                                    font_style:"Subtitle2"
+                                    color:"white"
+                                
+                                FitImage:
+                                    id:calm_canvas
+                                    source:"https://i.pinimg.com/736x/27/70/3e/27703e160a8aa2c2daa7d553941e428e.jpg"
+                                    radius:[20]
+                                    size_hint_y:0.5
+                                    pos_hint:{"top":0.55}
+                                MDSpinner:
+                                    id:spinner
+                                    size_hint: None, None
+                                    size: dp(48), dp(48)
+                                    pos_hint: {'center_x': .5, 'center_y': .3}
+                                    active:False
+                            MDBoxLayout:
+                                size_hint_y: None
+                                height: self.minimum_height
+                                padding: dp(8)
+                                spacing: dp(8)
+
+                                MDTextField:
+                                    id: image_text
+                                    hint_text_color_normal:"white"
+                                    fill_color_focus:0,0,0,0.5
+                                    text_color_normal:"white"
+                                    md_bg_color:"darkblue"
+                                    radius: [20, 20, 20, 20]
+                                    hint_text: "Let me know your feelings"
+                                    fill_color_normal:0,0,0,0.5
+                                    font_style: "Caption"
+                                    multiline: True
+                                    mode: "fill"
+                                    size_hint_x: 0.88
+                                    height: min(self.minimum_height, dp(120))
+                                    
+
+                                MDIconButton:
+                                    on_release:root.process_response_background()
+                                    id: chatbutton
+                                    icon: "send"
+                                    icon_size: "24dp"
+                                    theme_text_color: "Custom"
+                                    text_color: "white"
+                                    md_bg_color: "#141d33"
+                                    size_hint: None, None
+                                    size: dp(48), dp(48)
+                        MDLabel:
+                            text:"Podcast for you"
+                            bold:True
+                            font_style:"H5"
+                            size_hint_y:None
+                            height:dp(90)
+                            color:"#a18460"
+                        MDBoxLayout:
+                            size_hint_y:None
+                            spacing:10
+                            height:dp(150)
+                            #orientation:"vertical"
+                            MDCard:
+                                size_hint_y:None
+                                height:dp(150)
+                                radius:[25]
+                                on_release:root.openpodcast("4")
+                                MDRelativeLayout:
+                                    FitImage:
+                                        source:"https://i.pinimg.com/736x/f2/f7/da/f2f7daae2fb1c273e2d58036a010d495.jpg"
+                                        radius:[25]
+                                    MDIconButton:
+                                        on_release:root.openpodcast("4")
+                                        icon:"youtube"
+                                        icon_size:70
+                                        pos_hint:{"top":0.7,"right":0.7}
+                            MDCard:
+                                size_hint_y:None
+                                height:dp(150)
+                                radius:[25]
+                                on_release:root.openpodcast("1")
+                                MDRelativeLayout:
+                                    FitImage:
+                                        source:"https://i.pinimg.com/736x/00/3c/df/003cdf45f63f62082f330638bfc15aec.jpg"
+                                        radius:[25]
+                                    MDIconButton:
+                                        icon:"youtube"
+                                        icon_size:70
+                                        pos_hint:{"top":0.7,"right":0.7}
+                                        on_release:root.openpodcast("1")
+                        MDBoxLayout:
+                            size_hint_y:None
+                            height:10
+                        MDBoxLayout:
+                            size_hint_y:None
+                            spacing:10
+                            height:dp(150)
+                            #orientation:"vertical"
+                            MDCard:
+                                on_release:root.openpodcast("2")
+                                size_hint_y:None
+                                height:dp(150)
+                                radius:[25]
+                                MDRelativeLayout:
+                                    FitImage:
+                                        source:"https://i.pinimg.com/736x/09/39/9b/09399be3bbb33508f29e76ffb15e3289.jpg"
+                                        radius:[25]
+                                    MDIconButton:
+                                        icon:"youtube"
+                                        on_release:root.openpodcast("2")
+                                        icon_size:70
+                                        pos_hint:{"top":0.7,"right":0.7}
+                            MDCard:
+                                on_release:root.openpodcast("3")
+                                size_hint_y:None
+                                height:dp(150)
+                                radius:[25]
+                                MDRelativeLayout:
+                                    FitImage:
+                                        source:"https://i.pinimg.com/736x/fa/63/70/fa6370f0cecee0012f93f93a6f16ff33.jpg"
+                                        radius:[25]
+                                    MDIconButton:
+                                        icon:"youtube"
+                                        icon_size:70
+                                        on_release:root.openpodcast("3")
+                                        pos_hint:{"top":0.7,"right":0.7}
+                        MDBoxLayout:
+                            size_hint_y:None
+                            height:dp(40)
+                        MDBoxLayout:
+                            
+                            size_hint_y: None
+                            height: dp(340)
+                            spacing: 10
+                            md_bg_color:"darkgrey"
+                            MDRelativeLayout:
+                                MDFloatLayout:
+                                    MDCarousel:
+                                        id: carousel
+                                        size_hint: 1, 1
+                                        direction: 'right'
+                                        loop: True
+
+                                        # Slide 1
+                                        MDFloatLayout:
+                                            MDCard:
+                                                size_hint: 1, 1
+                                                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                                                elevation: 8
+                                                radius: [25, 25, 25, 25]
+                                                md_bg_color: 0, 0, 0, 0.5
+                                                orientation: "vertical"
+                                                padding:10
+
+                                                MDLabel:
+                                                    text: "How your anxiety will begin to heal when "
+                                                    font_style: "H6"
+                                                    halign: "center"
+                                                    bold:True
+
+                                                    
+                                                    color:"white"
+
+                                                MDLabel:
+                                                    text: "1. When You Acknowledge It Without Shame:\n"
+                                                    font_style:"Subtitle1"
+                                                    bold:True
+                                                    adaptive_height:True
+                                                    color:"white"
+                                                MDLabel:
+                                                    text:"\n[b]Healing begins when you say[/b]: I’m not broken. I’m struggling—and I deserve support."
+                                                    markup:True
+                                                    font_style:"Subtitle2"
+                                                    adaptive_height:True
+                                                MDLabel:
+                                                    text: "• Accepting that you feel anxious is the opposite of weakness—it's the first act of strength.\n\n• Naming the emotion helps reduce its power.\n\n"
+                                                    font_style:"Subtitle2"
+                                                    adaptive_height:True
+                                                    #halign: "center"
+                                                    color:"white"
+
+                                               
+                                               
+                                        # Slide 2
+                                        MDFloatLayout:
+                                            MDCard:
+                                                size_hint: 1,1
+                                                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                                                elevation: 8
+                                                radius: [25, 25, 25, 25]
+                                                md_bg_color: 0, 0, 0, 0.5
+                                                orientation: "vertical"
+                                                padding: 20
+                                                spacing: 10
+
+                                                MDLabel:
+                                                    adaptive_height:True
+                                                    text: "2. When You Start Understanding the Triggers:\n"
+                                                    font_style:"Subtitle1"
+                                                    bold:True
+                                                    #halign: "center"
+                                                    color:"white"
+                                                MDLabel:
+                                                    adaptive_height:True
+                                                    text:"Why do I feel like this right now? becomes a powerful question.."
+                                                    
+                                                    font_style:"Subtitle2"
+                                                MDLabel:
+                                                    adaptive_height:True
+                                                    text: "• Healing begins when you recognize patterns: environments, thoughts, people, or past wounds.\n\n• Tools like journaling, CBT thought reframing, and mindfulness bring awareness..\n\n"
+                                                    font_style:"Subtitle2"
+                                                    
+                                                    #halign: "center"
+                                                    color:"white"
+                                                
+
+                                        # Slide 3
+                                        MDFloatLayout:
+                                            MDCard:
+                                                size_hint: 1,1
+                                                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                                                elevation: 8
+                                                radius: [25, 25, 25, 25]
+                                                md_bg_color: 0, 0, 0, 0.5
+                                                orientation: "vertical"
+                                                padding: 20
+                                                spacing: 10
+
+                                                MDLabel:
+                                                    adaptive_height:True
+                                                    text: "3. When You Learn to Respond, Not React:\n"
+                                                    font_style:"Subtitle1"
+                                                    bold:True
+                                                    #halign: "center"
+                                                    color:"white"
+                                                MDLabel:
+                                                    adaptive_height:True
+                                                    text:"Anxiety often speaks loudly. Healing whispers back with calm, practiced tools."
+                                                    
+                                                    font_style:"Subtitle2"
+                                                MDLabel:
+                                                    adaptive_height:True
+                                                    text: "• Practicing breathing, grounding exercises, or even walking away from spiraling thoughts helps you regain control.\n\n• Apps, therapy, or even repeating affirmations like “I am safe” help.\n\n"
+                                                    font_style:"Subtitle2"
+                                                    
+                                                    #halign: "center"
+                                                    color:"white"
+
+                                        # Slide 4
+                                        MDFloatLayout:
+                                            MDCard:
+                                                size_hint: 1, 1
+                                                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                                                elevation: 8
+                                                radius: [25, 25, 25, 25]
+                                                md_bg_color: 0, 0, 0, 0.5
+                                                orientation: "vertical"
+                                                padding: 20
+                                                spacing: 10
+
+                                                MDLabel:
+                                                    adaptive_height:True
+                                                    text: " 4. When You Show Compassion to Yourself"
+                                                    font_style:"Subtitle1"
+                                                    bold:True
+                                                    #halign: "center"
+                                                    color:"white"
+                                                MDLabel:
+                                                    adaptive_height:True
+                                                    text:"Healing starts when your inner voice becomes a gentle friend—not a critic."
+                                                    
+                                                    font_style:"Subtitle2"
+                                                MDLabel:
+                                                    adaptive_height:True
+                                                    text: "• Say things like: “It’s okay to feel this way.” or “I did my best today.”.\n\n• Your nervous system relaxes when it feels safe, not shamed..\n\n"
+                                                    font_style:"Subtitle2"
+                                                    
+                                                    #halign: "center"
+                                                    color:"white"
+
+                                    # Left Button
+                                    MDIconButton:
+                                        icon: "chevron-left"
+                                        pos_hint: {"center_y": 0.5,"right":0.08}
+                                        theme_text_color: "Custom"
+                                        text_color: 1, 1, 1, 1
+                                        md_bg_color: 0.1, 0.1, 0.1, 0.7
+                                        on_release: root.previous_slide()
+                                        icon_size:dp(15)
+                                        #left: self.parent.width - dp(20)
+
+                                    # Right Button
+                                    MDIconButton:
+                                        icon: "chevron-right"
+                                        pos_hint: {"center_y": 0.5,"right":1.05}
+                                        theme_text_color: "Custom"
+                                        text_color: 1, 1, 1, 1
+                                        md_bg_color: 0.1, 0.1, 0.1, 0.7
+                                        on_release: root.next_slide()
+                                        icon_size:dp(15)
+                                        #right: self.parent.width - dp(20)
+
+

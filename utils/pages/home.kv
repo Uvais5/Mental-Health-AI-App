@@ -1,0 +1,473 @@
+
+<HomeScreen>:
+    on_enter:root.on_start_quotes()
+    name:"home"
+    MDScreenManager:
+        id: quotes_screen_manager
+        MDScreen:
+            name: "homescreen"
+            md_bg_color: "#1a0d00"
+            selected_color: "#4a4939"
+            on_enter:root.on_start_quotes()
+
+            MDScrollView:
+            
+                MDBoxLayout:
+                    md_bg_color: "#1a0d00"
+                    spacing:10
+                    orientation: 'vertical'
+                    size_hint_y:3
+                    
+                    MDScrollView:
+                        do_scroll_y:False
+                        id: auto_scroll_view
+                        MDBoxLayout:
+                            id: scroll_container
+                            radius: [20]
+                            size_hint_x:2.90
+                            size_hint_y:1
+                            padding:10
+                            spacing:5
+                            
+                            MDCard:
+                                radius: [30]
+                                focus_behavior: True
+                                md_bg_color: "#513315"
+                                unfocus_color: "#889d62"
+                                focus_color: "#889d62"
+                                ripple_behavior: True
+                                Screen:
+                                    FitImage:
+                                        radius:[15]
+                                        source:"https://i.pinimg.com/736x/4e/2c/d1/4e2cd15f1c9325be8181cc41d59e8e6f.jpg"
+                                
+                                    MDLabel:
+
+                                        text:"Quote Of The Day"
+                                        font_style:"H5"
+                                        halign:"center"
+                                        bold:True
+                                        color:"white"
+                                        pos_hint:{"center_y":0.95,"center_x":0.50}
+                                
+                                    MDLabel:
+                                        id:quote_of_the_day
+                                        text:"Darkness cannot drive out darkness; only light can do that. Hate cannot drive out hate: only love can do that "
+                                        color:"white"
+                                        pos_hint:{"center_y":0.50}
+                                        font_style:"Subtitle1"
+                                        halign:"center"
+                            
+                            MDBoxLayout:
+                                size_hint_y: None
+                                height: dp(230)
+                                padding:20
+                                radius:[30]
+                                md_bg_color:0,0,0,0.5
+                                orientation:"vertical"
+                                pos_hint:{"top":1}
+                                #md_bg_color:"black"
+                                orientation:"vertical"
+                                MDBoxLayout:
+                                    size_hint_y:None
+                                    height:dp(40)
+                                    MDLabel:    
+                                        text:"Your priority is your power — write it, believe it, achieve it. "
+                                        font_style:"Body2"
+                                        color:"#4d2800"
+                                        bold:"True"
+                                ScrollView:
+                                    
+                                    size_hint: 1, 0.9  # 90% of the height
+                                    pos_hint: {'center_x': 0.5, 'center_y': 0.44} #center vertically
+                                    MDTextField:
+                                        id:priority
+                                        on_text: root.on_text_change(self, self.text)
+                                        multiline: True
+                                        #hint_text:"\nWhat did this relationship teach you \n about yourself, love, and boundaries?\n"
+                                        hint_text_color_normal:"white"
+                                        text_color_normal:"white"
+                                        foreground_color: 1, 1, 1, 1  # White text
+                                        background_color: 0.1, 0.1, 0.1, 0.2  # Dark grey background
+                                        cursor_color: 1, 1, 0, 1  # Yellow cursor
+                                        font_size: 16
+                                        size_hint_x: 1
+                                        size_hint_y: None #make the height auto
+                                        height: self.minimum_height + 200 # added 200 to the minimum height
+                            MDBoxLayout:
+                                size_hint_y:None
+                                height:dp(300)
+                                orientation:"vertical"
+                                MDRelativeLayout:
+                                    FitImage:
+                                        id:goal_image
+                                        source:"https://i.pinimg.com/736x/a5/0e/e1/a50ee15e59dd5809e80975c5f35609cd.jpg"
+                                        radius:[20]
+                                        size_hint_y:0.8
+                                        pos_hint:{"top":0.8}
+                                        
+                                    MDSpinner:
+                                        id:spinner
+                                        size_hint: None, None
+                                        size: dp(48), dp(48)
+                                        pos_hint: {'center_x': .5, 'center_y': .3}
+                                        active:False
+                                MDBoxLayout:
+                                    size_hint_y: None
+                                    height: self.minimum_height
+                                    padding: dp(8)
+                                    spacing: dp(8)
+
+                                    MDTextField:
+                                        id: text_input
+                                        on_focus:root.stop_auto_scroll()
+                                        hint_text_color_normal:"white"
+                                        fill_color_focus:0,0,0,0.5
+                                        text_color_normal:"white"
+                                        md_bg_color:"darkblue"
+                                        radius: [20, 20, 20, 20]
+                                        hint_text: "type to generate your goals"
+
+                                        font_style: "Caption"
+                                        multiline: True
+                                        mode: "fill"
+                                        size_hint_x: 0.88
+                                        height: min(self.minimum_height, dp(120))
+                                        
+
+                                    MDIconButton:
+                                        id: chatbutton
+                                        icon: "send"
+                                        icon_size: "24dp"
+                                        theme_text_color: "Custom"
+                                        text_color: "white"
+                                        md_bg_color: "#1a0d00"
+                                        size_hint: None, None
+                                        size: dp(48), dp(48)
+                                        on_release:root.process_response_background()
+                                
+                            
+                    MDNavigationDrawerDivider:
+                        
+                    MDBoxLayout:
+                        padding:10
+                        size_hint_y:0.1
+                        MDLabel:
+                            text:"Motivation Blocks"
+                            color:"white"
+                            bold:True
+                            
+                    MDBoxLayout:
+                        size_hint_y:0.8
+                        padding:10
+                        spacing:10
+                        MDBoxLayout:
+                            MDCard:
+                                padding: 0
+                                #border_radius: 10
+                                radius: [30]
+
+                                md_bg_color: "#4d2800"
+                                
+                                ripple_behavior: True
+                                on_press: on_press: app.change_screen("chat")
+                            
+                                Screen:
+                                    
+                                    FloatLayout:
+                                        FitImage:
+                                            radius:[15]
+                                            source:'C:/Users/uvais/Downloads/pimg/q6.jpg'
+                                            radius:[30,30,0,30]
+                                            size_hint_y:0.8
+                                            pos_hint:{"center_y":0.6}
+                                        MDLabel:
+                                            text:"Question room "
+                                            color:"white"
+                                            bold:True
+                                            halign:"center"
+                                            pos_hint:{"center_y":0.1,"center_x":0.50}
+                        MDBoxLayout:
+                            MDCard:
+                                radius: [30]
+
+                                md_bg_color: "#4d2800"
+                                ripple_behavior: True
+                                on_press: on_press: app.change_screen("das_test") 
+                                Screen:
+                                    FloatLayout:
+                                        FitImage:
+                                            
+                                            source:'C:/Users/uvais/Downloads/pimg/q2.jpg'
+                                            radius:[30,30,0,30]
+                                            size_hint_y:0.8
+                                            pos_hint:{"center_y":0.6}
+                                        MDLabel:
+                                            text:"Test"
+                                            halign:"center"
+                                            bold:True
+                                            pos_hint:{"center_y":0.1,"center_x":0.54}
+                    MDNavigationDrawerDivider:
+                        md_bg_color: "#4d2800"
+                    MDLabel:
+                        text:"Recomendations"
+                        color:"white"
+                        bold:True
+                        padding:10
+                        size_hint_y:0.2
+
+                    MDBoxLayout:
+                        size_hint_y:0.4
+                        pos_hint:{"center_x":0.5,"center_y":0.7}
+                        size_hint_x:0.98
+                        padding:5
+                        spacing:5
+                        MDBoxLayout:
+                            MDCard:
+                                radius: [30]
+                                focus_behavior: True
+                                md_bg_color: "#4d2800"
+                                unfocus_color: "#4d2800"
+                                focus_color: "#889d50"
+                                ripple_behavior: True
+                                Screen:
+                                    FloatLayout:
+                                        FitImage:
+                                            radius:[15]
+                                            source:'C:/Users/uvais/Downloads/pimg/q3.jpg'
+                                            
+                                        MDLabel:
+                                            text:"Movies Recomendation"
+                                            color:"white"
+                                            bold:True
+                                            pos_hint:{"center_x":0.4,"center_y":0.2}
+                                            halign:"center"               
+                
+                    MDBoxLayout:
+                        size_hint_y:0.4
+                        pos_hint:{"center_x":0.5,"center_y":0.0}
+                        size_hint_x:0.98
+                        padding:5
+                        spacing:5
+                        MDBoxLayout:
+                            MDCard:
+                                radius: [30]
+                                focus_behavior: True
+                                md_bg_color: "#4d2800"
+                                unfocus_color: "#4d2800"
+                                focus_color: "#889d50"
+                                ripple_behavior: True
+                                Screen:
+                                    FloatLayout:
+                                        FitImage:
+                                            radius:[15]
+                                            source:'C:/Users/uvais/Downloads/pimg/q4.jpg'
+                                        MDLabel:
+                                            text:"Songs Recomendation"
+                                            color:"black"
+                                            bold:True
+                                            pos_hint:{"center_x":0.4,"center_y":0.1}
+                                            halign:"center"  
+                                    
+
+                    MDNavigationDrawerDivider:
+                        md_bg_color: "#4d2800"
+                    MDLabel:
+                        text:"Todays"
+                        color:"white"
+                        bold:True
+                        pos_hint:{"center_y":0,"center_x":0.55}
+                        size_hint_y:0.2
+                        
+
+                    MDBoxLayout:
+                        size_hint_y:0.8
+                        pos_hint:{"center_x":0.5,"center_y":0.7}
+                        size_hint_x:0.98
+                        padding:5
+                        spacing:5
+                        MDBoxLayout:
+                            MDCard:
+                                radius: [30]
+                                focus_behavior: True
+                                md_bg_color: "#4d2800"
+                                unfocus_color: "#4d2800"
+                                focus_color: "#889d50"
+                                ripple_behavior: True
+                                on_press: app.change_screen("das_test")
+                                Screen:
+                                    FloatLayout:
+                                        FitImage:
+                                            radius:[15]
+                                            source:'C:/Users/uvais/Downloads/pimg/q8.jpg'
+                                            
+                                        MDLabel:
+                                            text:""
+                                            halign:"center"
+                                            bold:True
+                                            pos_hint:{"center_y":0.1,"center_x":0.54}
+                    MDNavigationDrawerDivider:
+                    MDLabel:
+                        text:" Positive Mind Lab"
+                        size_hint_y:0.1
+                        bold:True
+                        padding:10
+                    MDBoxLayout:
+                        size_hint_y:0.7
+                        padding:10
+                        spacing:10
+                        MDCard:
+                            padding:0
+                            radius:[30]
+                            md_bg_color: "#4d2800"
+                            ripple_behavior: True
+                            on_release:app.change_screen("cbt")
+                            MDRelativeLayout:
+                                FitImage:
+                                    source:'https://i.pinimg.com/736x/1f/6d/e9/1f6de92a11814ecfc38087433c747b01.jpg'
+                                    radius:[30,30,0,30]
+                                    size_hint_y:0.8
+                                    pos_hint:{"center_y":0.6}
+                                MDLabel:
+                                    text:"CBT"
+                                    #halign:"center"
+                                    bold:True
+                                    pos_hint:{"center_y":0.1,"center_x":0.6}
+
+                    
+                        MDCard:
+                            md_bg_color: "#4d2800"
+                            padding:1
+                            ripple_behavior: True
+                            on_press: app.change_screen("lawofattraction") 
+                            radius:[30]
+                            MDRelativeLayout:
+                                FitImage:
+                                    source:'https://i.pinimg.com/736x/0f/74/c9/0f74c9d7f075f843b75c0577ec5f5140.jpg'
+                                    radius:[30,30,0,30]
+
+                                    size_hint_y:0.8
+                                    pos_hint:{"center_y":0.6}
+                                MDLabel:
+                                    text:"Law Of Attraction"
+                                    halign:"center"
+                                    font_style:"Subtitle2"
+                                    pos_hint:{"center_y":0.1,"center_x":0.53}
+                                    bold:True
+                    MDNavigationDrawerDivider:
+                    MDLabel:
+                        text:" Quote And News"
+                        size_hint_y:0.1
+                        bold:True
+                        padding:10
+                    MDBoxLayout:
+                        size_hint_y:0.7
+                        padding:10
+                        spacing:10
+                        MDCard:
+                            padding: 
+                            radius:[30]
+
+                            md_bg_color: "#4d2800"
+                            ripple_behavior: True
+                            on_release:app.change_screen("quotes")
+                            MDRelativeLayout:
+                                FitImage:
+                                    source:'https://cdn.dribbble.com/userupload/4047995/file/original-33b4b8635ceee4432b00863c0193d13f.png?resize=752x&vertical=center'
+                                    radius:[30]
+                                    size_hint_y:0.8
+                                    pos_hint:{"center_y":0.6}
+                                MDLabel:
+                                    text:"Quotes"
+                                    bold:True
+                                    #halign:"center"
+                                    pos_hint:{"center_y":0.1,"center_x":0.6}
+
+                    
+                        MDCard:
+                            md_bg_color: "#4d2800"
+                            padding:0
+                            ripple_behavior: True
+                            radius:[30]
+                            on_release:
+                                app.change_screen("visualization_instruction")
+                                # root.manager.get_screen("visualization_instraction").ids.screen_manager1.current = "record"
+                            
+                            MDRelativeLayout:
+                                FitImage:
+                                    source:'https://i.pinimg.com/736x/b3/2c/c8/b32cc8c7e1b4048d322e22645f119116.jpg'
+                                    radius:[30]
+                                    size_hint_y:0.8
+                                    pos_hint:{"center_y":0.6}
+                                MDLabel:
+                                    text:"Law Of Attraction"
+                                    halign:"center"
+                                    font_style:"Subtitle2"
+                                    pos_hint:{"center_y":0.1,"center_x":0.53}
+                                    bold:True
+                    MDNavigationDrawerDivider:
+                    MDLabel:
+                        text:" Issues "
+                        size_hint_y:0.1
+                        bold:True
+                        padding:10
+                    MDBoxLayout:
+                        size_hint_y:0.7
+                        padding:10
+                        spacing:10
+                        MDCard:
+                            padding: 
+                            radius:[30]
+
+                            md_bg_color: "#4d2800"
+                            ripple_behavior: True
+                            on_release:app.change_screen("Afterlove")
+                            MDRelativeLayout:
+                                FitImage:
+                                    source:'https://i.pinimg.com/736x/4a/ed/b6/4aedb674c6de4cad53f39f2753b7c728.jpg'
+                                    radius:[30]
+                                    size_hint_y:0.8
+                                    pos_hint:{"center_y":0.6}
+                                MDLabel:
+                                    text:"Afterlove"
+                                    bold:True
+                                    #halign:"center"
+                                    pos_hint:{"center_y":0.1,"center_x":0.6}
+
+                    
+                        MDCard:
+                            md_bg_color: "#4d2800"
+                            padding:0
+                            ripple_behavior: True
+                            radius:[30]
+                            on_release:
+                                app.change_screen("anxiety")
+                                # root.manager.get_screen("visualization_instraction").ids.screen_manager1.current = "record"
+                            
+                            MDRelativeLayout:
+                                FitImage:
+                                    source:'https://i.pinimg.com/736x/dc/7f/6e/dc7f6e4986011d8eab63164b755d5cb5.jpg'
+                                    radius:[30]
+                                    size_hint_y:0.8
+                                    pos_hint:{"center_y":0.6}
+                                MDLabel:
+                                    text:"Anxiety"
+                                    halign:"center"
+                                    #font_style:"Subtitle2"
+                                    pos_hint:{"center_y":0.1,"center_x":0.53}
+                                    bold:True
+                    
+                    MDBoxLayout:
+                        size_hint_y:0.25
+
+
+            MDBottomAppBar:
+                md_bg_color: "#4d2800"
+                MDTopAppBar:
+                    #md_bg_color: 71, 63, 59, 0.1
+                    icon:"face-recognition"
+                    type:"bottom"
+                    left_action_items:[["menu", lambda x:drawer.set_state("open")],["filmstrip",lambda x: app.change_screen("reels")]]
+                    right_action_items:[["magnify",lambda x: app.change_screen("reels")],["account-circle",lambda x: app.change_screen("reels")]]
+                    icon_color:"#663500"
+        MDScreen:

@@ -1,0 +1,208 @@
+<visualization_instruction>
+    name:"visualization_instruction"
+    ScreenManager:
+        id: screen_manager1
+
+        MDScreen:
+            name: "visual"
+            FitImage:
+                source: "https://i.pinimg.com/736x/dd/37/1b/dd371bb36b3bac2aa0eb1f3a14049651.jpg"
+
+            MDCard:
+                size_hint_y:0.1
+                elevation: 4
+                pos_hint: {"top": 1}
+                md_bg_color: "#6600ff"
+                radius:[20]
+                MDRelativeLayout:
+                    MDLabel:
+                        text: "Visualization \n Instructions"
+                        font_style:"H5"
+                        halign:"center"
+                        bold:"True"
+                    MDIconButton:
+                        icon:"menu"
+                        on_release:nav_drawer.set_state("open")
+                    MDIconButton:
+                        icon:"arrow-left-circle"
+                        on_release:app.change_screen("home")
+                        on_press:root.stop_audio("visual")
+                        pos_hint:{"right":1}
+                        icon_size:"30"
+
+            MDBoxLayout:
+                orientation: "vertical"
+                spacing: "10dp"
+                padding: "20dp"
+
+                MDRelativeLayout:
+                    
+
+                    FitImage:
+                        id: visual_album_image
+                        pos_hint: {"top": 0.78, "right": 0.9}
+                        halign: "center"
+                        source: "https://i.pinimg.com/736x/dd/37/1b/dd371bb36b3bac2aa0eb1f3a14049651.jpg"
+                        radius: [200, 200]
+                        size_hint: None, None
+                        size: 250, 250
+
+                        canvas.before:
+                            PushMatrix
+                            Rotate:
+                                angle: root.angle  
+                                origin: self.center
+                        canvas.after:
+                            PopMatrix
+
+                    MDProgressBar:
+                        id: visual_progress_bar
+                        value: 0
+                        color: "#6600ff"
+                        size_hint_y: 0.05
+                        pos_hint: {"top": 0.2}
+
+                    MDBoxLayout:
+                        orientation: "horizontal"
+                        size_hint_y: None
+                        height: "50dp"
+                        spacing: "10dp"
+                        padding: "20dp"
+                        pos_hint: {"top": 0.3}
+
+                        MDLabel:
+                            id: visual_current_time
+                            text: "00:00"
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                            halign: "left"
+
+                        MDLabel:
+                            id: visual_total_time
+                            text: "00:00"
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                            halign: "right"
+
+                MDFloatingActionButton:
+                    id: play_button_visual
+                    md_bg_color: "#6600ff"
+                    icon: root.visual_play_icon
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.toggle_visual_audio()
+
+        MDScreen:
+            name: "record"
+            FitImage:
+                source: "https://i.pinimg.com/736x/b6/5a/07/b65a0781210cf7b891a75ca31fa5b1d6.jpg"
+
+            MDCard:
+                size_hint_y:0.1
+                elevation: 4
+                pos_hint: {"top": 1}
+                md_bg_color: "#005957"
+                radius:[20]
+                MDRelativeLayout:
+                    MDLabel:
+                        text: "Voice Affirmation"
+                        font_style:"H5"
+                        halign:"center"
+                        bold:"True"
+                    MDIconButton:
+                        icon:"menu"
+                        on_release:nav_drawer.set_state("open")
+                    MDIconButton:
+                        icon:"arrow-left-circle"
+                        on_release:app.change_screen("home")
+                        on_press:root.stop_audio("record")
+                        pos_hint:{"right":1}
+                        icon_size:"40"
+
+            MDBoxLayout:
+                orientation: "vertical"
+                spacing: "10dp"
+                padding: "20dp"
+
+                MDRelativeLayout:
+                    
+
+                    FitImage:
+                        id: record_album_image
+                        pos_hint: {"top": 0.78, "right": 0.9}
+                        halign: "center"
+                        source: "https://i.pinimg.com/736x/b6/5a/07/b65a0781210cf7b891a75ca31fa5b1d6.jpg"
+                        radius: [200, 200]
+                        size_hint: None, None
+                        size: 250, 250
+
+                        canvas.before:
+                            PushMatrix
+                            Rotate:
+                                angle: root.angle  
+                                origin: self.center
+                        canvas.after:
+                            PopMatrix
+
+                    MDProgressBar:
+                        id: record_progress_bar
+                        value: 0
+                        color: "#aaaa56"
+                        size_hint_y: 0.05
+                        pos_hint: {"top": 0.2}
+
+                    MDBoxLayout:
+                        orientation: "horizontal"
+                        size_hint_y: None
+                        height: "50dp"
+                        spacing: "10dp"
+                        padding: "20dp"
+                        pos_hint: {"top": 0.3}
+
+                        MDLabel:
+                            id: record_current_time
+                            text: "00:00"
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                            halign: "left"
+
+                        MDLabel:
+                            id: record_total_time
+                            text: "00:00"
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                            halign: "right"
+
+                MDFloatingActionButton:
+                    id: play_button_record
+                    md_bg_color: "#005957"
+                    icon: root.record_play_icon
+                    pos_hint: {"center_x": 0.5}
+                    on_release: root.toggle_record_audio()
+
+    MDNavigationDrawer:
+        id: nav_drawer
+        radius: (0, 16, 16, 0)
+        md_bg_color:"#1a0d00"
+
+        MDNavigationDrawerMenu:
+            MDNavigationDrawerHeader:
+                title: "Sounds Menu"
+                title_color: "#4a4939"
+                spacing: "4dp"
+                padding: "12dp", 0, 0, "56dp"
+
+            MDNavigationDrawerItem:
+                icon: "record-rec"
+                text: "Recording"
+                
+                on_release:
+                    root.switch_screen("record")
+                    nav_drawer.set_state("close")
+
+            MDNavigationDrawerItem:
+                icon: "soundcloud"
+                text: "Visual Instructions"
+                on_release:
+                    root.switch_screen("visual")
+                    nav_drawer.set_state("close")
+                    

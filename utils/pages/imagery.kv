@@ -1,0 +1,508 @@
+
+<gemini>
+    name:"gemini"
+    bot_name:bot_name
+    text_input: text_input
+    md_bg_color:"#E8E8E8"
+    chat_list : chat_list
+    
+    MDBoxLayout:
+        md_bg_color:"#E8E8E8"
+        
+        orientation: 'vertical'
+        spacing: dp(10)
+        #pos_hint:{"top":1}
+        size_hint_x:1
+        size_hint_y:1
+        MDCard:
+            md_bg_color:"white"
+            size_hint_y:0.20
+            radius:[30]
+            elevation:3
+            
+            MDRelativeLayout:    
+                MDLabel:
+                    id:bot_name
+                    text: "Thought Reframing AI"
+                    color: "#083852"
+                    font_style:"H6"
+                    halign: "center"
+                    pos_hint:{"right":1.06}
+
+                MDIconButton:
+                    icon:"arrow-left"
+                    pos_hint:{"top":0.9,"right":0.19}
+                    md_bg_color:"#E8E8E8"
+                    on_press: root.manager.current = 'mainscreen'
+                    pos_hint: {"center_y": 0.5,"right":0.2}
+
+        ScrollView:
+            id: scroll_view
+            MDBoxLayout:
+                id: chat_list
+                adaptive_height: True
+                orientation: "vertical"
+                padding: dp(20)
+                spacing: dp(12)
+
+        MDBoxLayout:
+            size_hint_y: None
+            height: self.minimum_height  # Adjust height based on the content
+
+            #spacing: dp(10)
+
+            MDCard:
+                md_bg_color: "white"
+                radius: [30]
+                elevation: 3
+                size_hint_x: 1
+                size_hint_y: None
+                adaptive_height: True  # Allow the card to grow dynamically
+                padding: dp(10)
+                height:120
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: None
+                    height: self.minimum_height  # This layout's height adjusts with the text field
+
+                    # Text input field that grows dynamically
+                    MDTextField:
+                        id: text_input 
+                        line_color_focus: "white"
+                        text_color_focus: "#083852"
+                        fill_color_normal: "#E8E8E8"
+                        multiline: True
+                        hint_text: "Let me know your thoughts"
+                        mode: "fill"
+                        size_hint_x: 1
+                        size_hint_y: None
+                        #height:150
+                        height: min(self.minimum_height, dp(170))  # Limit the height to prevent overflow
+                        on_focus: self.height = min(dp(150), max(dp(70), self.line_height * len(self._lines)))  # Dynamic height
+                        on_focus: if not self.focus: self.height = min(dp(150), max(dp(50), self.line_height * len(self._lines)))
+                        hint_text_color_normal: "#a2662a"
+                        hint_text_color_focus: "#a2662a"
+                        radius: [20, 20, 20, 20]
+                        width: dp(280)
+                        pos_hint:{"top":1}
+                        on_focus: if self.focus: root.adjust_for_keyboard(Window.keyboard_height)
+                        on_focus: if not self.focus: root.remove_widget_from_layout()
+                    # Fixed send button beside the text field
+                    MDIconButton:
+                        icon: "subdirectory-arrow-left"
+                        icon_size: "22dp"
+                        color: "white"
+                        md_bg_color: "#083852"
+                        on_press:app.all_chat_response("cbt_thought_command")
+                        on_release:app.all_chat_response("cbt_thought_response")
+                        pos_hint: {"center_y": 0.5}
+        MDBoxLayout:
+            id:though_chat
+            size_hint_y:None
+            height:0
+
+<imagery>:
+    name:"imagery"
+    MDScreenManager:
+        id: imgery_screen_manager
+        MDScreen:
+            name:"imgery_overview"
+            MDScrollView:      
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y:3.5
+                    #size_hint_x:1
+                    md_bg_color:"white"
+                    MDBoxLayout:
+                        #padding:20
+                        size_hint: 1.2, 5.5
+                        pos_hint:{"top":1.9,"right":1.09}
+                        radius:[700]
+                        MDCard:
+                            md_bg_color:"#083852"
+                            radius:[700]
+                            line_width:30
+                            line_color: "#083852"
+                            size_hint: 9, 1.2
+                            pos_hint:{"top":1.4,"right":1.6}
+                            MDRelativeLayout:
+                                MDCard:
+                                    size_hint:0.2,0.1
+                                    md_bg_color:"#0f6590"
+                                    pos_hint:{"top":0.4,"right":0.52}
+                                    radius:[22]
+                                    MDRelativeLayout:
+                                        MDLabel:
+                                            text:"Imagery"
+                                            color:"white"
+                                            halign:"center"
+                                            font_style:"Caption"
+                                MDCard:
+                                    size_hint:0.2,0.1
+                                    md_bg_color:"#0f6590"
+                                    pos_hint:{"top":0.4,"right":0.74}
+                                    radius:[22]
+                                    
+                                    MDRelativeLayout:
+                                        MDLabel:
+                                            text:"psychology"
+                                            color:"white"
+                                            halign:"center"
+                                            font_style:"Caption"
+                                MDIconButton:
+                                    icon:"arrow-left-circle"
+                                    pos_hint:{"top":0.58,"right":0.23}
+                                    icon_size:"20dp"
+                                    md_bg_color:"#0f6590"
+                                    on_press: app.change_screen("cbt")
+                                MDIconButton:
+                                    icon:"file-edit"
+                                    pos_hint:{"top":0.58,"right":0.9}
+                                    icon_size:"20dp"
+                                   # md_bg_color:"#8e5925"
+                                    on_press: root.switch_screen("imgery_form")
+                                MDLabel:
+                                    text:"Imagery in CBT"
+                                    bold:True
+                                    color:"white"
+                                    font_style:"H6"
+                                    pos_hint:{"right":1.25,"top":1.035}
+                                MDLabel:
+                                    text:"Imagine is all you  need"
+                                    bold:True
+                                    font_style:"H6"
+                                    pos_hint:{"top":0.75,"right":1.18}
+                                    color:"white"
+                                    
+
+                    MDBoxLayout:
+                        spacing:1
+                        size_hint:1,1
+                        pos_hint:{"right":1.1}
+                        padding:10
+                        MDLabel
+                            text:"Introduction"
+                            color:"#083852"
+                            bold:"True"
+                            pos_hint:{"top":2,"right":0.5}
+                            font_style:"H6"
+                    MDBoxLayout:   
+                        spacing:1
+                        #size_hint:1,1
+                        size_hint_y:0.6
+                        padding:20
+                        MDLabel:
+                            text:"For some people, distressing images contribute to mental illness. In these cases, imagery techniques can help stop or change the images and reduce negative emotions. In other cases, a person may understand that some of their thoughts are irrational, and manage to challenge them successfully, but they do not “feel” the changes emotionally. When a person has trouble internalizing cognitive changes, it is also helpful to use imagery."
+                            pos_hint:{"top":0}
+                            font_style:"Subtitle2"
+                            color:"#666666"
+                    MDBoxLayout:
+                        
+                        MDIconButton:
+                            icon:"brain"
+                            pos_hint:{"top":3.25}
+                    MDBoxLayout:
+                        spacing:1
+                        padding:20
+                        size_hint_y:3
+                        size_hint_x:1
+                        
+                        MDCard:
+                            radius:[30]
+                            pos_hint:{"top":0.8}
+                            size_hint_x:2
+                            size_hint_y:1
+                            md_bg_color:"black"
+                            padding:20
+                            MDRelativeLayout:
+                                Video:
+                                    source:"C:/Users/uvais/Downloads/pimg/g4.gif"
+                                    preview:'C:/Users/uvais/Downloads/pimg/q12.jpg'
+                                    #pos_hint:{"right":0}
+                                    state:"play"
+                                    volume: 0
+                                    allow_fullscreen: True
+                                    pos_hint:{"right":1}
+                                    options: {'eos': 'loop'}
+                            
+                            
+                    MDBoxLayout:
+                        padding:20
+                        MDLabel:
+                            text:"Imagery Education Script"
+                            bold:True
+                            font_style:"H6"
+                            pos_hint:{"top":0.5}
+                            color:"#083852"
+                    MDBoxLayout:
+                        spacing:1
+                        padding:20
+                        size_hint_y:2.2
+                        
+                        MDCard:
+                            md_bg_color:"#b3b3b3"
+                            line_width:1
+                            pos_hint:{"top":1}
+
+                            size_hint_y:1.5
+                            line_color: "#590042"
+                            radius:[30]
+                            padding:10
+                            MDRelativeLayout:
+                                MDLabel:
+                                    text:"Mental images are the pictures you see in your mind. Nearly everyone experiences some type of images. These images can also include any of the five senses. For example, you can 'hear' sounds in your imagination. You might also smell, taste, or feel things in your imagination. Images may be clear or unclear, fleeting or long-lasting. When I refer to 'mental images', this is what I’m referring to."
+                                    font_style:"Caption"
+                                    
+                    
+                    MDBoxLayout:
+                        padding:20
+                        size_hint_x:1
+                        size_hint_y:3
+                        MDLabel:
+                            text:"why you would like to use imagery for their particular problem. There are a number of ways in which imagery can be beneficial:. "
+                            font_style:"H6"
+                            pos_hint:{"top":0.8}
+                            color:"#083852"
+                    MDNavigationDrawerDivider
+                    MDBoxLayout:
+                        padding:20
+                        spacing:20
+                        MDLabel:
+                            text:"1.Internalize cognitive changes."
+                            font_style:"Subtitle1"
+                            pos_hint:{"top":1.5}
+                            color:"black"
+                    MDBoxLayout:
+                        padding:20
+                        spacing:20
+                        MDLabel:
+                            text:" Clients may understand on a cognitive level when thoughts are irrational, but not actually feel better because of it. Imagery can help a person accept new, adaptive thoughts on an emotional level.."
+                            font_style:"Caption"
+                            pos_hint:{"top":1.7}
+                            color:"#666666"
+                    MDNavigationDrawerDivider
+                    MDBoxLayout:
+                        padding:20
+                        spacing:10
+                        MDLabel:
+                            text:"2.Decrease uncomfortable emotions."
+                            font_style:"Subtitle1"
+                            pos_hint:{"top":1.5}
+                            color:"black"
+                    MDBoxLayout:
+                        padding:20
+                        spacing:10
+                        MDLabel:
+                            text:"Distressing images may trigger or maintain uncomfortable emotions. Imagery techniques can lessen the intensity of the images and associated emotions."
+                            font_style:"Caption"
+                            pos_hint:{"top":1.7}
+                            color:"#666666"
+                    MDNavigationDrawerDivider
+                    MDBoxLayout:
+                        padding:20
+
+                        MDLabel:
+                            text:"3.Decatastrophize."
+                            font_style:"Subtitle1"
+                            pos_hint:{"top":1.5}
+                            color:"black"
+                    MDBoxLayout:
+                        padding:20
+
+                        MDLabel:
+                            text:"Many images involve worst-case scenarios. Imagery techniques can help clients imagine more likely outcomes.."
+                            font_style:"Caption"
+                            pos_hint:{"top":1.7}
+                            color:"#666666"
+                    MDNavigationDrawerDivider
+                    MDBoxLayout:
+                        padding:20
+
+                        MDLabel:
+                            text:"4.Increase adaptive behaviors."
+                            font_style:"Subtitle1"
+                            pos_hint:{"top":1.5}
+                            color:"black"
+                    MDBoxLayout:
+                        padding:20
+
+                        MDLabel:
+                            text:" Imagery allows clients to visualize using adaptive behaviors, such as coping skills, to work through difficult emotions or situations. This increases the likelihood of using these behaviors.."
+                            font_style:"Caption"
+                            pos_hint:{"top":1.7}
+                            color:"#666666"
+                    MDNavigationDrawerDivider
+                    MDBoxLayout:
+                        padding:20
+
+                        MDLabel:
+                            text:"5.Respond appropriately to a situation. ."
+                            font_style:"Subtitle1"
+                            pos_hint:{"top":1.5}
+                            color:"black"
+                    MDBoxLayout:
+                        padding:20
+
+                        MDLabel:
+                            text:" Imagery allows clients to “test out” different behaviors and identify better possible responses to a situation..."
+                            font_style:"Caption"
+                            pos_hint:{"top":1.7}
+                            color:"#666666"
+                    MDNavigationDrawerDivider
+                    MDBoxLayout:
+                        spacing:10
+                        padding:20
+                        size_hint_y:3
+                        
+                        MDCard:
+                            size_hint_y:2
+                            md_bg_color:"#f4e6d7"
+                            line_width:1
+                            pos_hint:{"top":1}
+
+                            size_hint_y:1
+                            line_color: "#ce8c4b"
+                            radius:[30]
+                            padding:10
+                            MDRelativeLayout:
+                                MDLabel:
+                                    text:"Try discussing imagery as if it is a movie, with a set, script, sound effects, and music. Each detail must be described to paint a full picture of what's happening. This metaphor can help clients understand the richness of imagery.."
+                                    font_style:"Caption"
+                                    color:"#666666"
+                                MDIconButton:
+                                    icon:"lightbulb"
+                                    icon_size:"20dp"
+                                    pos_hint:{"top":1.1,"right":0.4}
+                                    icon_color:"red"
+                                MDLabel:
+                                    text:"Tips"
+                                    font_style:"Subtitle1"
+                                    pos_hint:{"top":1.45,"right":1.4}
+                                    color:"#083852"
+                    MDBoxLayout:
+                        md_bg_color:"#083852"   
+                        size_hint_y:1.2
+                        spacing:10
+                        MDCard:
+                            md_bg_color:"#083852"
+                            pos_hint:{"right":1}
+                            on_release:app.change_screen('imagery_chat')
+                            MDRelativeLayout:
+                                MDIconButton:
+                                    icon:"arrow-right-circle"
+                                    icon_size:"50dp"
+                                    pos_hint:{"right":0.9}
+                                    on_release:app.change_screen('imagery_chat')
+                                MDLabel:
+                                    text:"AI Room"
+                                    font_style:"H4"
+                                    pos_hint:{"right":1.2}
+                                    #halign:"center"
+                    
+        MDScreen:
+
+            name:"imgery_form"
+            MDBoxLayout:
+                orientation: "vertical"
+                md_bg_color:"#cccccc"
+                MDCard:
+                    size_hint_y:0.1
+                    md_bg_color:"#083852"
+                    MDRelativeLayout:
+                        MDLabel:
+                            
+                            text:"Imgery Form"
+                            halign:"center"
+                            font_style:"H4"
+                            bold:True
+                        MDIconButton:
+                            icon:"arrow-left-circle"
+                            icon_size:"40"
+                            on_press: root.switch_screen("imgery_overview")
+
+                ScrollView:
+                    pos_hint:{"top":0.3}
+                    md_bg_color:"black"
+                    MDBoxLayout:
+                        #md_bg_color:"black"
+                        pos_hint:{"top":0.3}
+                        orientation: "vertical"
+                        size_hint_y: None
+                        height: self.minimum_height
+                        padding: dp(20)
+                        spacing: dp(70)
+                        MDLabel:
+                            color:"black"
+                            text:"\n \n1. Can you describe the situation that is currently bothering you?"
+                            spacing:dp(30)
+                        MDTextField:
+                            id: situation_input
+                            text_color_focus: "black"
+                            hint_text_color_focus:"black"
+                            line_color_normal: "black"
+                            line_color_focus: "black"
+                            hint_text_color_normal:"black"
+                            hint_text: "Type your situation"
+                            multiline: True
+                            mode: "rectangle"
+                            size_hint_y: None
+                            height: dp(100)
+                        MDSeparator
+                        MDLabel:
+                            color:"black"
+                            text:"2. When you think about this situation, what image or scene naturally comes to mind?"
+                            spacing:dp(30)
+                        MDTextField:
+                            text_color_focus: "black"
+                            hint_text_color_focus:"black"
+                            line_color_normal: "black"
+                            line_color_focus: "black"
+                            hint_text_color_normal:"black"
+                            id: thoughts_input
+                            hint_text: "Type your image"
+                            multiline: True
+                            mode: "rectangle"
+                            size_hint_y: None
+                            height: dp(100)
+                        MDSeparator
+                        MDLabel:
+                            color:"black"
+                            text:"3.In the image, what do you see, hear, smell, or feel?"
+                            spacing:dp(30)
+                        MDTextField:
+                            text_color_focus: "black"
+                            hint_text_color_focus:"black"
+                            line_color_normal: "black"
+                            line_color_focus: "black"
+                            hint_text_color_normal:"black"
+                            id: feelings_input
+                            hint_text: "Type your scene"
+                            multiline: True
+                            mode: "rectangle"
+                            size_hint_y: None
+                            height: dp(100)
+                        MDSeparator
+                        MDLabel:
+                            color:"black"
+                            text:"4. What physical sensations are you feeling when you see this image?"
+                            spacing:dp(30)
+                        MDTextField:
+                            text_color_focus: "black"
+                            hint_text_color_focus:"black"
+                            line_color_normal: "black"
+                            line_color_focus: "black"
+                            hint_text_color_normal:"black"
+                            id: worst_case_input
+                            hint_text: "Type your sensations"
+                            multiline: True
+                            mode: "rectangle"
+                            size_hint_y: None
+                            height: dp(100)
+
+                        MDRaisedButton:
+                            text: "Submit"
+                            md_bg_color:"513315"
+                            on_release: root.process_form()
+                            pos_hint:{"right":0.6}
+                            color:"#083852"
+                            

@@ -1,0 +1,1413 @@
+<journal_affirmation>
+    name:"journal_affirmation"
+    MDScreenManager:
+        id: journal_screen_manager
+        MDScreen:
+            name: "overview"
+            MDScrollView:      
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y:8
+                    #size_hint_x:1
+                    md_bg_color:"#636ca6"
+                    MDRelativeLayout:
+                        MDBoxLayout:
+                            #md_bg_color:"red"
+                            #padding:20
+                            size_hint: 1.2, 0.18
+                            pos_hint:{"right":1.09}
+                            radius:[800]
+
+                            MDCard:
+                                md_bg_color:"#111024"
+                                radius:[300]
+                                #line_width:30
+                                #line_color: "#111024"
+                                size_hint: 5, 1
+                                
+                                pos_hint:{"top":6.2,"right":1.6}
+                                MDRelativeLayout:
+                                    FitImage:
+                                        #source:"https://i.pinimg.com/736x/a3/b3/be/a3b3beea903f239e2a9c1408ff953b4b.jpg"
+                                        radius:[255]
+                                        #pos_hint:{"top":1.3}
+                                        #size_hint_y:1.3
+                                    MDLabel:
+                                        text:"Your Journal is\n all you need"
+                                        bold:True
+                                        font_style:"H6"
+                                        pos_hint:{"top":0.6,"right":1.3}
+                                        #halign:"center"
+                                        color:"white"
+                                    MDCard:
+                                        size_hint:0.24,0.05
+                                        md_bg_color:"#524e7d"
+                                        pos_hint:{"top":0.23,"right":0.52}
+                                        radius:[22]
+                                        id: button
+                                        on_release: root.toggle_tap_target("1")
+                                        MDRelativeLayout:
+                                            MDLabel:
+                                                text:"Journal"
+                                                color:"black"
+                                                halign:"center"
+                                                font_style:"Caption"
+                                    MDCard:
+                                        size_hint:0.24,0.05
+                                        pos_hint:{"top":0.23,"right":0.79}
+                                        radius:[22]
+                                        md_bg_color:"#939ccc"
+                                        id: button2
+                                        on_release: root.toggle_tap_target("2")
+                                        MDRelativeLayout:
+                                            MDLabel:
+                                                text:"Positivity"
+                                                color:"black"
+                                                halign:"center"
+                                                font_style:"Caption"
+                                    MDIconButton:
+                                        icon:"arrow-left-circle"
+                                        pos_hint:{"top":0.3,"right":0.25}
+                                        icon_size:"20dp"
+                                        md_bg_color:"#939ccc"
+                                        on_press: root.manager.current = 'lawofattraction'
+                                    
+                                    MDLabel:
+                                        
+                                        text:"Journal\nAffirmation "
+                                        bold:True
+                                        padding:20
+                                        color:"white"
+                                        font_style:"H5"
+                                        pos_hint:{"right":1.3,"top":0.79}
+                                    
+
+                        MDBoxLayout:
+                            
+                            size_hint_y:0.015
+                            size_hint_x:1
+
+                            pos_hint: {"top":0.897}
+                            spacing: "15dp"
+                            padding:10
+                            MDCard:
+                                #md_bg_color:"#54539d"
+                                md_bg_color:"#2c2b5e"
+                                size_hint_x:0.6
+                                size_hint_y:1
+                                radius:[22]
+                                line_width:1
+                                line_color:"#54539d"
+                                padding:10
+                                pos_hint:{"top":4}
+                                elevation:4
+                                on_release: root.switch_screen("journal")
+                                MDRelativeLayout:
+                                    MDLabel:
+                                        text:"Go to Journal"
+                                        font_style:"H6"
+                                        pos_hint:{"right":1.2}
+                                    MDIconButton:
+                                        icon:"cursor-default-click"
+                                        icon_size:30
+                                        pos_hint:{"right":1}
+
+                                   
+                        # Lower dynamic part (switchable content)
+                        MDBoxLayout:
+                            size_hint_y: 10
+                            pos_hint:{"top":0.68}
+                                        
+                            MDBoxLayout:
+
+
+                                orientation: "vertical"
+                                spacing: "10dp"
+                                size_hint_y:1
+                                padding: "5dp"
+                                radius:[20]
+                                #md_bg_color:"black"
+                                MDRelativeLayout:
+                                    
+                                    
+                                    
+                                    FitImage:
+                                        source:"https://i.pinimg.com/736x/94/0b/d5/940bd52d93827c02b39a61eae6f19a3e.jpg"
+                                        radius:[10]
+                                        size_hint_y:0.008
+                                        pos_hint:{"top":1.0158}
+                                    
+                                    
+                                    
+                                    MDBoxLayout:
+                                        radius:[20]
+                                        size_hint_x:1
+                                        size_hint_y:0.007
+                                        md_bg_color:"#2c2b5e"
+                                        pos_hint:{"top":1.023}
+                                        spacing:dp(100)
+                                        MDRelativeLayout:
+                                            
+
+                                           
+                                            MDLabel:
+                                                padding:10
+                                                text:"A journal affirmation is a powerful self-improvement practice that combines journaling with affirmations to help individuals cultivate a positive mindset, build self-awareness, and reinforce their goals. By writing affirmations in a journal, people can actively shift their thought patterns, boost confidence, and create a clear vision for their future. This method integrates both self-reflection and positive reinforcement, making it an effective tool for personal growth, emotional healing, and manifestation."
+                                                color:"black"
+                                                font_style:"Subtitle1"
+                                                pos_hint:{"top":1}
+                                            MDLabel:
+                                                text: "Introduction"
+                                                font_style: "H5"
+                                                color: "white"
+
+                                                pos_hint:{"top":1.56}
+                                            
+                                                
+                                                    
+                                                
+                                    
+                                        
+                                    MDBoxLayout:
+                                        radius:[20]
+                                        pos_hint:{"top":1.007}
+                                        size_hint_y: None
+                                        height: self.minimum_height
+                                        size_hint_x:1
+                                        #md_bg_color:"black"
+                                        orientation:"vertical"
+                                        spacing:dp(110)
+                                        MDSeparator:
+                                        MDLabel:
+                                            text:" How to Use the Affirmation Journaling"
+                                            font_style:"H4"
+                                            pos_hint:{"top":1}
+                                            color:"black"
+                                            bold:True
+                                            padding:10
+                                            size_hint_x:1
+                                            size_hint_y:1.4
+                                            spacing:10
+                                        
+                                        MDLabel:
+                                            text:" Pre-Journal: Setting Intentions."
+                                            font_style:"H6"
+                                            #pos_hint:{"top":1.3}
+                                            color:"black"
+                                            bold:True
+                                            padding:10
+                                        MDLabel:
+                                            text:"•  Purpose: Helps users plan their day with positive intentions..\n\n• When to Use: At the start of the day or before beginning a task.\n\n• Answer guided questions such as:."
+                                            font_style:"Subtitle2"
+                                            #pos_hint:{"top":1.22}
+                                            color:"black"
+                                            padding:10
+                                        MDLabel:
+                                            text:"• What do you want to do today?\n\n• What small actions will you take to achieve it?."
+                                            font_style:"Caption"
+                                            #pos_hint:{"top":1.22}
+                                            color:"black"
+                                            padding:10
+                                        MDLabel:
+                                            text:"•  Outcome: A clear plan and motivation to stay committed to your goals.."
+                                            font_style:"Subtitle2"
+                                            #pos_hint:{"top":1.22}
+                                            color:"black"
+                                            padding:10
+                                        MDSeparator:
+                                        MDLabel:
+                                            text:"After-Journal: Reflection & Progress"
+                                            font_style:"H6"
+                                            #pos_hint:{"top":1.12}
+                                            color:"black"
+                                            bold:True
+                                            padding:10
+                                    
+                                        MDLabel:
+                                            text:"• Purpose: Encourages self-reflection and tracks achievements.\n\n•  When to Use: At the end of the day or after completing a task.\n\n• Answer reflection questions like:."
+                                            font_style:"Subtitle2"
+                                            #pos_hint:{"top":1.04}
+                                            color:"black"
+                                            padding:10
+                                        MDLabel:
+                                            text:"• What did you accomplish today?\n\n• Did you follow your plan?\n\n• How do you feel now compared to before?"
+                                            font_style:"Caption"
+                                            #pos_hint:{"top":1.04}
+                                            color:"black"
+                                            padding:10
+                                        MDLabel:
+                                            text:"• (Optional) Upload an image of your progress (e.g., completed work, workout stats).\n\n • Outcome: Helps users recognize growth, stay motivated, and improve self-awareness."
+                                            font_style:"Subtitle2"
+                                            #pos_hint:{"top":1.04}
+                                            color:"black"
+                                            padding:10
+                                        MDSeparator:
+                                        MDLabel:
+                                            text:"Progress Tracking: Time & History"
+                                            font_style:"H6"
+                                            #pos_hint:{"top":1.12}
+                                            color:"black"
+                                            bold:True
+                                            padding:10
+                                            
+                                    
+                                        MDLabel:
+                                            text:"• Purpose: Allows users to check past entries and measure progress over time.\n\n• Tracking Features.\n\n \n"
+                                            font_style:"Subtitle2"
+                                            #pos_hint:{"top":1.04}
+                                            color:"black"
+                                            padding:10
+                                        MDLabel:
+                                            text:"\n• Calendar View: See streaks of journal entries.\n\n• Mood Comparison: Track emotions before\nand after journaling.\n\n• Before vs. After: View side-by-side comparison\nof planned vs. completed tasks.\n\n• Journal History: Access previous entries\nby date."
+                                            font_style:"Caption"
+                                            #pos_hint:{"top":1.04}
+                                            color:"black"
+                                            padding:10
+                                        MDSeparator:
+
+                                    MDBoxLayout:
+                                        size_hint_y:0.005
+                                        md_bg_color:"black"
+                                        pos_hint:{"top":0.977}
+                                        radius:[20]
+                                        MDRelativeLayout:
+                                            Video:
+                                                source:"https://i.pinimg.com/originals/d0/b9/5d/d0b95d0dcef615afc9f7e8186b8a4dd8.gif"
+                                                state:"play"
+                                                volume: 0
+                                                allow_fullscreen: True
+                                                pos_hint:{"right":1}
+                                                options: {'eos': 'loop'}
+                                    MDBoxLayout:
+                                        size_hint_y: None
+                                        height: self.minimum_height
+                                        size_hint_x:1
+                                        #md_bg_color:"black"
+                                        orientation:"vertical"
+                                        spacing:dp(210)
+                                        
+                                        pos_hint:{"top":0.972}
+                                        MDSeparator:
+                                        MDLabel:
+                                            text:" Benefits of Pre-Journal and After-Journal Affirmations"
+                                            font_style:"H4"
+                                            pos_hint:{"top":1}
+                                            color:"black"
+                                            bold:True
+                                            padding:10
+                                            size_hint_x:1
+                                            size_hint_y:1.4
+                                            spacing:10
+                                        
+                                        MDLabel:
+                                            text:" Pre-Journal Affirmations (Before an Activity or Day Begins)."
+                                            font_style:"H6"
+                                            #pos_hint:{"top":1.3}
+                                            color:"black"
+                                            bold:True
+                                            padding:10
+                                        MDLabel:
+                                            text:"These affirmations help set a positive mindset, clarify goals, and increase motivation.\n\n• Clarity & Focus – Helps define what you want to achieve.\n\n• Boosts Motivation – Creates an empowered mindset before taking action.\n\n• Reduces Anxiety – Shifts focus from fear to confidence.\n\n• Law of Attraction – Reinforces positive thinking to manifest desired outcomes.\n\n• Self-Discipline – Encourages commitment to tasks and goals."
+                                            font_style:"Subtitle2"
+                                            #pos_hint:{"top":1.22}
+                                            color:"black"
+                                            padding:10
+                                        
+                                        
+                                        MDLabel:
+                                            text:" 2. After-Journal Affirmations (Reflection & Closing the Day/Task)."
+                                            font_style:"H6"
+                                            #pos_hint:{"top":1.3}
+                                            color:"black"
+                                            bold:True
+                                            padding:10
+                                        MDLabel:
+                                            text:"These affirmations reinforce progress, encourage gratitude, and build self-awareness.\n\n• Celebrates Achievements – Acknowledges progress, no matter how small.\n\n• Encourages Growth – Helps identify strengths and areas to improve.\n\n• Reduces Negative Self-Talk – Focuses on what went well instead of self-criticism.\n\n•  Builds Gratitude – Shifts mindset to appreciation and positivity.\n\n• Creates Consistency – Strengthens habit-building through reflection."
+                                            font_style:"Subtitle2"
+                                            #pos_hint:{"top":1.22}
+                                            color:"black"
+                                            padding:10
+                                        
+                                        MDLabel:
+                                            text:" Tracking Progress: Time & History Feature"
+                                            font_style:"H6"
+                                            #pos_hint:{"top":1.3}
+                                            color:"black"
+                                            bold:True
+                                            padding:10
+                                        MDLabel:
+                                            text:"Having a journal history allows users to review past affirmations, track emotional changes, and see long-term growth..\n\n• Calendar View – Tracks consistency & streaks.\n\n•  Mood Tracking – Analyzes how affirmations impact emotions.\n\n• Before vs. After Comparison – Shows planned vs. completed actions for self-reflection.\n\nBy practicing pre-journal and after-journal affirmations, you build self-confidence, resilience, and a positive mindset over time"
+                                            font_style:"Subtitle2"
+                                            #pos_hint:{"top":1.22}
+                                            color:"black"
+                                            padding:10
+                                        
+                                        
+                                    
+                                    MDScrollView:
+                                        pos_hint:{"top":0.943}
+                                        size_hint_y:0.03
+                                        bar_width: dp(10)
+                                        do_scroll_y:False
+                                        MDBoxLayout:
+
+                                            size_hint_x:1
+                                            do_scroll_y:False
+                                            size_hint_y:0.3
+                                            pos_hint:{"top":0.24}
+                                            #md_bg_color:"red"
+                                            MDCard:
+                                                md_bg_color:"#434c83"
+                                                size_hint_x:1
+                                                size_hint_y:1
+                                                MDRelativeLayout:
+                                                
+                                                        
+                                                    MDLabel:
+                                                        text:"Night and Morning Are the Best Times to Manifest"
+                                                        font_style:"H4"
+                                                        bold:True
+                                                        padding:10
+                                                        pos_hint:{"top":1.33}
+                                                        color:"black"
+                                                        
+                                                    MDLabel:
+                                                        color:"black"
+                                                        text:"• The times just before falling asleep and right after waking up are the most effective for manifestation. Here’s why"
+                                                        font_style:"Subtitle2"
+                                                        bold:True
+                                                        padding:10
+                                                        pos_hint:{"top":1.05}
+                                                        
+                                                    MDLabel:
+                                                        color:"black"
+                                                        text:"• During these times, your brain operates in a theta brainwave state, which is a deeply relaxed, meditative state.\n\n• This state allows your subconscious mind to absorb affirmations and visualizations more effectively, as the conscious mind’s critical filter is less active."
+                                                        font_style:"Subtitle2"
+                                                        padding:10
+                                                        pos_hint:{"top":0.8}
+
+                                                    
+                                        
+        MDScreen:
+            name:"journal"
+            on_enter:root.display_mood_chart()
+            on_enter:root.display_word_cloud()
+            MDScrollView:
+                MDBoxLayout:
+                    size_hint_y:2
+                    md_bg_color:"#111024"
+                    MDRelativeLayout:
+                        MDCard:
+                            size_hint_y:0.06
+                            md_bg_color:"#2c2b5e"
+                            pos_hint:{"top":1}
+                            radius:[30]
+                            elevation:2
+                    
+                        MDLabel:
+                            text:"My Journals"
+                            color:"#92a4b2"
+                            font_style:"H4"
+                            #bold:True
+                            halign:"center"
+                            pos_hint:{"top":1.47}
+                        MDIconButton:
+                            icon:"arrow-left-circle"
+                            icon_size:40
+                            pos_hint:{"top":0.99}
+                            on_release:root.switch_screen("overview")
+                            
+
+                        MDBoxLayout:
+                            size_hint_y:0.85
+                            #md_bg_color:"black"
+                            padding:10
+                            pos_hint:{"top":0.98} 
+                            MDRelativeLayout:
+                                MDCard:
+                                    size_hint_y:0.14
+                                    size_hint_x:0.49
+                                    pos_hint:{"top":0.94,"right":0.5}
+                                    md_bg_color:"#524e7d"
+                                    radius:[30]
+                                    on_release: root.switch_screen("pre_journal")
+                                    MDRelativeLayout:
+                                        FitImage:
+                                            source:"https://i.pinimg.com/736x/e3/cd/b4/e3cdb4681f9b52a1fc691f35882dfe9c.jpg"
+                                            radius:[30]
+                                            size_hint_y:0.84
+                                            pos_hint:{"top":1}
+                                        MDLabel:
+                                            text:"Pre journal"
+                                            padding:10
+                                            bold:True
+                                            font_style:"Subtitle1"
+                                            pos_hint:{"top":0.6}
+                                    
+                                MDCard:
+                                    size_hint_y:0.14
+                                    size_hint_x:0.49
+                                    pos_hint:{"top":0.94,"right":1}
+                                    md_bg_color:"#524e7d"
+                                    radius:[30]
+                                    on_release:root.switch_screen("after_journal")
+                                    MDRelativeLayout:
+                                        FitImage:
+                                            source:"https://i.pinimg.com/736x/a9/a5/a8/a9a5a88f2fd740340de6ad3d41d63ade.jpg"
+                                            radius:[30]
+                                            size_hint_y:0.84
+                                            pos_hint:{"top":1}
+                                        MDLabel:
+                                            text:"After Journal"
+                                            font_style:"Subtitle1"
+                                            bold:True
+                                            padding:10
+                                            pos_hint:{"top":0.6}
+                                MDCard:
+                                    size_hint_y:0.14
+                                    size_hint_x:1
+                                    pos_hint:{"top":0.796}
+                                    md_bg_color:"#434c83"
+                                    radius:[30]
+                                    on_release:root.switch_screen("time_history")
+                                    MDRelativeLayout:
+                                        FitImage:
+                                            source:"https://i.pinimg.com/736x/ab/d4/6a/abd46ad234c97d43128c43a92572d13c.jpg"
+                                            radius:[30]
+                                            size_hint_y:0.84
+                                            pos_hint:{"top":1}
+                                        MDLabel:
+                                            text:"Time Line & Histroy of journal"
+                                            font_style:"Subtitle1"
+                                            bold:True
+                                            padding:10
+                                            pos_hint:{"top":0.6}
+                                        
+                                        
+
+                                MDBoxLayout:
+                                    size_hint_y:0.75
+                                    #md_bg_color:"green"
+                                    pos_hint:{"top":0.65}
+                                    MDRelativeLayout:
+                                        MDLabel:
+                                            text:"Progress"
+                                            font_style:"H5"
+                                            pos_hint:{"top":1.45}
+                                        MDBoxLayout:
+                                            
+                                            #md_bg_color:"black"
+                                            size_hint_y:0.5
+                                            pos_hint:{"top":0.9}
+                                            MDScrollView:
+                                                #md_bg_color:"grey"
+                                                MDBoxLayout:
+                                                    id:chart_container
+                                                    orientation:"vertical"
+                                                    #md_bg_color:"blue"
+                                                    size_hint_y:1.1
+                                                    size_hint_x:1.4
+                                                    
+                                        MDBoxLayout:
+                                            id:wordcloud_container
+                                            orientation:"vertical"
+                                            #md_bg_color:"red"
+                                            size_hint_y:0.45
+                                            pos_hint:{"top":0.38}
+
+
+                                                        
+        MDScreen:
+            name: "pre_journal"
+            FitImage:
+                source:"https://i.pinimg.com/736x/6c/f6/5f/6cf65fe9586c459a262eec1399eb2ba3.jpg"
+            MDScrollView:
+                MDBoxLayout:
+                
+                    orientation: "vertical"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    spacing: dp(140)
+                    padding:10
+                    MDLabel:
+                        text: "\n\n Pre-Journal"
+                        font_style: "H3"
+                        halign: "center"
+                        #pos_hint:{"top":0.8}
+                        spacing: dp(40)
+                        color:"#1f2025"
+                        bold:True
+                
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        size_hint_y: None
+                        height: self.minimum_height  # Adjusts height dynamically
+                        pos_hint:{"top":1}
+
+                        spacing: dp(40)
+                        #md_bg_color:"blue"
+                        MDLabel:
+                            color:"#1f2025"
+                            text:"   1.Intention & Planning \n"
+                            font_style:"H6"
+                            pos_hint:{"top":1}
+                            spacing: dp(20)
+                        MDTextField:
+                            id: pre_text_input1 
+                            text_color_normal: "#92a4b2"
+                            fill_color_focus: "#2b343c"
+                            line_color_focus: "black"
+                            text_color_focus: "#92a4b2"
+                            fill_color_normal: "black"
+                            text_color_normal: "#92a4b2"
+                            fill_color_focus: "#2b343c"
+                            hint_text_color_normal: "#5a7481"
+                            hint_text_color_focus: "#5a7481"
+                            fill_color:"black"
+                            multiline: True
+                            hint_text: "What is your main goal for today?"
+                            mode: "fill"
+                            size_hint_x: 1
+                            size_hint_y: None
+
+                            
+                            
+                            
+                            radius: [20, 20, 20, 20]
+                            width: dp(280)
+                            spacing: dp(20)
+                            pos_hint: {"top": 1}
+                        MDTextField:
+                            id: pre_text_input2
+                            text_color_normal: "#92a4b2"
+                            fill_color_focus: "#2b343c"
+                            line_color_focus: "black"
+                            text_color_focus: "#92a4b2"
+                            fill_color_normal: "black"
+                            hint_text_color_normal: "#5a7481"
+                            hint_text_color_focus: "#5a7481"
+                            multiline: True
+                            hint_text: "What small steps will you take\n to achieve it?"
+                            mode: "fill"
+                            size_hint_x: 1
+                            size_hint_y: None
+                            
+
+                            radius: [20, 20, 20, 20]
+                            width: dp(280)
+                            spacing: dp(20)
+                            pos_hint: {"top": 1}
+                        
+                        MDLabel:
+                            color:"#1f2025"
+                            text:"\n \n   2. Mindset & Motivation \n \n"
+                            font_style:"H6"
+                            pos_hint:{"top":1}
+                            
+                        MDTextField:
+                            id: pre_text_input3
+                            text_color_normal: "#92a4b2"
+                            fill_color_focus: "#2b343c"
+                            line_color_focus: "black"
+                            text_color_focus: "#92a4b2"
+                            fill_color_normal: "black"
+                            hint_text_color_normal: "#5a7481"
+                            hint_text_color_focus: "#5a7481"
+                            multiline: True
+                            hint_text: "How do you want to feel today?\n (Excited, Focused, Peaceful, etc.)"
+                            mode: "fill"
+                            size_hint_x: 1
+                            size_hint_y: None
+                            
+
+                            radius: [20, 20, 20, 20]
+                            width: dp(280)
+                            spacing: dp(20)
+                            pos_hint: {"top": 1}
+                        MDTextField:
+                            id: pre_text_input4 
+                            text_color_normal: "#92a4b2"
+                            fill_color_focus: "#2b343c"
+                            line_color_focus: "black"
+                            text_color_focus: "#92a4b2"
+                            fill_color_normal: "black"
+                            hint_text_color_normal: "#5a7481"
+                            hint_text_color_focus: "#5a7481"
+                            multiline: True
+                            hint_text: "What affirmation or positive thought\n will guide your day?"
+                            mode: "fill"
+                            size_hint_x: 1
+                            size_hint_y: None
+                            
+                            radius: [20, 20, 20, 20]
+                            width: dp(280)
+                            spacing: dp(20)
+                            #pos_hint: {"top": 1}
+                        MDTextField:
+                            id: pre_text_input5 
+                            text_color_normal: "#92a4b2"
+                            fill_color_focus: "#2b343c"
+                            line_color_focus: "black"
+                            text_color_focus: "#92a4b2"
+                            fill_color_normal: "black"
+                            hint_text_color_normal: "#5a7481"
+                            hint_text_color_focus: "#5a7481"
+                            multiline: True
+                            hint_text: "What challenges might come up, \nand how will you handle them?"
+                            mode: "fill"
+                            size_hint_x: 1
+                            size_hint_y: None
+                            
+                            line_color_focus: "black"
+                            text_color_focus: "#92a4b2"
+                            fill_color_normal: "black"
+                            hint_text_color_normal: "#5a7481"
+                            hint_text_color_focus: "#5a7481"
+                            radius: [20, 20, 20, 20]
+                            width: dp(280)
+                            spacing: dp(20)
+                            #pos_hint: {"top": 1}
+
+                        MDLabel:
+                            color:"#1f2025"
+                            text:"\n \n3.Gratitude & Energy Boost \n \n"
+                            font_style:"H6"
+                            pos_hint:{"top":1}
+                            
+                        MDTextField:
+                            id: pre_text_input6 
+                            text_color_normal: "#92a4b2"
+                            fill_color_focus: "#2b343c"
+                            line_color_focus: "black"
+                            text_color_focus: "#92a4b2"
+                            fill_color_normal: "black"
+                            hint_text_color_normal: "#5a7481"
+                            hint_text_color_focus: "#5a7481"
+                            multiline: True
+                            hint_text: "What is something you are grateful\n for this morning?"
+                            mode: "fill"
+                            size_hint_x: 1
+                            size_hint_y: None
+                            
+                            
+                            
+                            radius: [20, 20, 20, 20]
+                            width: dp(280)
+                            spacing: dp(20)
+                            pos_hint: {"top": 1}
+                        MDTextField:
+                            id: pre_text_input7 
+                            text_color_normal: "#92a4b2"
+                            fill_color_focus: "#2b343c"
+                            line_color_focus: "black"
+                            text_color_focus: "#92a4b2"
+                            fill_color_normal: "black"
+                            hint_text_color_normal: "#5a7481"
+                            hint_text_color_focus: "#5a7481"
+                            multiline: True
+                            hint_text: "What is something you are\n excited about today?"
+                            mode: "fill"
+                            size_hint_x: 1
+                            size_hint_y: None
+                            
+                            
+                            
+                            radius: [20, 20, 20, 20]
+                            width: dp(280)
+                            spacing: dp(20)
+                            #pos_hint: {"top": 1}
+                        MDTextField:
+                            id: pre_text_input8 
+                            text_color_normal: "#92a4b2"
+                            fill_color_focus: "#2b343c"
+                            line_color_focus: "black"
+                            text_color_focus: "#92a4b2"
+                            fill_color_normal: "black"
+                            hint_text_color_normal: "#5a7481"
+                            hint_text_color_focus: "#5a7481"
+                            multiline: True
+                            hint_text: "What song, book, or quote\n will inspire you today?"
+                            mode: "fill"
+                            size_hint_x: 1
+                            size_hint_y: None
+                            
+                            
+                            
+                            radius: [20, 20, 20, 20]
+                            width: dp(280)
+                            spacing: dp(20)
+                            #pos_hint: {"top": 1}
+
+                        MDLabel:
+                            color:"#1f2025"
+                            text:"\n \n4. Personal Growth & Reflection \n \n"
+                            font_style:"H6"
+                            pos_hint:{"top":1}
+                            
+                        MDTextField:
+                            id: pre_text_input9 
+                            text_color_normal: "#92a4b2"
+                            fill_color_focus: "#2b343c"
+                            line_color_focus: "black"
+                            text_color_focus: "#92a4b2"
+                            fill_color_normal: "black"
+                            hint_text_color_normal: "#5a7481"
+                            hint_text_color_focus: "#5a7481"
+                            multiline: True
+                            hint_text: "How can you step out\n of your comfort zone today?"
+                            mode: "fill"
+                            size_hint_x: 1
+                            size_hint_y: None
+                            
+                            
+                            
+                            radius: [20, 20, 20, 20]
+                            width: dp(280)
+                            spacing: dp(20)
+                            pos_hint: {"top": 1}
+                        MDTextField:
+                            id: pre_text_input10 
+                            text_color_normal: "#92a4b2"
+                            fill_color_focus: "#2b343c"
+                            line_color_focus: "black"
+                            text_color_focus: "#92a4b2"
+                            fill_color_normal: "black"
+                            hint_text_color_normal: "#5a7481"
+                            hint_text_color_focus: "#5a7481"
+                            multiline: True
+                            hint_text: "What habit or mindset do you\n want to improve today?"
+                            mode: "fill"
+                            size_hint_x: 1
+                            size_hint_y: None
+                            
+                            
+                            
+                            radius: [20, 20, 20, 20]
+                            width: dp(280)
+                            spacing: dp(20)
+                            #pos_hint: {"top": 1}
+                        MDTextField:
+                            id: pre_text_input11 
+                            text_color_normal: "#92a4b2"
+                            fill_color_focus: "#2b343c"
+                            line_color_focus: "black"
+                            text_color_focus: "#92a4b2"
+                            fill_color_normal: "black"
+                            hint_text_color_normal: "#5a7481"
+                            hint_text_color_focus: "#5a7481"
+                            multiline: True
+                            hint_text: "How will you make today better\n than yesterday?"
+                            mode: "fill"
+                            size_hint_x: 1
+                            size_hint_y: None
+                            
+                            
+                            
+                            radius: [20, 20, 20, 20]
+                            width: dp(280)
+                            spacing: dp(20)
+                            #pos_hint: {"top": 1}
+                        MDLabel:
+                            text:"   What is your current mood"
+                            font_style:"H6"
+                            color:"black"
+                        MDBoxLayout:
+                            spacing:30
+                            adaptive_height: True
+                            #pos_hint: {"center_x": 0.5}
+
+                            MDIconButton:
+                                id:Angry1
+                                icon: "emoticon-angry-outline"
+                                user_font_size: "48sp"
+                                on_release: root.select_mood(self, "Angry1","2")
+
+                            MDIconButton:
+                                id:Sad1
+                                icon: "emoticon-sad-outline"
+                                user_font_size: "48sp"
+                                on_release: root.select_mood(self, "Sad1","2")
+
+                            MDIconButton:
+                                id: Happy1
+                                icon: "emoticon-happy-outline"
+                                user_font_size: "48sp"
+                                on_release: root.select_mood(self, "Happy1","2")
+                            MDIconButton:
+                                id:Excited1
+                                icon: "emoticon-excited-outline"
+                                user_font_size: "48sp"
+                                on_release: root.select_mood(self, "Excited1","2")
+                        MDBoxLayout:
+                            spacing:0
+                            adaptive_height: True
+                            size_hint_y:0.07
+                            MDLabel:
+                                color:"black"
+                                text:"angry"
+                            MDLabel:
+                                color:"black"
+                                text:"sad"
+                            MDLabel:
+                                color:"black"
+                                text:"happy"
+                            MDLabel:
+                                color:"black"
+                                text:"excited"
+                        MDRaisedButton:
+                            text: "Submit"
+                            pos_hint: {"center_x": 0.5}
+                            on_press: root.save_journal("pre")
+                            on_release:root.switch_screen("journal")
+                        MDIconButton:
+                            icon:"arrow-left-circle"
+                            pos_hint: {"center_x": 0.5}
+                            on_release: root.switch_screen("journal")
+        MDScreen:
+            name: "after_journal"
+            FitImage:
+                source:"https://i.pinimg.com/736x/96/5c/bd/965cbdfb8fe6e9cec07adef65fc6c20d.jpg"
+            MDScrollView:
+                MDBoxLayout:
+                
+                    orientation: "vertical"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    spacing: dp(140)
+                    padding:10
+                    MDLabel:
+                        text: "\n\nAfter\nJournal"
+                        font_style: "H3"
+                        halign: "center"
+                        #pos_hint:{"top":0.8}
+                        spacing: dp(40)
+                        color:"black"
+                        bold:True
+                        padding:9
+                
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        size_hint_y: None
+                        height: self.minimum_height  # Adjusts height dynamically
+                        pos_hint:{"top":1}
+
+                        spacing: dp(40)
+                        #md_bg_color:"blue"
+                        MDLabel:
+                            color:"black"
+                            text:"\n   1.Goal Completion & Progress \n"
+                            font_style:"H6"
+                            pos_hint:{"top":1}
+                            spacing: dp(20)
+                        MDTextField:
+                            id: after_text_input1 
+                            text_color_normal: "#92a4b2"
+                            fill_color_focus: "#2b343c"
+                            line_color_focus: "black"
+                            text_color_focus: "#92a4b2"
+                            fill_color_normal: "black"
+                            hint_text_color_normal: "#5a7481"
+                            hint_text_color_focus: "#5a7481"
+                            multiline: True
+                            hint_text: "Did you complete your main goal\n for today? (Yes/No – If not, why?)"
+                            mode: "fill"
+                            size_hint_x: 1
+                            size_hint_y: None
+
+                            
+                            #height: max(dp(50), min(dp(150), self.line_height * len(self._lines)))  # Expands within limits
+                            #on_text: self.height = max(dp(50), min(dp(150), self.line_height * len(self._lines)))  # Auto-adjust height
+                            
+                            radius: [20, 20, 20, 20]
+                            width: dp(280)
+                            spacing: dp(20)
+                            pos_hint: {"top": 1}
+                        MDTextField:
+                            id: after_text_input2
+                            text_color_normal: "#92a4b2"
+                            fill_color_focus: "#2b343c"
+                            line_color_focus: "black"
+                            text_color_focus: "#92a4b2"
+                            fill_color_normal: "black"
+                            hint_text_color_normal: "#5a7481"
+                            hint_text_color_focus: "#5a7481"
+                            multiline: True
+                            hint_text: "What small steps did you\nsuccessfully  complete?"
+                            mode: "fill"
+                            size_hint_x: 1
+                            size_hint_y: None
+                        
+
+                            radius: [20, 20, 20, 20]
+                            width: dp(280)
+                            spacing: dp(20)
+                        MDTextField:
+                            id: after_text_input3
+                            text_color_normal: "#92a4b2"
+                            fill_color_focus: "#2b343c"
+                            line_color_focus: "black"
+                            text_color_focus: "#92a4b2"
+                            fill_color_normal: "black"
+                            hint_text_color_normal: "#5a7481"
+                            hint_text_color_focus: "#5a7481"
+                            multiline: True
+                            hint_text: "What obstacles did you face, \nand how did you handle them?"
+                            mode: "fill"
+                            size_hint_x: 1
+                            size_hint_y: None
+                        
+
+                            radius: [20, 20, 20, 20]
+                            width: dp(280)
+                            spacing: dp(20)
+                            pos_hint: {"top": 1}
+                        MDTextField:
+                            id: after_text_input4
+                            text_color_normal: "#92a4b2"
+                            fill_color_focus: "#2b343c"
+                            line_color_focus: "black"
+                            text_color_focus: "#92a4b2"
+                            fill_color_normal: "black"
+                            hint_text_color_normal: "#5a7481"
+                            hint_text_color_focus: "#5a7481"
+                            multiline: True
+                            hint_text: "What was the most unexpected \nthing that happened today?"
+                            mode: "fill"
+                            size_hint_x: 1
+                            size_hint_y: None
+                        
+                            line_color_focus: "black"
+                            text_color_focus: "#92a4b2"
+                            fill_color_normal: "black"
+                            hint_text_color_normal: "#5a7481"
+                            hint_text_color_focus: "#5a7481"
+                            radius: [20, 20, 20, 20]
+                            width: dp(280)
+                            spacing: dp(20)
+                        MDLabel:
+                            color:"black"
+                            text:"\n \n  2. Mood & Energy Check \n \n"
+                            font_style:"H6"
+                            pos_hint:{"top":1}
+                            
+                        MDTextField:
+                            id: after_text_input5
+                            text_color_normal: "#92a4b2"
+                            fill_color_focus: "#2b343c"
+                            line_color_focus: "black"
+                            text_color_focus: "#92a4b2"
+                            fill_color_normal: "black"
+                            hint_text_color_normal: "#5a7481"
+                            hint_text_color_focus: "#5a7481"
+                            multiline: True
+                            hint_text: "Rate your energy levels at the \nend of the day (1-10)"
+                            mode: "fill"
+                            size_hint_x: 1
+                            size_hint_y: None
+                        
+
+                            radius: [20, 20, 20, 20]
+                            width: dp(280)
+                            spacing: dp(20)
+                            pos_hint: {"top": 1}
+                        MDTextField:
+                            id: after_text_input6
+                            text_color_normal: "#92a4b2"
+                            fill_color_focus: "#2b343c"
+                            line_color_focus: "black"
+                            text_color_focus: "#92a4b2"
+                            fill_color_normal: "black"
+                            hint_text_color_normal: "#5a7481"
+                            hint_text_color_focus: "#5a7481"
+                            multiline: True
+                            hint_text: "What specific event or action had the\n biggest impact on your mood today?"
+                            mode: "fill"
+                            size_hint_x: 1
+                            size_hint_y: None
+                        
+                            radius: [20, 20, 20, 20]
+                            width: dp(280)
+                            spacing: dp(20)
+                            #pos_hint: {"top": 1}
+                        MDTextField:
+                            id: after_text_input7
+                            text_color_normal: "#92a4b2"
+                            fill_color_focus: "#2b343c"
+                            line_color_focus: "black"
+                            text_color_focus: "#92a4b2"
+                            fill_color_normal: "black"
+                            hint_text_color_normal: "#5a7481"
+                            hint_text_color_focus: "#5a7481"
+                            multiline: True
+                            hint_text: "What habits or routines helped you\nmaintain positive energy today?"
+                            mode: "fill"
+                            size_hint_x: 1
+                            size_hint_y: None
+                        
+                            line_color_focus: "black"
+                            text_color_focus: "#92a4b2"
+                            fill_color_normal: "black"
+                            hint_text_color_normal: "#5a7481"
+                            hint_text_color_focus: "#5a7481"
+                            radius: [20, 20, 20, 20]
+                            width: dp(280)
+                            spacing: dp(20)
+                            #pos_hint: {"top": 1}
+
+                        MDLabel:
+                            color:"black"
+                            text:"\n \n3. Learning & Growth \n \n"
+                            font_style:"H6"
+                            pos_hint:{"top":1}
+                            
+                        MDTextField:
+                            id: after_text_input8
+                            text_color_normal: "#92a4b2"
+                            fill_color_focus: "#2b343c"
+                            line_color_focus: "black"
+                            text_color_focus: "#92a4b2"
+                            fill_color_normal: "black"
+                            hint_text_color_normal: "#5a7481"
+                            hint_text_color_focus: "#5a7481"
+                            multiline: True
+                            hint_text: "What was the biggest lesson\n you learned today?"
+                            mode: "fill"
+                            size_hint_x: 1
+                            size_hint_y: None
+                        
+                            
+                            
+                            radius: [20, 20, 20, 20]
+                            width: dp(280)
+                            spacing: dp(20)
+                            pos_hint: {"top": 1}
+                        MDTextField:
+                            id: after_text_input9
+                            text_color_normal: "#92a4b2"
+                            fill_color_focus: "#2b343c"
+                            line_color_focus: "black"
+                            text_color_focus: "#92a4b2"
+                            fill_color_normal: "black"
+                            hint_text_color_normal: "#5a7481"
+                            hint_text_color_focus: "#5a7481"
+                            multiline: True
+                            hint_text: "If you could redo one thing,\n what would it be?"
+                            mode: "fill"
+                            size_hint_x: 1
+                            size_hint_y: None
+                        
+                            
+                            
+                            radius: [20, 20, 20, 20]
+                            width: dp(280)
+                            spacing: dp(20)
+                            #pos_hint: {"top": 1}
+                        MDTextField:
+                            id: after_text_input10
+                            text_color_normal: "#92a4b2"
+                            fill_color_focus: "#2b343c"
+                            line_color_focus: "black"
+                            text_color_focus: "#92a4b2"
+                            fill_color_normal: "black"
+                            hint_text_color_normal: "#5a7481"
+                            hint_text_color_focus: "#5a7481"
+                            multiline: True
+                            hint_text: "How can you improve your\n approach for tomorrow?"
+                            mode: "fill"
+                            size_hint_x: 1
+                            size_hint_y: None
+                        
+                            
+                            
+                            radius: [20, 20, 20, 20]
+                            width: dp(280)
+                            spacing: dp(20)
+                            #pos_hint: {"top": 1}
+
+                        MDLabel:
+                            color:"black"
+                            text:"\n \n4. Gratitude & Positivity \n \n"
+                            font_style:"H6"
+                            pos_hint:{"top":1}
+                            
+                        MDTextField:
+                            id: after_text_input11 
+                            text_color_normal: "#92a4b2"
+                            fill_color_focus: "#2b343c"
+                            line_color_focus: "black"
+                            text_color_focus: "#92a4b2"
+                            fill_color_normal: "black"
+                            hint_text_color_normal: "#5a7481"
+                            hint_text_color_focus: "#5a7481"
+                            multiline: True
+                            hint_text: "What was the best part of your day?"
+                            mode: "fill"
+                            size_hint_x: 1
+                            size_hint_y: None
+                        
+                            
+                            
+                            radius: [20, 20, 20, 20]
+                            width: dp(280)
+                            spacing: dp(20)
+                            pos_hint: {"top": 1}
+                        MDTextField:
+                            id: after_text_input12
+                            text_color_normal: "#92a4b2"
+                            fill_color_focus: "#2b343c"
+                            line_color_focus: "black"
+                            text_color_focus: "#92a4b2"
+                            fill_color_normal: "black"
+                            hint_text_color_normal: "#5a7481"
+                            hint_text_color_focus: "#5a7481"
+                            multiline: True
+                            hint_text: "What are you grateful for right now?"
+                            mode: "fill"
+                            size_hint_x: 1
+                            size_hint_y: None
+                        
+                            
+                            
+                            radius: [20, 20, 20, 20]
+                            width: dp(280)
+                            spacing: dp(20)
+                            #pos_hint: {"top": 1}
+                        MDTextField:
+                            id: after_text_input13
+                            text_color_normal: "#92a4b2"
+                            fill_color_focus: "#2b343c"
+                            line_color_focus: "black"
+                            text_color_focus: "#92a4b2"
+                            fill_color_normal: "black"
+                            hint_text_color_normal: "#5a7481"
+                            hint_text_color_focus: "#5a7481"
+                            multiline: True
+                            hint_text: "End your day with an affirmation \n for tomorrow 'Tomorrow, I will..."
+                            mode: "fill"
+                            size_hint_x: 1
+                            size_hint_y: None
+                        
+                            
+                            
+                            radius: [20, 20, 20, 20]
+                            width: dp(280)
+                            spacing: dp(20)
+                            #pos_hint: {"top": 1}
+                        MDLabel:
+                            color:"black"
+                            text:"\n \n 6. Proof & Documentation \n \n"
+                            font_style:"H6"
+                            pos_hint:{"top":1}
+                            spacing:dp(20)
+                        MDLabel:
+                            color:"black"
+                            text:"\n \n • If you didn’t complete your goal, what evidence of partial progress can you share?\n"
+                            font_style:"Subtitle1"
+                        MDLabel:
+                            color:"black"
+                            text:"\n\n \n • Upload a photo of your completed action (e.g., study notes, workout, journal entry)?\n"
+                            font_style:"Subtitle1"
+                            bold:True
+                        MDIconButton:
+                            icon:"image"
+                            pos_hint:{"right":0.55}
+                            icon_size:40
+                            on_release:root.file_manager_open()
+                        MDTextField:
+                            id: after_text_input12
+                            text_color_normal: "#92a4b2"
+                            fill_color_focus: "#2b343c"
+                            line_color_focus: "black"
+                            text_color_focus: "#92a4b2"
+                            fill_color_normal: "black"
+                            hint_text_color_normal: "#5a7481"
+                            hint_text_color_focus: "#5a7481"
+                            multiline: True
+                            hint_text: "Would you consider today a success?\n Why or why not?"
+                            mode: "fill"
+                            size_hint_x: 1
+                            size_hint_y: None
+                        
+                            
+                            
+                            radius: [20, 20, 20, 20]
+                            width: dp(280)
+                            spacing: dp(20)
+                            pos_hint: {"top": 1}
+                        MDLabel:
+                            text:"   What is your current mood"
+                            font_style:"H6"
+                            color:"black"
+                        MDBoxLayout:
+                            spacing:30
+                            adaptive_height: True
+                            #pos_hint: {"center_x": 0.5}
+
+                            MDIconButton:
+                                id: Angry
+                                icon: "emoticon-angry-outline"
+                                user_font_size: "48sp"
+                                on_release: root.select_mood(self, "Angry","1")
+
+                            MDIconButton:
+                                id: Sad
+                                icon: "emoticon-sad-outline"
+                                user_font_size: "48sp"
+                                on_release: root.select_mood(self, "Sad","1")
+
+                            MDIconButton:
+                                id: Happy
+                                icon: "emoticon-happy-outline"
+                                user_font_size: "48sp"
+                                on_release: root.select_mood(self, "Happy","1")
+                            MDIconButton:
+                                id: Excited
+                                icon: "emoticon-excited-outline"
+                                user_font_size: "48sp"
+                                on_release: root.select_mood(self, "Excited","1")
+                        MDBoxLayout:
+                            spacing:0
+                            adaptive_height: True
+                            size_hint_y:0.07
+                            MDLabel:
+                                color:"black"
+                                text:"angry"
+                            MDLabel:
+                                color:"black"
+                                text:"sad"
+                            MDLabel:
+                                color:"black"
+                                text:"happy"
+                            MDLabel:
+                                color:"black"
+                                text:"excited"
+                        MDRaisedButton:
+                            text: "Submit"
+                            pos_hint: {"center_x": 0.5}
+                            on_press: root.save_journal("after")
+                            on_release:root.switch_screen("journal")
+                        MDIconButton:
+                            icon:"arrow-left-circle"
+                            pos_hint: {"center_x": 0.5}
+                            on_release:root.switch_screen("journal")
+
+
+        MDScreen:
+            name: "time_history"
+            FitImage:
+                source:"https://i.pinimg.com/736x/e4/4c/11/e44c11a6fc666dc6ba0704a0f167f90f.jpg"
+            MDScrollView:
+                MDBoxLayout:
+                
+                    orientation: "vertical"
+                    size_hint_y: 2.6
+                    spacing: dp(140)
+                    padding:10
+                    MDRelativeLayout:
+                        MDLabel:
+                            text: "Time and Histroy"
+                            font_style: "H3"
+                            halign: "center"
+                            pos_hint:{"top":1.46}
+                            spacing: dp(40)
+                            color:"black"
+                            bold:True
+                            padding:9
+                        MDRaisedButton:
+                            text: "Open Calendar"
+                            pos_hint: {"center_x": 0.5,"top":0.9}
+                            on_release: root.show_calendar()
+                        MDIconButton:
+                            icon:"arrow-left-circle"
+                            icon_size:40
+                            pos_hint:{"top":0.9}
+                            on_release:root.switch_screen("overview")
+                        MDLabel:
+                            text:" Your pre journals"
+                            font_style:"H4"
+                            pos_hint:{"top":1.34}
+                            bold:True
+                            color:"black"
+                        MDScrollView:
+                            bar_width: dp(10)
+                            size_hint_y:0.24
+                            #md_bg_color:"blue"
+                            pos_hint:{"top":0.82}
+                            radius:[20]           
+                            MDBoxLayout:
+                                id: dis_pre
+                                radius: [20]
+                                size_hint_x: 1
+                                size_hint_y: None  # Allow dynamic height adjustment
+                                height: self.minimum_height  # Automatically adjust height
+                                md_bg_color: "#94c5e0"
+                                padding: dp(10)
+
+                                MDLabel:
+                                    id: pre_journal_text
+                                    text: "Your Pre Journal will display Here"
+                                    size_hint_y: None  # Disable default size hint
+                                    height: self.texture_size[1]  # Adjust height based on text content
+                                    text_size: self.width, None  # Enable text rooting
+                                    theme_text_color: "Primary"
+                                    halign: "left"
+                                    valign: "top"
+
+                        MDLabel:
+                            text:" Your After journals"
+                            font_style:"H4"
+                            pos_hint:{"top":1.05}
+                            bold:True
+                            color:"black"
+                        MDScrollView:
+                            bar_width: dp(10)
+                            size_hint_y:0.2
+                            #md_bg_color:"blue"
+                            pos_hint:{"top":0.52}
+                            radius:[20]           
+                            MDBoxLayout:
+                                id: dis_after
+                                radius: [20]
+                                size_hint_x: 1
+                                size_hint_y: None  # Allow dynamic height adjustment
+                                height: self.minimum_height  # Automatically adjust height
+                                md_bg_color: "#94c5e0"
+                                padding: dp(10)
+
+                                MDLabel:
+                                    id: after_journal_text
+                                    text: "Your after Journal will see  Here"
+                                    size_hint_y: None  # Disable default size hint
+                                    height: self.texture_size[1]  # Adjust height based on text content
+                                    text_size: self.width, None  # Enable text wrapping
+                                    theme_text_color: "Primary"
+                                    halign: "left"
+                                    valign: "top"
+                        MDLabel:
+                            text:" Your Progress Images"
+                            font_style:"H4"
+                            pos_hint:{"top":0.78}
+                            bold:True
+                            color:"black"
+                        MDScrollView:
+                            pos_hint:{"top":0.25}
+                            #md_bg_color:"#0f334e"
+                            size_hint_y:0.25
+                            GridLayout:
+                                id: photos_layout
+                                cols: 2
+                                size_hint_y: None
+                                height: self.minimum_height
+                                spacing: dp(10)
+                                padding: dp(10)
+                            
+                            
+                                # pos_hint:{"top":0.5}
+
+                            
+
+
+                
+                            
+
+                    

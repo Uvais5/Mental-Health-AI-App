@@ -1,0 +1,121 @@
+
+<Command>
+    name:"Command"
+    size_hint_y:None
+    pos_hint:{"right":.98}
+    height:self.texture_size[1]
+    padding:12,10
+    theme_text_color : "Custom"
+    text_color:1,1,1,1
+    canvas.before:
+        Color:
+            rgb:(81/255, 51/255, 21/255)
+        RoundedRectangle:
+            size:self.width,self.height
+            pos:self.pos
+            radius:[23,23,0,23]
+
+<Response>
+    id:"res"
+    size_hint_y:None
+    pos_hint:{"x":.02}
+    height:self.texture_size[1]
+    padding:12,10
+    theme_text_color : "Custom"
+    text_color:81/255, 51/255, 21/255
+    canvas.before:
+        Color:
+            rgb:(239/255, 217/255, 195/255)
+        RoundedRectangle:
+            size:self.width,self.height
+            pos:self.pos
+            radius:[23,23,23,0]
+
+<though_chat> 
+    name:"though_chat"
+    id:though_chat
+    on_enter: root.on_start()
+    MDScreenManager:
+        id: chat_screen_manager
+        MDScreen:
+            name:"chat_screen"
+            
+            text_input: text_input
+            chat_list : chat_list
+            Screen:
+                FloatLayout:     
+                    FitImage:
+                        id:chat_img
+                        source:'https://i.pinimg.com/736x/a2/3e/6c/a23e6c072931dc31b1e5193d90832312.jpg'
+                        #size_hint_x:1
+                        #size_hint_y:2.3
+                        #pos_hint:{"center_y":0.1}
+
+                        allow_stretch:True
+                        
+
+            MDBoxLayout:
+                id:chat_main
+                orientation: 'vertical'
+                spacing: dp(20)
+
+                MDTopAppBar:
+                    title: "Thought Reframing AI"
+                    md_bg_color:"#513315"
+                    left_action_items: [["arrow-left-circle", lambda x: app.change_screen("though")]]
+                    #right_action_items: [["swap-horizontal-bold", lambda x: root.show_category_dialog()]]
+                
+        
+                    
+                MDScrollView:
+                    id: scroll_view
+                    MDBoxLayout:
+                        id: chat_list
+                        adaptive_height: True
+                        orientation: "vertical"
+                        padding: dp(20)
+                        spacing: dp(12)
+                
+
+                MDBoxLayout:
+                    size_hint_y: None
+                    height: self.minimum_height
+                    padding: dp(8)
+                    spacing: dp(8)
+
+                    MDTextField:
+                        id: text_input
+                        #md_bg_color: 71/255, 63/255, 59/255, 0.1
+                        line_color_focus: "#E8E8E8"
+                        text_color_focus: "#513315"
+                        text_color_normal: "#513315"
+                        fill_color_normal: "#E8E8E8"
+                        hint_text_color_normal: "#a2662a"
+                        hint_text_color_focus: "#a2662a"
+                        radius: [20, 20, 20, 20]
+                        hint_text: "Let me know your thought"
+                        font_style: "Caption"
+                        multiline: True
+                        mode: "fill"
+                        size_hint_x: 0.88
+                        height: min(self.minimum_height, dp(120))
+                        on_focus:
+                            if self.focus: root.move_textfield_up()
+                            else: root.move_textfield_down()
+
+                    MDIconButton:
+                        id: chatbutton
+                        icon: "send"
+                        icon_size: "24dp"
+                        theme_text_color: "Custom"
+                        text_color: "white"
+                        md_bg_color: "#513315"
+                        size_hint: None, None
+                        size: dp(48), dp(48)
+                        on_release: root.send_chat()
+
+                        
+                MDBoxLayout:
+                    id:new
+                    size_hint_y:None
+                    height:0

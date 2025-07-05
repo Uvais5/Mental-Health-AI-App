@@ -1,0 +1,607 @@
+<voice_affirmation>
+    name:"voice_affirmation"
+    MDScrollView:      
+        MDBoxLayout:
+            orientation: 'vertical'
+            size_hint_y:3.9
+            #size_hint_x:1
+            md_bg_color:"#7d9b94"
+            MDRelativeLayout:
+                MDBoxLayout:
+                    #md_bg_color:"red"
+                    #padding:20
+                    size_hint: 1.2, 0.17
+                    pos_hint:{"right":1.09}
+                    radius:[800]
+
+                    MDCard:
+                        #md_bg_color:"#513315"
+                        radius:[700]
+                        #line_width:30
+                        #line_color: "#513315"
+                        size_hint: 9, 1.2
+                        pos_hint:{"top":6.2,"right":1.6}
+                        MDRelativeLayout:
+                            FitImage:
+                                source:"https://i.pinimg.com/736x/13/19/7a/13197a60f3641722486118d311b3d468.jpg"
+                                radius:[255]
+                                pos_hint:{"top":1.3}
+                                size_hint_y:1.3
+                            MDLabel:
+                                text:"Your Voice is all you need"
+                                bold:True
+                                font_style:"H6"
+                                pos_hint:{"top":0.7,"right":1.2}
+                                #halign:"center"
+                                color:"#aaaa56"
+                            MDCard:
+                                size_hint:0.24,0.12
+                                md_bg_color:"#276d5e"
+                                pos_hint:{"top":0.4,"right":0.52}
+                                radius:[22]
+                                id: button
+                                on_release: root.toggle_tap_target("1")
+                                MDRelativeLayout:
+                                    MDLabel:
+                                        text:"Vibration"
+                                        color:"black"
+                                        halign:"center"
+                                        font_style:"Caption"
+                            MDCard:
+                                size_hint:0.24,0.12
+                                pos_hint:{"top":0.4,"right":0.79}
+                                radius:[22]
+                                md_bg_color:"#7d9b94"
+                                id: button2
+                                on_release: root.toggle_tap_target("2")
+                                MDRelativeLayout:
+                                    MDLabel:
+                                        text:"Self Love"
+                                        color:"black"
+                                        halign:"center"
+                                        font_style:"Caption"
+                            MDIconButton:
+                                icon:"arrow-left-circle"
+                                pos_hint:{"top":0.68,"right":0.23}
+                                icon_size:"20dp"
+                                md_bg_color:"#aaaa56"
+                                on_press: root.manager.current = 'lawofattraction'
+                            MDIconButton:
+                                icon:"file-edit"
+                                pos_hint:{"top":0.7,"right":0.92}
+                                icon_size:"20dp"
+                                #md_bg_color:"#6600ff"
+                                on_press: root.manager.current = 'loaform'
+                            MDLabel:
+                                
+                                text:"Voice Affirmation "
+                                bold:True
+                                padding:20
+                                color:"white"
+                                font_style:"H5"
+                                pos_hint:{"right":1.25,"top":1.15}
+                            MDSpinner:
+                                id:spinner
+                                size_hint: None, None
+                                size: dp(48), dp(48)
+                                pos_hint: {'center_x': 0.5,'center_y':0}
+                                active: False  
+                                color:"green"
+                            
+
+                MDBoxLayout:
+                    
+                    size_hint_y:0.03
+                    size_hint_x:1
+
+                    pos_hint: {"top":0.84}
+                    spacing: "15dp"
+                    padding:10
+                    MDCard:
+                        md_bg_color:"black"
+                        size_hint_x:0.6
+                        size_hint_y:1
+                        radius:[22]
+                        line_width:1
+                        line_color:"#aaaa56"
+                        padding:10
+                        pos_hint:{"top":1}
+                        MDRelativeLayout:
+                            
+                            MDChip:
+                                id:voice_chip1
+                                text: "Overview"
+                                group: "x"
+                                on_release: root.switch_screen("overview",self)
+                                pos_hint:{"top":1,"right":0.43}
+                                spacing: "15dp"
+                                md_bg_color:"#005957"
+                                text_color:"black"
+                                padding:5
+                            MDChip:
+                                id:voice_chip2
+                                text: "Techniques"
+                                group: "x"
+                                on_release: root.switch_screen("techniques",self)
+                                pos_hint:{"top":1,"right":0.9}
+                                md_bg_color:"#005957"
+                                text_color:"black"
+
+
+                # Lower dynamic part (switchable content)
+                MDBoxLayout:
+                    size_hint_y: 0.8
+                    pos_hint:{"top":0.8}
+                    
+                    MDScreenManager:
+                        id: screen_manager
+                        MDScreen:
+                            name: "overview"
+                    
+                            MDBoxLayout:
+
+
+                                orientation: "vertical"
+                                spacing: "10dp"
+                                size_hint_y:1.7
+                                padding: "5dp"
+                                radius:[20]
+                                MDRelativeLayout:
+
+                                    MDLabel:
+                                        text: "Introduction"
+                                        font_style: "H5"
+                                        color: "#aaaa56"
+
+                                        pos_hint:{"top":1.085}
+                                    FitImage:
+                                        source:"C:/Users/uvais/Downloads/pimg/voice.jpg"
+                                        radius:[10]
+                                        size_hint_y:0.1
+                                        pos_hint:{"top":0.46}
+                                        on_touch_move: app.detect_swipe(*args)
+                                    MDBoxLayout:
+                                        on_touch_move: app.detect_swipe(*args)
+                                        size_hint_x:1
+                                        size_hint_y:0.12
+                                        md_bg_color:"#015557"
+                                        pos_hint:{"top":0.58}
+                                        MDRelativeLayout:
+                                            
+
+                                            MDLabel:
+                                                padding:10
+                                                text:""
+                                                color:"black"
+                                                font_style:"Subtitle1"
+                                                pos_hint:{"top":1.35}
+                                                bold:True
+                                            MDLabel:
+                                                padding:10
+                                                text:"•  Voice affirmation is a technique where users record their own voice speaking positive affirmations and then listen to them regularly. \n\n• This helps reinforce positive thinking, build confidence, and promote mental well-being.\n\n• Instead of listening to pre-recorded affirmations, hearing one’s own voice creates a stronger subconscious impact, making the affirmations more personal and effective.\n\n• Visualization: Mentally picturing yourself achieving your goals or living your desired reality."
+                                                color:"black"
+                                                font_style:"Subtitle1"
+                                                pos_hint:{"top":1}
+                                    
+                                    MDScrollView:
+                                        bar_width: dp(10)
+                                        pos_hint:{"top":0.355}
+                                        size_hint_y:0.13
+                                        #size_hint_x:3
+                                        #md_bg_color:"#0f2124"
+                                        #do_scroll_y:False
+                                        MDBoxLayout:
+                                            size_hint_x:2
+                                            do_scroll_y:False
+                                            size_hint_y:1
+                                            pos_hint:{"top":0.2}
+                                            #md_bg_color:"red"
+                                            MDCard:
+
+                                                size_hint_x:0.06
+                                                size_hint_y:1
+                                                md_bg_color:"black"
+                                                #pos_hint:{"top":1}
+                                                MDRelativeLayout:
+                                                    MDLabel:
+                                                        padding:5
+                                                        text:"How It Works"
+                                                        color:"white"
+                                                        font_style:"H1"
+                                                        pos_hint:{"right":1,"top":1}
+                                                        size_hint_x:1
+                                                        color:"#0c8e69"
+                                            MDCard:
+                                                md_bg_color:"black"
+                                                size_hint:0.06,1
+                                                pos_hint:{"right":1}
+                                                padding:10
+                                                MDRelativeLayout:
+                                                    MDLabel:
+                                                        
+                                                        text:"1. User selects or writes affirmations (e.g., “I am confident and successful”).\n\n\n2. User records their voice using the app.\n\n\n3. The app saves and processes the audio for clear playback.\n\n\n4. User listens to the recorded affirmations daily to reinforce positivity."
+                                                        color:"white"
+                                                        font_style:"Subtitle1"
+                                                        pos_hint:{"top":1}
+                                                        bold:"True"
+                                                   
+                                                    
+                                                
+                                    MDScrollView:
+                                        bar_width: dp(10)
+                                        size_hint_y:0.11
+                                        #md_bg_color:"blue"
+                                        pos_hint:{"top":0.22}
+                                        radius:[20]           
+                                        MDBoxLayout:
+                                            radius:[20]
+                                            size_hint_y:4
+                                            size_hint_x:1
+                                            md_bg_color:"#005957"
+                                            MDRelativeLayout:
+                                                FitImage:
+                                                    source:"C:/Users/uvais/Downloads/pimg/voice_b.jpg"
+                                                    size_hint_x:1
+                                                    size_hint_y:0.4
+                                                    radius:[20]
+                                                    
+                                                    pos_hint:{"top":1}
+                                                MDLabel:
+                                                    text:" Benefits of Voice Affirmation"
+                                                    font_style:"H3"
+                                                    pos_hint:{"top":1.59}
+                                                    color:"black"
+                                                    bold:True
+                                                    padding:10
+                                                    size_hint_x:1
+                                                    size_hint_y:1.4
+                                                MDLabel:
+                                                    text:"Psychological Benefits."
+                                                    font_style:"H6"
+                                                    pos_hint:{"top":1.3}
+                                                    color:"black"
+                                                    bold:True
+                                                    padding:10
+                                                MDLabel:
+                                                    text:"• Strengthens self-belief – Helps the brain accept positive thoughts as reality.\n\n• Boosts confidence – Self-recorded affirmations increase trust in one's abilities.\n\n• Reduces anxiety & stress – Listening to positive statements regularly calms the mind.\n\n• Helps overcome negative thinking – Replaces doubts with constructive thoughts."
+                                                    font_style:"Subtitle2"
+                                                    pos_hint:{"top":1.22}
+                                                    color:"black"
+                                                    padding:10
+                                                
+                                                MDLabel:
+                                                    text:"Neuroscience & Subconscious Impact"
+                                                    font_style:"H6"
+                                                    pos_hint:{"top":1.12}
+                                                    color:"black"
+                                                    bold:True
+                                                    padding:10
+                                               
+                                                MDLabel:
+                                                    text:"• Activates Reticular Activating System (RAS) – Helps the brain focus on positive outcomes.\n\n•  Encourages neuroplasticity – Rewires the brain for positive thinking.\n\n• Strengthens Law of Attraction practice – Aligns thoughts and emotions with personal goals."
+                                                    font_style:"Subtitle2"
+                                                    pos_hint:{"top":1.04}
+                                                    color:"black"
+                                                    padding:10
+                                                MDLabel:
+                                                    text:"Productivity & Success"
+                                                    font_style:"H6"
+                                                    pos_hint:{"top":0.96}
+                                                    color:"black"
+                                                    bold:True
+                                                    padding:10
+                                                MDLabel:
+                                                    text:"• Enhances motivation – Keeps users focused on goals and success.\n\n• Develops a growth mindset – Reinforces belief in learning and self-improvement.\n\n• Improves mental clarity – Regular affirmations help users stay focused and organized."
+                                                    font_style:"Subtitle1"
+                                                    pos_hint:{"top":0.88}
+                                                    color:"black"
+                                                    padding:10
+                                                MDLabel:
+                                                    text:"Well-being & Lifestyle"
+                                                    font_style:"H6"
+                                                    bold:True
+                                                    pos_hint:{"top":0.78}
+                                                    color:"black"
+                                                    padding:10
+                                               
+                                                MDLabel:
+                                                    text:"•  Better emotional regulation – Helps users stay calm and composed.\n\n• Visual cues or animations may be included to help you focus.\n\n• Encourages daily mindfulness practice – Creates a structured self-care routine."
+                                                    font_style:"Subtitle2"
+                                                    pos_hint:{"top":0.71}
+                                                    color:"black"
+                                                    padding:10
+                                                MDLabel:
+                                                    text:"End with Gratitude"
+                                                    font_style:"H6"
+                                                    pos_hint:{"top":0.62}
+                                                    color:"black"
+                                                    bold:True
+                                                    padding:10
+                                                MDLabel:
+                                                    text:"Once your session is complete, take a moment to feel gratitude for what you already have and for what’s coming into your life. Gratitude strengthens your belief and enhances your frequency."
+                                                    font_style:"Subtitle2"
+                                                    pos_hint:{"top":0.55}
+                                                    color:"black"
+                                                    
+                                                    padding:10
+
+                                    MDScrollView:
+                                        pos_hint:{"top":0.1}
+                                        size_hint_y:0.1
+                                        bar_width: dp(10)
+                                        do_scroll_y:False
+                                        MDBoxLayout:
+                                            
+                                            size_hint_x:4
+                                            do_scroll_y:False
+                                            size_hint_y:1.4
+                                            pos_hint:{"top":0.24}
+                                            #md_bg_color:"red"
+                                            MDCard:
+                                                md_bg_color:"#7d9b94"
+                                                size_hint_x:1
+                                                size_hint_y:1
+                                                MDRelativeLayout:
+                                                
+                                                        
+                                                    MDLabel:
+                                                        text:"Night and Morning Are the Best Times to Manifest"
+                                                        font_style:"H4"
+                                                        bold:True
+                                                        padding:10
+                                                        pos_hint:{"top":1.33}
+                                                        color:"black"
+                                                        
+                                                    MDLabel:
+                                                        color:"black"
+                                                        text:"• The times just before falling asleep and right after waking up are the most effective for manifestation. Here’s why"
+                                                        font_style:"Subtitle1"
+                                                        bold:True
+                                                        padding:10
+                                                        pos_hint:{"top":1.05}
+                                                        
+                                                    
+
+                                                    
+                                           
+                                            MDCard:
+                                                md_bg_color:"#7d9b94"
+                                                size_hint_x:1
+                                                size_hint_y:1
+                                                MDRelativeLayout:
+                                                    MDLabel:
+                                                        color:"black"
+                                                        text:"1. Your Mind is in a Relaxed State (Theta Brainwave State)"
+                                                        font_style:"H6"
+                                                        bold:True
+                                                        padding:10
+                                                        pos_hint:{"top":1.4}
+                                                    MDLabel:
+                                                        color:"black"
+                                                        text:"• During these times, your brain operates in a theta brainwave state, which is a deeply relaxed, meditative state.\n\n• This state allows your subconscious mind to absorb affirmations and visualizations more effectively, as the conscious mind’s critical filter is less active."
+                                                        font_style:"Subtitle1"
+                                                        padding:10
+                                                        pos_hint:{"top":1.08}
+                                            MDCard:
+                                                md_bg_color:"#7d9b94"
+                                                size_hint_x:1
+                                                size_hint_y:1
+                                                MDRelativeLayout:
+                                                    MDLabel:
+                                                        color:"black"
+                                                        text:"2. Programming Your Subconscious Mind at Night"
+                                                        font_style:"H6"
+                                                        bold:True
+                                                        padding:10
+                                                        pos_hint:{"top":1.4}
+                                                    MDLabel:
+                                                        color:"black"
+                                                        text:"• Before sleep, your subconscious mind continues to process thoughts and emotions for hours.\n\n• Listening to affirmations or visualizing during this time ensures your subconscious is focused on your goals while you sleep.\n\n• This programming creates a positive feedback loop, aligning your thoughts and energy with what you desire."
+                                                        font_style:"Subtitle2"
+                                                        padding:10
+                                                        pos_hint:{"top":1.1}
+                                            MDCard:
+                                                md_bg_color:"#7d9b94"
+                                                size_hint_x:1
+                                                size_hint_y:1
+                                                MDRelativeLayout:
+                                                    MDLabel:
+                                                        color:"black"
+                                                        text:"3. Setting a Positive Tone in the Morning"
+                                                        font_style:"H6"
+                                                        bold:True
+                                                        padding:10
+                                                        pos_hint:{"top":1.4}
+                                                    MDLabel:
+                                                        color:"black"
+                                                        text:"• The first few moments after waking up set the tone for your day.\n\n• Morning affirmations and visualizations help you start your day with a high-frequency mindset, such as gratitude, positivity, and focus.\n\n• This positive start helps you attract opportunities and remain aligned with your goals throughout the day."
+                                                        font_style:"Subtitle2"
+                                                        padding:10
+                                                        pos_hint:{"top":1.1}
+                                                    
+                                            
+                        MDScreen:
+                            name: "techniques"
+                            
+                            on_enter:root.progress_bar()
+                            MDBoxLayout:
+
+                                orientation: "vertical"
+                                radius:[20]
+                                spacing: "10dp"
+                                MDRelativeLayout:
+                                    MDBoxLayout:
+                                        size_hint_y:0.39
+                                        md_bg_color:"#015557"
+                                        pos_hint:{"top":1}
+                                        radius:[30]
+                                        MDRelativeLayout:
+                                            id:voice_user_name      
+                                            MDLabel:
+                                                id:user_name_voice
+                                                #text:"Hey uvais saifi \nlets begen"
+                                                pos_hint:{"top":1.4}
+                                                font_style:"H4"
+                                                bold:"True"
+                                                color:"black"
+                                            MDLabel:
+                                                id: output_label
+                                                halign: "center"
+
+                                            MDLabel:
+                                                color:"black"
+                                                text:" Please read and click to record your affirmation "
+                                                font_style:"Subtitle1"
+                                                pos_hint:{"top":1.3}
+                                                padding:10
+                                            WavingSignal:
+                                                id: wave
+                                                pos_hint: {"center_x": 0.5, "center_y": 0.2}
+                                            MDIconButton:
+                                                id: record_btn
+                                                icon: root.record_icon
+                                                pos_hint:{"top":0.08,"right":0.57}
+                                                user_font_size: "80sp"
+                                                on_release: root.toggle_recording()
+                                            MDIconButton:
+                                                icon: "reload"
+                                                pos_hint:{"top":0.08,"right":0.9}
+                                                user_font_size: "80sp"
+                                                on_release: root.reload_aff()
+                            
+                                    
+                                    MDScrollView:
+                                        id: v_scroll_view
+                                        bar_width: dp(10)
+                                        size_hint_y: 0.18
+                                        pos_hint: {"top": 0.9}
+                                        radius: [20]
+                                        MDBoxLayout:
+                                            id: v_dis_loa
+                                            radius: [20]
+                                            size_hint_x: 1
+                                            size_hint_y: None  # Allow dynamic height
+                                            height: self.minimum_height  # Auto adjust height based on content
+                                            md_bg_color: "#015557"
+                                            padding: dp(10)
+                                            
+                                            MDLabel:
+                                                id: voice_affirmation_text
+                                                text: "Your Affirmation should display here"
+                                                size_hint_y: None
+                                                height: self.texture_size[1]  # Dynamically update height
+                                                text_size: self.width, None
+                                                color:"black"
+                                                halign: "left"
+                                                valign: "top"
+                                    MDBoxLayout:
+
+                                        size_hint_y:0.3
+                                        pos_hint:{"top":0.6}
+                                        MDRelativeLayout:
+                                            MDLabel:
+                                                color:"black"
+                                                text:"The best time to listen to your recorded affirmations. Here are some recommended times:"
+                                                font_style:"H6"
+                                                bold:True
+                                                pos_hint:{"top":1.4}
+                                                padding:10
+                                            MDLabel:
+                                                color:"black"
+                                                text:"1. Morning (Best for a Positive Start)"
+                                                font_style:"Subtitle1"
+                                                bold:True
+                                                pos_hint:{"top":1.22}
+                                                padding:10
+                                            MDLabel:
+                                                color:"black"
+                                                text:"• Right after waking up, before checking your phone.\n\n• Helps set a positive tone for the day.\n\n• Reinforces motivation and confidence."
+                                                font_style:"Subtitle2"
+                                                bold:True
+                                                pos_hint:{"top":1.08}
+                                                padding:10
+                                            MDLabel:
+                                                color:"black"
+                                                text:"2. Night (Best for Subconscious Mind Programming)"
+                                                font_style:"Subtitle1"
+                                                bold:True
+                                                pos_hint:{"top":0.92}
+                                                padding:10
+                                            MDLabel:
+                                                color:"black"
+                                                text:"• Just before sleeping, when the mind is in a relaxed state.\n\n• The subconscious absorbs affirmations more deeply.\n\n• Helps in reducing stress and promoting self-belief.."
+                                                font_style:"Subtitle2"
+                                                bold:True
+                                                pos_hint:{"top":0.75}
+                                                padding:10
+                                            MDLabel:
+                                                color:"black"
+                                                text:"3. While Exercising or Walking "
+                                                font_style:"Subtitle1"
+                                                bold:True
+                                                pos_hint:{"top":0.6}
+                                                padding:10
+                                            MDLabel:
+                                                color:"black"
+                                                text:"• Keeps the mind engaged with positivity.\n\n• Boosts motivation and energy.."
+                                                font_style:"Subtitle2"
+                                                bold:True
+                                                pos_hint:{"top":0.51}
+                                                padding:10
+                                            MDLabel:
+                                                color:"black"
+                                                text:"Best Approach "
+                                                font_style:"Subtitle1"
+                                                bold:True
+                                                pos_hint:{"top":0.38}
+                                                padding:10
+                                            MDLabel:
+                                                color:"black"
+                                                text:"• Morning + Night for maximum impact.\n\n• Looping softly at night (subliminal programming).\n\n• Repetition & Consistency is key!"
+                                                font_style:"Subtitle2"
+                                                bold:True
+                                                pos_hint:{"top":0.27}
+                                                padding:10
+                                            MDNavigationDrawerDivider:
+                                    MDBoxLayout:
+                                        size_hint_y:0.3
+                                        MDRelativeLayout:
+                                            FitImage:
+                                                source:"C:/Users/uvais/Downloads/pimg/record.png"
+                                                size_hint_y:0.5
+                                                pos_hint:{"top":0.58}
+                                            MDLabel:
+                                                color:"black"
+                                                text:"Immersing Yourself in Voice Affirmations"
+                                                font_style:"H4"
+                                                bold:True
+                                                pos_hint:{"top":0.97}
+                                                padding:10
+                                          
+                                           
+                                            MDLabel:
+                                                color:"black"
+                                                text:"1. Relax Your Body and Mind.\n\n2. Plug in Your Earphones or AirPods.\n\n3. End with Gratitude."
+                                                font_style:"Caption"
+                                                bold:True
+                                                pos_hint:{"top":0.72}
+                                                padding:10
+                                            
+                                            MDCard:
+                                                size_hint_y:0.1
+                                                size_hint_x:1
+                                                md_bg_color:"#015557"
+                                                id:str_button
+                                                MDRelativeLayout:
+                                                    MDLabel:
+                                                        text:"Affirmation"
+                                                        font_style:"H5"
+                                                        bold:True
+                                                        pos_hint:{"top":1,"right":1.1}
+                                                    MDIconButton:
+                                                        icon:"arrow-right-circle"
+                                                        icon_size:40
+                                                        pos_hint:{"top":1,"right":0.8}
+                                                        on_release:
+                                                            app.change_screen("visualization_instruction")
+                                                            app.sm.get_screen("visualization_instruction").ids.screen_manager1.current = "record"

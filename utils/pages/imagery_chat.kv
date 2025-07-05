@@ -1,0 +1,144 @@
+<imagery_chat>:
+
+<Command>
+    name:"Command"
+    size_hint_y:None
+    pos_hint:{"right":.98}
+    height:self.texture_size[1]
+    padding:12,10
+    theme_text_color : "Custom"
+    text_color:1,1,1,1
+    canvas.before:
+        Color:
+            rgba:(0.13333333333333333, 0.5411764705882353, 0.615686274509804,0.8)
+        RoundedRectangle:
+            size:self.width,self.height
+            pos:self.pos
+            radius:[23,23,0,23]
+
+<Response>
+    id:"res"
+    size_hint_y:None
+    pos_hint:{"x":.02}
+    height:self.texture_size[1]
+    padding:12,10
+    theme_text_color : "Custom"
+    text_color:0, 0, 0
+    canvas.before:
+        Color:
+            rgba:(0.03137254901960784, 0.2196078431372549, 0.3215686274509804,0.8)
+        RoundedRectangle:
+            size:self.width,self.height
+            pos:self.pos
+            radius:[23,23,23,0]
+MDScreen:
+    MDCard:
+        md_bg_color: "black"
+        padding:1
+        ripple_behavior: True
+        focus_behavior: True
+        on_press: root.manager.current = 'imgery_chat'
+        radius:[30]
+        MDRelativeLayout:
+            FitImage:
+                source:'https://i.pinimg.com/736x/b3/2c/c8/b32cc8c7e1b4048d322e22645f119116.jpg'
+                radius:[30]
+            MDLabel:
+                text:"Law Of Attraction"
+                halign:"center"
+                font_style:"Subtitle1"
+                pos_hint:{"center_y":1,"center_x":0.53}
+<imgery_chat> 
+    name:"imgery_chat"
+    on_enter:root.on_start()
+    MDScreenManager:
+        id: chat_screen_manager
+        MDScreen:
+            
+            name:"chat_screen"
+            
+
+            chat_list : chat_list
+            Screen:
+                FloatLayout:     
+                    FitImage:
+                        id:chat_img
+                        source:'https://i.pinimg.com/736x/f2/0e/4c/f20e4c1e9c559da0f6c506bf9ea11d61.jpg'
+                        
+
+                        allow_stretch:True
+                        
+
+            MDBoxLayout:
+                id:chat_main
+                orientation: 'vertical'
+                spacing: dp(20)
+
+                MDBoxLayout:
+                    size_hint_y: None
+                    height: dp(50)
+                    #size_hint_x:0.5
+                    #md_bg_color: "#2596be"
+                    padding: 10
+                    spacing: dp(10)
+                    #radius:[20,20]
+                    #orientation:"vertical"
+                    canvas.before:
+                        Color:
+                            rgba: 0, 0, 0, 0.8  # Light blue with 30% opacity
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            #radius: [20, 20, 20, 20]
+                
+                    MDIconButton:
+                        icon:"chevron-left"
+                        icon_size:dp(40)
+                        pos_hint:{"top":1.5}
+                        on_release:root.stop_all()
+                    MDLabel:
+                        text: "Imgery AI"
+                        font_style: "H4"
+                        bold:True
+                        theme_text_color: "Custom"
+                        text_color: "#228a9d"
+                        halign: "left"
+                        padding: [0, 0]
+                    
+                    
+               
+                    
+                MDScrollView:
+                    id: scroll_view
+                    MDBoxLayout:
+                        id: chat_list
+                        adaptive_height: True
+                        orientation: "vertical"
+                        padding: dp(20)
+                        spacing: dp(12)
+                
+
+                FloatLayout:
+                    size_hint_y: None
+                    #height: self.minimum_height
+                    #padding: dp(8)
+                    spacing: dp(8)
+                    orientation:"vertical"
+
+                    Widget:
+                        id: mic_glow
+                        size_hint: None, None
+                        size: "120dp", "120dp"
+                        pos_hint: {"center_x": 0.5, "y": 0.12}
+                        canvas.before:
+                            Color:
+                                rgba: 0.03137254901960784, 0.1450980392156863, 0.25882352941176473, 0.8
+                            Ellipse:
+                                pos: self.pos
+                                size: self.size
+
+                    MDFloatingActionButton:
+                        icon: "microphone"
+                        md_bg_color: "#055689"
+                        pos_hint: {"center_x": 0.5, "y": 0.15}
+                        on_release: root.toggle_listening()

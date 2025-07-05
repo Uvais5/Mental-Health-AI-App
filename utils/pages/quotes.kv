@@ -1,0 +1,559 @@
+
+
+
+
+<quotes>:
+    name:"quotes"
+    
+    MDScreenManager:
+        id: quotes_screen_manager
+        MDScreen:
+            name:"overview"
+            md_bg_color:"#040000"
+            id: container
+            FloatLayout:     
+                FitImage:
+                    
+                    source:'https://cdn.dribbble.com/userupload/4047995/file/original-33b4b8635ceee4432b00863c0193d13f.png?resize=752x&vertical=center'
+                    
+                    size_hint_y:"0.5"
+                    pos_hint:{"top":1}
+                    allow_stretch:True
+                MDLabel:
+                    text:"Qoutes World"
+                    font_style:"H4"
+                    bold:"True"
+                    halign:"center"
+                    pos_hint:{"top":1.05}
+
+                MDLabel:
+                    text:"Qoutes might hit you hard"
+                    halign:"center"
+                    font_style:"Subtitle2"
+                    color:1,1,1,0.5
+                    pos_hint:{"top":1}
+                    
+            MDScrollView:
+                MDBoxLayout:
+                    #md_bg_color:"black"
+                    orientation: "vertical"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    spacing: dp(16)
+                    padding: dp(10)
+                    MDIconButton:
+                        icon:"chevron-left"
+                        icon_size:40
+                        pos_hint:{"top":1}
+                        on_release:app.change_screen("home")
+                        #md_bg_color:"black"
+                    MDBoxLayout:
+                        size_hint_y: None
+                        height: dp(290)
+                        spacing: dp(10)
+                    
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        padding: dp(10)
+                        spacing:dp(1)
+                        radius:[20]
+                        md_bg_color: 0.16470588235294118, 0.1450980392156863, 0.12549019607843137,0.9
+                        size_hint_y: None
+                        height: self.minimum_height
+                        MDBoxLayout:
+                            pos_hint:{"top":1.5}
+
+                            orientation: "vertical"
+                            padding: dp(10)
+                            spacing:dp(1)
+                            radius:[20]
+                            #md_bg_color: 0.16470588235294118, 0.1450980392156863, 0.12549019607843137,0.7
+                            size_hint_y: None
+                            height: dp(390)
+                            MDLabel:
+                                text:"Qoutes Selection Box"
+                                padding:10
+                            MDCard:
+                                md_bg_color:0.16470588235294118, 0.1450980392156863, 0.12549019607843137,0.1
+                                size_hint_y: None
+                                height: dp(80)
+                                spacing: dp(10)
+                                pos_hint:{"top":0.5}
+                                on_release:app.change_screen("riddles")
+                                FitImage:
+                                    source:"https://i.pinimg.com/736x/d6/3a/dc/d63adc608d84ee0f707afb445a8b463b.jpg"
+                                    size_hint_x:0.2
+                                    size_hint_y:0.5
+                                    radius:[20]
+                                    pos_hint:{"top":0.7}
+                            
+                                MDRelativeLayout:
+                                    MDLabel:
+                                        text:"Mood Riddles"
+                                        color:1,1,1,1
+                                        
+                                    MDLabel:
+                                        text:"\nMysteries in a Line"
+                                        pos_hint:{"top":0.8}
+                                        font_style:"Caption"
+                                        color:1,1,1,0.5
+                            MDSeparator
+                            MDCard:
+                                md_bg_color:0.16470588235294118, 0.1450980392156863, 0.12549019607843137,0.1
+                                size_hint_y: None
+                                height: dp(80)
+                                spacing: dp(10)
+                                on_release:
+                                    root.switch_screen("normal_quotes")
+                                    root.quotes_start("normal")
+
+                                FitImage:
+                                    source:"https://i.pinimg.com/736x/8c/f2/51/8cf251f8806108c18e5bf5954cf2f414.jpg"
+                                    size_hint_x:0.2
+                                    size_hint_y:0.5
+                                    radius:[20]
+                                    pos_hint:{"top":0.7}
+                            
+                                MDRelativeLayout:
+                                    MDLabel:
+                                        text:"Feel Qoutes"
+                                        color:1,1,1,1
+                                        
+                                    MDLabel:
+                                        text:"\nFuel Your Mind, Feed Your Soul"
+                                        pos_hint:{"top":0.8}
+                                        font_style:"Caption"
+                                        color:1,1,1,0.5
+                            MDSeparator
+                            MDCard:
+                                md_bg_color:0.16470588235294118, 0.1450980392156863, 0.12549019607843137,0.1
+                                size_hint_y: None
+                                height: dp(80)
+                                spacing: dp(10)
+                                on_release:
+                                    root.switch_screen("normal_quotes")
+                                    root.quotes_start("facts")
+                                FitImage:
+                                    source:"https://i.pinimg.com/736x/ef/95/29/ef952989e494615e7e6854074b7bcfe4.jpg"
+                                    size_hint_x:0.2
+                                    size_hint_y:0.5
+                                    radius:[20]
+                                    pos_hint:{"top":0.7}
+                            
+                                MDRelativeLayout:
+                                    MDLabel:
+                                        text:"Facts"
+                                        color:1,1,1,1
+                                        
+                                    MDLabel:
+                                        text:"\nThe Story Behind Everything."
+                                        pos_hint:{"top":0.8}
+                                        font_style:"Caption"
+                                        color:1,1,1,0.5
+                            MDSeparator
+                            MDCard:
+                                md_bg_color:0.16470588235294118, 0.1450980392156863, 0.12549019607843137,0.1
+                                size_hint_y: None
+                                height: dp(80)
+                                spacing: dp(10)
+                                on_release:
+                                    root.switch_screen("normal_quotes")
+                                    root.quotes_start("advice")
+                                FitImage:
+                                    source:"https://i.pinimg.com/736x/b5/b8/72/b5b872c3b10002e3be90f57bf8544a3e.jpg"
+                                    size_hint_x:0.2
+                                    size_hint_y:0.5
+                                    radius:[20]
+                                    pos_hint:{"top":0.7}
+                            
+                                MDRelativeLayout:
+                                    MDLabel:
+                                        text:"Advice"
+                                        color:1,1,1,1
+                                        
+                                    MDLabel:
+                                        text:"\njust don't tell anyone I told you that."
+                                        pos_hint:{"top":0.8}
+                                        font_style:"Caption"
+                                        color:1,1,1,0.5
+                            MDSeparator
+                        MDBoxLayout:
+
+                            orientation: "horizontal"
+                            padding: dp(1)
+                            spacing:dp(1)
+                            radius:[20]
+                            size_hint_y: None
+                            height: dp(190)
+
+
+                            MDLabel:
+                                text:"Wisper to the Future\n"
+                                #spacing:dp(20)
+                                pos_hint:{"top":1}
+                                font_style:"H4"
+                                bold:"True"
+                            MDChip:
+                                md_bg_color: 0.16470588235294118, 0.1450980392156863, 0.12549019607843137,1
+                                text: "Future Voice"
+                                icon_left: "folder-music"
+                                pos_hint:{"top":0.9}
+                                on_release:root.show_audio_files()
+                        MDLabel:
+                            text:"Wise of today\n\n"
+                            font_style:"Subtitle2"
+                            bold:"True"
+                        MDBoxLayout:
+
+                            orientation: "vertical"
+                            padding: dp(1)
+                            spacing:dp(1)
+                            radius:[20]
+                            md_bg_color: 0.16470588235294118, 0.1450980392156863, 0.12549019607843137,0.9
+                            size_hint_y: None
+                            height: dp(340)
+                            
+                            MDRelativeLayout:
+                                FitImage:
+                                    source:"https://i.pinimg.com/736x/77/bd/ce/77bdce7ac252cad4ce8548cb03d4e18c.jpg"
+                                    radius:[20]
+                                    opacity: 0.2
+                                MDBoxLayout:
+                                    size_hint_y: None
+                                    height: dp(150)
+
+                                    orientation:"vertical"
+                                    pos_hint:{"top":0.8}
+                                    #md_bg_color:"black"
+                                    MDLabel:
+                                        text:"Record a message for the you who needs"
+                                        font_style:"H6"
+                                        #color:"black"
+                                    MDLabel:
+                                        text:" hope, strength, "
+                                        font_style:"H4"
+                                        color:1,1,1,0.8
+                                        bold:True
+                                        
+                                    MDLabel:
+                                        text:" or a reminder to keep going."
+                                        font_style:"H6"
+                                        #color:"black"
+                                        
+                                        
+                                MDBoxLayout:
+                                    size_hint_y: None
+                                    height: dp(50)
+                                    pos_hint:{"right":1}
+                                    #md_bg_color:"black"
+                                    MDRelativeLayout:
+                                        Waveform:
+                                            id: waveform
+                                            md_bg_color:"0,0,0,0.5"
+
+                            
+                                MDIconButton:
+                                    id: record_button
+                                    icon: "microphone"
+                                    user_font_size: "80sp"
+                                    pos_hint: {"center_x": 0.5}
+                                    on_release: root.toggle_recording()
+                                    theme_text_color: "Custom"
+                                    icon_color:"white"
+                        
+                        
+                        MDBoxLayout:
+
+                            orientation:"vertical"
+                            padding: dp(10)
+                            spacing:dp(10)
+                            radius:[20]
+                            #md_bg_color:"black"
+                            size_hint_y: None
+                            height: dp(90)
+                            MDLabel:
+                                text:"How's feeling today?"
+                                font_style:"H5"
+                                bold:True
+                            MDLabel:
+                                text:"Find the answers of your mood"
+                                font_style:"Subtitle2"
+                                
+                    
+                        MDScrollView:
+                            size_hint_y: None
+                            height: dp(130)
+                            do_scroll_y: False
+                            #md_bg_color:"black"
+                            MDBoxLayout:
+
+                                
+                                padding: dp(1)
+                                spacing:dp(10)
+                                radius:[20]
+
+                                size_hint_y: None
+                                height: dp(170)
+                                size_hint_x:1.7
+
+                                MDCard:
+                                    #spacing:dp(10)
+                                    size_hint_y: None
+                                    size_hint_x: None
+                                    height: dp(70) 
+                                    width:dp(50)
+                                    
+                                    radius:[22]
+                                    md_bg_color:"#336699"
+                                    pos_hint:{"top":0.9}
+                                    orientation:"vertical"
+                                    MDRelativeLayout:
+                                        MDIconButton:
+                                            icon:"heart-outline"
+                                            pos_hint:{"top":0.94}
+                                            on_release:
+                                                root.switch_screen("normal_quotes")
+                                                root.quotes_start("love")
+                                        MDLabel:
+                                            text:"Love"
+                                            font_style:"Overline"
+                                            halign:"center"
+                                            pos_hint:{"top":0.8}
+                                        
+                                MDCard:
+                                    size_hint_y: None
+                                    size_hint_x: None
+                                    height: dp(70)
+                                    width:dp(50)
+                                    md_bg_color:"#ff9900"
+                                    radius:[22]
+                                    pos_hint:{"top":0.8}
+                                    MDRelativeLayout:
+                                        MDIconButton:
+                                            icon:"human-greeting-variant"
+                                            pos_hint:{"top":0.94}
+                                            on_release:
+                                                root.switch_screen("normal_quotes")
+                                                root.quotes_start("life")
+                                        MDLabel:
+                                            text:"Life"
+                                            font_style:"Overline"
+                                            halign:"center"
+                                            pos_hint:{"top":0.8}
+                                    
+                                MDCard:
+                                    spacing:dp(1)
+                                    size_hint_y: None
+                                    size_hint_x: None
+                                    height: dp(70) 
+                                    width:dp(50)
+
+                                    radius:[22]
+                                    md_bg_color:"#5c00e6"
+                                    pos_hint:{"top":0.9}
+                                    MDRelativeLayout:
+                                        MDIconButton:
+                                            icon:"rocket-launch"
+                                            pos_hint:{"top":0.94}
+                                            on_release:
+                                                root.switch_screen("normal_quotes")
+                                                root.quotes_start("motivation")
+                                        MDLabel:
+                                            text:"Motivation"
+                                            font_style:"Overline"
+                                           # halign:"center"
+                                            pos_hint:{"top":0.7,"right":0.9}
+                                            size_hint_x:0.7
+                                MDCard:
+                                    size_hint_y: None
+                                    size_hint_x: None
+                                    height: dp(70)
+                                    width:dp(50)
+                                    md_bg_color:"#800000"
+                                    radius:[22]
+                                    pos_hint:{"top":0.8}
+                                    MDRelativeLayout:
+                                        MDIconButton:
+                                            icon:"trophy-variant"
+                                            pos_hint:{"top":0.94}
+                                            on_release:
+                                                root.switch_screen("normal_quotes")
+                                                root.quotes_start("success")
+                                        MDLabel:
+                                            text:"Success"
+                                            font_style:"Overline"
+                                            halign:"center"
+                                            pos_hint:{"top":0.8}
+                                MDCard:
+                                    spacing:dp(1)
+                                    size_hint_y: None
+                                    size_hint_x: None
+                                    height: dp(70) 
+                                    width:dp(50)
+
+                                    radius:[22]
+                                    md_bg_color:"#55552b"
+                                    pos_hint:{"top":0.9}
+                                    MDRelativeLayout:
+                                        MDIconButton:
+                                            icon:"book-open-variant"
+                                            pos_hint:{"top":0.94}
+                                            on_release:
+                                                root.switch_screen("normal_quotes")
+                                                root.quotes_start("wisdom")
+                                        MDLabel:
+                                            text:"Wisdom"
+                                            font_style:"Overline"
+                                            halign:"center"
+                                            pos_hint:{"top":0.8}
+                                            
+                                MDCard:
+                                    size_hint_y: None
+                                    size_hint_x: None
+                                    height: dp(70)
+                                    width:dp(50)
+                                    md_bg_color:"#404040"
+                                    radius:[22]
+                                    pos_hint:{"top":0.8}
+                                    MDRelativeLayout:
+                                        MDIconButton:
+                                            icon:"meditation"
+                                            pos_hint:{"top":0.94}
+                                            on_release:
+                                                root.switch_screen("normal_quotes")
+                                                root.quotes_start("inspirational")
+                                        MDLabel:
+                                            text:"Insprational"
+                                            font_style:"Overline"
+                                            halign:"center"
+                                            pos_hint:{"top":0.8}
+                                MDCard:
+                                    spacing:dp(1)
+                                    size_hint_y: None
+                                    size_hint_x: None
+                                    height: dp(70) 
+                                    width:dp(50)
+
+                                    radius:[22]
+                                    md_bg_color:"#956504"
+                                    pos_hint:{"top":0.9}
+                                    MDRelativeLayout:
+                                        MDIconButton:
+                                            icon:"account-multiple"
+                                            pos_hint:{"top":0.94}
+                                            on_release:
+                                                root.switch_screen("normal_quotes")
+                                                root.quotes_start("friend")
+                                        MDLabel:
+                                            text:"friends"
+                                            font_style:"Overline"
+                                            halign:"center"
+                                            pos_hint:{"top":0.8}
+                                            
+                                MDCard:
+                                    size_hint_y: None
+                                    size_hint_x: None
+                                    height: dp(70)
+                                    width:dp(50)
+                                    md_bg_color:"#990033"
+                                    radius:[22]
+                                    pos_hint:{"top":0.8}
+                                    MDRelativeLayout:
+                                        MDIconButton:
+                                            icon:"emoticon-happy-outline"
+                                            pos_hint:{"top":0.94}
+                                            on_release:
+                                                root.switch_screen("normal_quotes")
+                                                root.quotes_start("happy")
+                                        MDLabel:
+                                            text:"happy"
+                                            font_style:"Overline"
+                                            halign:"center"
+                                            pos_hint:{"top":0.8}
+
+
+        MDScreen:
+            #on_enter:root.quotes_start("normal")
+            name:"normal_quotes"
+            id:normal_id
+
+            FitImage:
+                id:front_img
+               # source:"https://i.pinimg.com/736x/ec/7a/1d/ec7a1d3f09f3b18ed16f679ae8839d42.jpg"
+            MDLabel:
+                id:loading_txt
+                font_style:"H3"
+                padding:dp(10)
+                bold:True
+            MDBoxLayout:
+                orientation: "vertical"
+
+                MDCard:
+                    size_hint_y:0.1
+                    md_bg_color:0,0,0,0.7
+                    MDRelativeLayout:
+                        MDLabel:
+                            id:title
+                            text:"Quotes"
+                            pos_hint:{"right":1.3}
+                            font_style:"H6"
+                            color:"white"
+
+                        MDIconButton:
+                            icon: "arrow-left-circle"
+                            icon_size:"35"
+                            theme_text_color: "Custom"
+                            on_release:
+                                root.on_leave()
+                                root.switch_screen("overview")
+
+                            icon_color:"white"
+                ScrollView:
+                    id: scroll_view
+                    MDGridLayout:
+                        id: grid
+                        cols: 2
+                        spacing: dp(10)
+                        adaptive_height: True
+                        padding: dp(10)
+
+                MDSpinner:
+                    id: loading_spinner
+                    size_hint: None, None
+                    size: "50dp", "50dp"
+                    pos_hint: {"center_x": 0.5}
+                    color:"white"
+                    active: False
+        
+
+        MDScreen:
+            name:"full"
+            MDBoxLayout:
+                orientation: "vertical"
+                md_bg_color:"black"
+                ScrollView:
+                    id: full_scroll
+                    MDGridLayout:
+                        id: full_grid
+                        cols: 1
+                        spacing: dp(10)
+                        adaptive_height: True
+                        padding: dp(10)
+                MDBoxLayout:
+                    size_hint_y:0.08
+                    padding:dp(10)
+                    spacing:dp(70)
+                    MDIconButton:
+                        icon: "arrow-u-left-bottom-bold"
+                        icon_size:"50"
+                        pos_hint: {"center_x": 0.5,"center_y":0.5}
+                        on_release:root.switch_screen("normal_quotes")
+
+
+                    MDSpinner:
+                        id: loading_spinner1
+                        size_hint: None, None
+                        size: "30dp", "30dp"
+                        pos_hint: {"center_x": 1}
+                        active: False
+                        color:"white"

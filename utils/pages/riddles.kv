@@ -1,0 +1,103 @@
+#ScreenManager:
+ #   Reddles:
+
+<Reddles>:
+    name: "main"
+    
+
+    FloatLayout:
+        id: float_layout
+        
+        canvas.before:
+            Color:
+                rgba: 0.1, 0.1, 0.1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        FitImage:
+            id:img
+            #source:"https://i.pinimg.com/736x/a9/b3/7d/a9b37d07c9ca0b2be3ffabcaca483d9b.jpg"
+        MDCard:
+            md_bg_color:0, 0, 0,0.7
+            size_hint_y:0.1
+            spacing:dp(30)
+            pos_hint:{"top":1}
+            MDIconButton:
+                icon:"arrow-left-circle"
+                icon_size:dp(40)
+                theme_text_color: "Custom"
+                text_color: "white"
+                on_release:app.change_screen("quotes")
+            MDLabel:
+                text:"Reddles"
+                font_style:"H5"
+                bold:True
+                color:"white"
+        
+        # FLOATING QUOTES
+        FloatLayout:
+            id: floating_layer
+            size: root.size
+            pos: root.pos
+
+        # RIDDLE BANNER
+        MDBoxLayout:
+            id: quote_banner
+            orientation: "vertical"
+            spacing: dp(10)
+            size_hint: None, None
+            width: root.width * 0.95
+            height: dp(0)
+            pos_hint: {"center_x": 0.5, "top": 0.7}
+            md_bg_color: 0, 0, 0, 0.7
+            padding: dp(10)
+            opacity: 0
+            radius: [dp(10), dp(10), dp(10), dp(10)]
+            
+                    
+
+            MDLabel:
+                id: banner_quote
+                text: ""
+                halign: "center"
+                theme_text_color: "Custom"
+                text_color: 1, 1, 1, 1
+                font_style: "H6"
+                size_hint_y: None
+                height: self.texture_size[1] + dp(10)
+
+            BoxLayout:
+                id: options_box
+                orientation: 'vertical'
+                spacing: dp(5)
+                size_hint_y: None
+                height: self.minimum_height
+
+        # Rope Pull and Bulb
+        FloatLayout:
+            size_hint: None, None
+            size: dp(60), dp(200)
+            pos_hint: {"center_x": 0.9, "top": 1}
+            on_touch_move: root.on_rope_drag(*args)
+
+            Widget:
+                size_hint: None, None
+                size: dp(4), dp(160)
+                pos_hint: {"center_x": 0.5, "top": 1}
+                canvas.before:
+                    Color:
+                        rgba: 0.9, 0.7, 0.3, 1
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+
+            MDIcon:
+                id: bulb_icon
+                icon: "water"
+                pos_hint: {"center_x": 0.5, "y": 0.1}
+                size_hint: None, None
+                size: dp(40), dp(40)
+                theme_text_color: "Custom"
+                text_color: 1, 0.9, 0.4, 1
+                font_size: dp(32)
+                on_touch_move: root.on_rope_drag(*args)

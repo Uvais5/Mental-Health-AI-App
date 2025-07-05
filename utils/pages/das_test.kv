@@ -1,0 +1,339 @@
+<TestScreen>:
+    name:"TestScreen"
+    MDScreenManager:
+        id:testmanager
+        MDScreen:
+            name:"test_screen"
+            id: test_screen
+
+            md_bg_color:"black"
+            MDBoxLayout:
+                padding:10
+                
+                orientation: "vertical"
+                MDCard:
+                    size_hint_y:None
+                    height:dp(70)
+                    md_bg_color:"black"
+                    MDIconButton:
+                        icon:"arrow-left-circle"
+                        icon_size:"40"
+                        on_press: app.change_screen("home")
+                    MDLabel:
+                        text:"Perception-Based Emotion Tests"
+                        halign: "left"
+                        color:"white"
+                        font_style: "H5"
+
+                # Scrollable content area
+                MDScrollView:
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        padding: dp(20)
+                        spacing: dp(15) # Adjusted spacing between cards
+                        size_hint_y: None
+                        height: self.minimum_height
+                        size_hint_x: 1 # Ensure the BoxLayout inside the ScrollView fills the width
+
+                        
+                        MDCard:
+                            adjust:True # Assuming this is a custom property
+                            orientation: "horizontal" # Arrange content horizontally
+                            size_hint_x: 1
+                            size_hint_y: None
+                            height: dp(150) 
+                            radius: dp(10) 
+                            elevation: 2 
+                            padding: dp(12) 
+
+                            md_bg_color: "#466cb9" 
+                                
+                            MDBoxLayout:
+                                orientation: "vertical"
+                                size_hint_x: 1 # Take remaining horizontal space
+                                padding: [0, dp(4), 0, dp(4)] # Vertical padding for text area
+                                spacing: dp(4) # Spacing between title and description
+                                
+                                MDLabel:
+                                    text: "1. Cognitive Bias Test"
+                                    font_style: "Button" 
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    text_size: self.width, None # Allow text wrrooting
+                                    valign: "bottom" # Align text within its allocated space
+
+                                MDLabel:
+                                    text: "Choose what you see in ambiguous images."
+                                    theme_text_color: "Secondary"
+                                    font_style: "Caption" # Smaller font for description
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    text_size: self.width, None
+                                    valign: "top" # Align text within its allocated space
+                                MDIconButton:
+                                    icon:"forward"
+                                    icon_size:dp(20)
+                                    on_release:root.start_cognitive_test()
+                            MDIconButton:
+                                icon:"brain"
+                                icon_size:dp(30)
+                                pos_hint:{"top":0.9}
+
+                                
+
+
+                        MDCard:
+                            orientation: "horizontal"
+                            size_hint_x: 1
+                            size_hint_y: None
+                            height: dp(140)
+                            radius: dp(10)
+                            elevation: 2
+                            padding: dp(12)
+                            
+                            md_bg_color: "#339980"
+
+                        
+
+                            MDBoxLayout:
+                                orientation: "vertical"
+                                size_hint_x: 1
+                                padding: [0, dp(4), 0, dp(4)]
+                                spacing: dp(4)
+
+                                MDLabel:
+                                    text: "2. Emotional Stroop Test"
+                                    font_style: "Button"
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    text_size: self.width, None
+                                    valign: "bottom"
+
+                                MDLabel:
+                                    text: "Tap the color, not the word. Measures emotional delay."
+                                    theme_text_color: "Secondary"
+                                    font_style: "Caption"
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    text_size: self.width, None
+                                    valign: "top"
+
+                                MDIconButton:
+                                    icon:"forward"
+                                    icon_size:dp(20)
+                                    on_release: root.start_stroop_test()
+                            MDIconButton:
+                                icon:"format-color-text"
+                                icon_size:dp(30)
+                                pos_hint:{"top":0.9}
+
+                        MDCard:
+                            orientation: "horizontal"
+                            size_hint_x: 1
+                            size_hint_y: None
+                            height: dp(150)
+                            radius: dp(10)
+                            elevation: 2
+                            padding: dp(12)
+                            #spacing: dp(12)
+                            md_bg_color: "#3d727e"
+
+                            
+
+                            MDBoxLayout:
+                                orientation: "vertical"
+                                size_hint_x: 1
+                                padding: [0, dp(4), 0, dp(4)]
+                                spacing: dp(4)
+
+                                MDLabel:
+                                    text: "3. G.A.D Test"
+                                    font_style: "Button"
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    text_size: self.width, None
+                                    valign: "bottom"
+
+                                MDLabel:
+                                    text: "General Anxiety Disorder(GAD).\nAnswer questions on feelings.Measures anxiety symptoms"
+                                    theme_text_color: "Secondary"
+                                    font_style: "Caption"
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    text_size: self.width, None
+                                    valign: "top"
+
+                                MDIconButton:
+                                    icon:"forward"
+                                    icon_size:dp(20)
+                                    on_release: root.start_PHQ_GDA_test("GAD-7")
+                            MDIconButton:
+                                icon:"head-lightbulb-outline"
+                                icon_size:dp(30)
+                                pos_hint:{"top":0.9}
+                                on_release: root.start_PHQ_GDA_test("GAD-7")
+
+                        MDCard:
+                            orientation: "horizontal"
+                            size_hint_x: 1
+                            size_hint_y: None
+                            height: dp(150)
+                            radius: dp(10)
+                            elevation: 2
+                            padding: dp(12)
+                            #spacing: dp(12)
+                            md_bg_color: "#402673"
+
+                            
+
+                            MDBoxLayout:
+                                orientation: "vertical"
+                                size_hint_x: 1
+                                padding: [0, dp(4), 0, dp(4)]
+                                spacing: dp(4)
+
+                                MDLabel:
+                                    text: "4. P.H.Q Test"
+                                    font_style: "Button"
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    text_size: self.width, None
+                                    valign: "bottom"
+
+                                MDLabel:
+                                    text: " Patient Health Questionnaire (PHQ). Answer questions. Measures depression symptoms."
+                                    theme_text_color: "Secondary"
+                                    font_style: "Caption"
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    text_size: self.width, None
+                                    valign: "top"
+
+                                MDIconButton:
+                                    icon:"forward"
+                                    icon_size:dp(20)
+                                    on_release: root.start_PHQ_GDA_test("PHQ-9")
+                            MDIconButton:
+                                icon:"emoticon-sad-outline"
+                                icon_size:dp(30)
+                                on_release: root.start_PHQ_GDA_test("PHQ-9")
+                                pos_hint:{"top":0.9}
+
+                        MDCard:
+                            orientation: "horizontal"
+                            size_hint_x: 1
+                            size_hint_y: None
+                            height: dp(140)
+                            radius: dp(10)
+                            elevation: 2
+                            padding: dp(12)
+                            spacing: dp(12)
+                            md_bg_color: "#a488dd"
+
+                            
+
+                            MDBoxLayout:
+                                orientation: "vertical"
+                                size_hint_x: 1
+                                padding: [0, dp(4), 0, dp(4)]
+                                spacing: dp(4)
+
+                                MDLabel:
+                                    text: "5. DASS-21 Clinical Test"
+                                    font_style: "Button"
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    text_size: self.width, None
+                                    valign: "bottom"
+
+                                MDLabel:
+                                    text: "Answer 21 questions to assess Depression, Anxiety & Stress."
+                                    theme_text_color: "Secondary"
+                                    font_style: "Caption"
+                                    size_hint_y: None
+                                    height: self.texture_size[1]
+                                    text_size: self.width, None
+                                    valign: "top"
+
+                                MDIconButton:
+                                    icon:"forward"
+                                    icon_size:dp(20)
+                                    on_release: root.start_dass21_test()
+
+                        # Add some padding at the bottom of the scroll view
+                        Widget:
+                            size_hint_y: None
+                            height: dp(10)
+        MDScreen:
+            id:custom_popup
+            name: "custom_popup"
+            question_text: ""
+            options: []
+            md_bg_color:"black"
+            #FitImage:
+                #source:"https://i.pinimg.com/736x/86/7e/3f/867e3fee4f09d65ef9c41bfc578f8ad9.jpg"
+            MDBoxLayout:
+                orientation: "vertical"
+                padding: dp(20)
+                spacing: dp(15)
+
+                MDBoxLayout:
+                    size_hint_y:None
+                    height:dp(50)
+                    MDIconButton:
+                        icon:"arrow-left"
+                        halign:"left"
+                        on_press:root.switch_screen("test_screen")
+
+                    MDLabel:
+                        id: popup_title
+                        text: "Test Title"
+                        font_style: "H5"
+                        halign: "center"
+
+                MDLabel:
+                    id: popup_progress
+                    text: "Question X / Y"
+                    theme_text_color: "Secondary"
+                    font_size: "14sp"
+                    halign: "left"
+
+                MDProgressBar:
+                    id: popup_progress_bar
+                    value: 0
+                    max: 100
+                    radius:[20]
+                    size_hint_y:0.1
+
+                FitImage:
+                    id: question_image
+                    source: ""
+                    size_hint_y: None
+                    radius:[20]
+                    height: dp(300) if self.source else 0
+
+                MDCard:
+                    orientation: "vertical"
+                    padding: dp(20)
+                    radius: [20, 20, 20, 20]
+                    elevation: 4
+                    size_hint_y: None
+                    height: self.minimum_height
+                    
+
+                    MDLabel:
+                        id: popup_question
+                        text: root.question_text
+                        font_style: "H6"
+                        halign: "center"
+                        theme_text_color: "Primary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+
+                MDBoxLayout:
+                    id: option_buttons
+                    orientation: "vertical"
+                    spacing: dp(10)
+                    size_hint_y: None
+                    height: self.minimum_height
+               
