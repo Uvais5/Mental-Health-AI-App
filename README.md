@@ -71,7 +71,7 @@
 | **Language**         | Python                                |
 | **AI Integration**   | Gemini AI, RAG (Retrieval-Augmented Generation) |
 | **Voice Features**   | `speech_recognition`, `pyttsx3` for TTS, `sounddevice` for recording |
-| **Image Generation** | Optional: OpenAI/Sora API (for visual imagery generation) |
+| **Image Generation** | black-forest-labs API (for visual imagery generation) |
 | **Data Handling**    | JSON-based form storage, local session tracking |
 | **Design**           | KivyMD UI components, custom vector art for modules |
 | **Testing**          | Manual UI testing on Android (Buildozer-ready) |
