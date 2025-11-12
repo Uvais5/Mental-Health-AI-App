@@ -20,6 +20,7 @@
 <p align="center">
   <img src="intro.gif" alt="App screenshot" width="640">
 </p>
+
 ---
 
 ## ✨ Features
